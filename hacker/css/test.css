@@ -1,0 +1,17 @@
+    <h1>I am H1</h1>
+    <h2>I am h2</h2>
+    {}
+    /*虽然前面出现了非法的块，但是添加{}就可以继续执行下面的代码了*/
+h1 {
+
+    color: red;
+    font-size: 80px;
+    /*一旦出现非法的语法，这个块后面的都无法执行*/
+    <h1>I am H1</h1>
+    <h2>I am h2</h2>
+    font-size: 40px;
+}
+
+h2 {
+    color: blue;
+}

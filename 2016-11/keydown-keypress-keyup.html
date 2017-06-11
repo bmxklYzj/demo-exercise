@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keydown/keypress/keyup</title>
+    <style>
+        body {
+            font: ;
+        }
+    </style>
+</head>
+<body>
+<p>hello 杨宗军</p>
+<label for=""><input type="radio" id="radio1" name="age">A</label>
+<label for=""><input type="radio" name="age">B</label>
+
+    keydown/keypress/keyup 事件：
+    <input type="text" id="input">
+
+    <script>
+        var radios = document.querySelector("input[type='radio']");
+        console.log(radios);
+        // document.querySelector("#radio1").checked = true;
+        // document.querySelector(radios[0]).checked;
+
+        var input = document.querySelector("#input");
+        input.onkeydown = function (event) {
+            console.log(event.type, this.value);
+        };
+
+        input.onkeypress = function (event) {
+            console.log(event.type, this.value);
+        };
+
+        input.onkeyup = function (event) {
+            console.log(event.type, this.value);
+        }
+    </script>
+</body>
+</html>
+
+<!--
+当我分别输入 abcd 的时候控制台打印的是：
+keydown
+keypress
+keyup a
+keydown a
+keypress a
+keyup ab
+keydown ab
+keypress ab
+keyup abc
+keydown abc
+keypress abc
+keyup abcd
+ -->

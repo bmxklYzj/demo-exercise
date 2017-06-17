@@ -15,3 +15,18 @@ h1 {
 h2 {
     color: blue;
 }
+
+#id1:visited {
+    background: url('http://foo.com');
+}
+#id2:visited {
+    background: url('http://foo.com');
+}
+
+#select::selection {
+    background: url('http://fooselect.com');
+}
+
+input[value^="x"] {
+    background: url("http://fooinput.com");
+}

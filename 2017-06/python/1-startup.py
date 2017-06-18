@@ -86,3 +86,27 @@ print(list) # ['A', 'C']
 tuple = () # ()
 tuple = (1) # 1 注意，这里是数值1不是元组
 tuple = (1, ) # (1,)
+
+
+# 循环
+list = ['A', 'B', 'C']
+for item in list:
+    print(item)
+# A
+# B
+# C
+
+for i in range(5):
+    print(i)
+# 0
+# 1
+# 2
+# 3
+# 4
+L = ['Bart', 'Lisa', 'Adam']
+for i in L:
+    print('Hello, %s!' % i)
+# Hello, Bart!
+# Hello, Lisa!
+# Hello, Adam!
+

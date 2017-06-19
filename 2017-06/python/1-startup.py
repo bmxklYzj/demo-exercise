@@ -110,3 +110,13 @@ for i in L:
 # Hello, Lisa!
 # Hello, Adam!
 
+
+# map/set
+map = {'a': 11, 'b': 22, 'A': 'str'}
+print(
+    map['a'], # 11
+    # map['B'] # 访问不存在的键key会出错：KeyError: 'B'，可以使用get()方法，第二个参数指定自定义错误的返回
+    map.get('B'), # None
+    map.get('B', -1), # -1：自定义错误
+    map.get('B', 'error'), # error：自定义错误
+)

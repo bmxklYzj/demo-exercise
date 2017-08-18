@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index.html</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+    <p>index.html content</p>
+    <button onclick="a()">parent调用子iframe函数</button>
+
+    <iframe name="iframeName" src="../test01/iframe.html" frameborder="0">
+        iframe
+    </iframe>
+
+    <script>
+        function a() {
+            iframeName.onload = function () {
+                // iframeName.postMessage('msg', '*');
+                iframeName.postMessage({a: 1, b: 2}, '*');
+            };
+        }
+        a();
+    </script>
+</body>
+</html>

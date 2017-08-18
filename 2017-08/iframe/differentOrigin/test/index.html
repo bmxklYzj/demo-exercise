@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index.html</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+    <p>index.html content</p>
+    <button onclick="parentToChild()">parent调用子iframe函数</button>
+
+    <iframe name="iframeName" src="http://localhost:8214/iframe.html" frameborder="0">
+        iframe
+    </iframe>
+
+    <script>
+        var num = 10;
+        function sayHi() {
+            console.log('index');
+        }
+
+        function parentToChild() {
+            // 调用函数
+            iframeName.window.sayHi();
+            // 下面所有的iframeName.window都可以省略为iframeName
+            // 访问修改变量
+            console.log(iframeName.num);
+            iframeName.num = 1;
+            console.log('change variable to 1: ', iframeName.num);
+            // 访问修改dom
+            console.log(iframeName.document.querySelector('p'));
+            iframeName.document.querySelector('p').innerHTML = 'dom changed!';
+            console.log(iframeName.document.querySelector('p'));
+        }
+    </script>
+</body>
+</html>

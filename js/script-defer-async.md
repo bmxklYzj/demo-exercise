@@ -11,15 +11,21 @@
 3. async 属性 下载是同步的，但下载完之后会立即执行。适用于没有任何依赖的js。
 ![](https://ws4.sinaimg.cn/large/006tNc79ly1flutwdxyeyj30dw01tq2w.jpg)
 
+
 注意：
+
 1. defer 和 async 都只能用于外链脚本
 2. 兼容性>=ie10(和flex类似)。ie9不支持async，defer不保证其在`DomContentLoaded` 之前执行
 
+
 何时使用：
+
 1. 如果脚本无任何依赖使用 async
 2. 如果脚本有依赖或者是被其它脚本依赖使用 defer （但要注意<=ie9的兼容性问题）
 3. 如果脚本很小且被 async脚本依赖，则将其放在async脚本前面且不加属性。
 
+
 reference:
+
 1. [async与defer的区别](http://www.jianshu.com/p/17dc82bf08f1)
 2. [图解](http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)

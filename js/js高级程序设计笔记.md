@@ -17,7 +17,7 @@ JavaScript实现：
 
 defer 和 sync 都只能用于外部脚本。都不会阻塞其它资源的加载，不会阻塞页面渲染，文档完全呈现之后再执行。区别是：defer保证顺序，async不保证顺序。
 
-[defer ascyn 详解](./script-defer-async.md)
+[defer ascyn 详解](https://github.com/bmxklYzj/demo-exercise/blob/master/js/script-defer-async.md)
 
 # 第3章 基本概念
 

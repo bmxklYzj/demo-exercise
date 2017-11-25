@@ -21,11 +21,11 @@
 何时使用：
 
 1. 如果脚本无任何依赖使用 async
-2. 如果脚本有依赖或者是被其它脚本依赖使用 defer （但要注意<=ie9的兼容性问题）
+2. 如果脚本有依赖或者是被其它脚本依赖使用 defer （但要注意<=ie9的兼容性问题）
 3. 如果脚本很小且被 async脚本依赖，则将其放在async脚本前面且不加属性。
 
 
-reference:
+reference：
 
 1. [async与defer的区别](http://www.jianshu.com/p/17dc82bf08f1)
 2. [图解](http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)

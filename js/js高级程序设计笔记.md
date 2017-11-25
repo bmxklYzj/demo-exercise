@@ -5,22 +5,23 @@ JavaScript实现：
 1. ECMAScript
 2. DOM
 
-     dom 1 级：dom核心、domhtml
+     dom 1 级：dom核心：文档结构、dom html：对html访问的对象和方法
+
      dom 2级：事件、遍历树
 
 3. BOM：浏览器相关navagitor、location、screen等
 
 # 第2章 script
 
-顺序执行，一个执行完了才会执行另一个。
+顺序执行，前一个执行完了才会执行后一个。
 
-defer 和 sync 都只能用于外部脚本。都不会阻塞其它资源的加载。区别是：defer保证顺序，async不保证顺序。
+defer 和 sync 都只能用于外部脚本。都不会阻塞其它资源的加载，不会阻塞页面渲染，文档完全呈现之后再执行。区别是：defer保证顺序，async不保证顺序。
 
 # 第3章 基本概念
 
 1. 严格模式：一种编译指示，让js引擎切换到严格模式。
 
-    严格模式特点：不用var声明变量，eval作用域，不能用with，重名变量函数名函数参数等等。 [ref: 阮一峰]([http://www.ruanyifeng.com/blog/2013/01/javascript\_strict\_mode.html](http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html))
+    严格模式特点：不用var声明变量，eval作用域，不能用with，重名 变量/函数名/函数参数等等。 [ref: 阮一峰]([http://www.ruanyifeng.com/blog/2013/01/javascript\_strict\_mode.html](http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html))
 
 2. 变量。非严格模式省略a = 3变成全部变量
 3. 数据类型，6种：Undefined、Null、Sting、Number、Boolean、Object
@@ -98,13 +99,13 @@ defer 和 sync 都只能用于外部脚本。都不会阻塞其它资源的加�
     函数作用域
 
     arguments.length/callee
-    
+
     call/apply
 
     ```js
     Array.prototype.slice.call(arguments);
     Array.apply(arguments);
-    
+
     Math.max.apply(Math, [1, 2, 5, 4]);
     ```
 

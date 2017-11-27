@@ -50,7 +50,9 @@ defer 和 sync 都只能用于外部脚本。都不会阻塞其它资源的加�
 6. Boolean
 
     数值：0 NaN 为fale
+
     字符串：空 为false
+
     对象：null 为false，任意对象（包括 `{} 和 []`）为true
 
     1. Boolan()

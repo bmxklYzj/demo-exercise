@@ -1,5 +1,13 @@
-# demo-exercise
+# demo-exercise & 平时积累的博客
 平时写 demo 时候的练习代码（片段）
+
+# 2017-11
+
+总结了 [js高级程序设计笔记](https://github.com/bmxklYzj/demo-exercise/js/js高级程序设计笔记.md)
+
+[正则表达式](https://github.com/bmxklYzj/demo-exercise/js/正则表达式.md)
+
+[数组的迭代方法](https://github.com/bmxklYzj/demo-exercise/js/数组的迭代方法.md)
 
 ## 2016-11
 

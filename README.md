@@ -7,7 +7,7 @@
 
 [正则表达式](https://github.com/bmxklYzj/demo-exercise/js/正则表达式.md)
 
-[数组的迭代方法](https://github.com/bmxklYzj/demo-exercise/js/数组的迭代方法.md)
+[数组的迭代方法](https://github.com/bmxklYzj/demo-exercise/js/数组的迭代方法.md)
 
 ## 2016-11
 

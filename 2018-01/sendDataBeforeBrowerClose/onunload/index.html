@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    hello
+    <a href="./b.html">b.html</a>
+
+    <script>
+    function sendAjax(optons) {
+        optons = optons || {};
+        // 默认为同步请求
+        var sendType = optons.sendType !== undefined
+            ? optons.sendType
+            : false;
+        // var url = optons.url || `./server/a.ajax?data=${+new Date()}&type=${sendType}`;
+        var url = 'http://198.96.88.67/yzj/main.js';
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', url, sendType);
+        xhr.send(null);
+    }
+    function sendImg() {
+        var img = new Image();
+        img.src = `./server/a.gif?data=${+new Date()}`;
+    }
+    window.onunload = function () {
+    // window.onbeforeunload = function () {
+        sendAjax();
+        // sendImg();
+        // sendAjax({sendType: true});
+    };
+    </script>
+</body>
+</html>

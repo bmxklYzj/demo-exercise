@@ -2,7 +2,7 @@
 
 1. 需求：
 
-一个bar开始时候在页面的中部，页面向上滑动，这个bar到顶的时候就需要吸顶。 [demo效果：网易新闻移动端](http://3g.163.com/touch/news/subchannel/all?version=v_standard&dataversion=A&uversion=A)
+一个bar开始时候在页面的中部，页面向上滑动，这个bar到顶的时候就需要吸顶。 [demo效果：网易新闻移动端](http://3g.163.com/touch/news/subchannel/all?version=v_standard&dataversion=A&uversion=A)
 
 
 2. 分析：
@@ -46,7 +46,7 @@
 
 设定的阈值是 top:0 ，这个值表示当元素距离页面视口（Viewport，也就是fixed定位的参照）顶部距离大于 0px 时，元素以 relative 定位表现，而当元素距离页面视口小于 0px 时，元素表现为 fixed 定位，也就会固定在顶部。
 
-sticky的兼容性：ff和ios上的浏览器支持良好，但chome 55版本才支持，ie不支持、android 5之前不支持。所以目前还不能完全依赖这个css属性。靠谱的方法应该是首先用 css ，然后用js能力检测的方式判断如果不支持sticky就需要监听scroll，判断如果document的scrollTop大于当前元素的offsetTop，那么当前元素就需要fixed。
+sticky的兼容性：ff和ios上的浏览器支持良好，但chome 55版本才支持，ie不支持、android 5之前不支持。所以目前还不能完全依赖这个css属性。靠谱的方法应该是首先用 css ，然后用js能力检测的方式判断如果不支持sticky就需要监听scroll，判断如果document的scrollTop大于当前元素的offsetTop，那么当前元素就需要fixed。
 
 # postion: sticky 触发阀值之后的“粘贴性”
 

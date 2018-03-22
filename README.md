@@ -1,6 +1,14 @@
 # demo-exercise & 平时积累的博客
 平时写 demo 时候的练习代码（片段）
 
+>写给自己看的：
+
+>md文章中md链接地址为：
+https://github.com/bmxklYzj/demo-exercise/blob/master/xxx
+
+>demo的html地址为：
+https://bmxklyzj.github.io/demo-exercise/xxx
+
 # 2018-03
 [用python快速创建http(s)服务器](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-03/user-python-to-create-web-server.md)
 

@@ -9,11 +9,11 @@
         body {
             margin: 0;
         }
-        .sticky {
+        .main {
             width: 100%;
             background-color: #eee;
         }
-        .sticky {
+        .main {
             background-color: #f00;
             position: sticky;
             position: -webkit-sticky;
@@ -21,7 +21,15 @@
         }
         .fixed {
             position: fixed;
-            top: 0;
+        }
+        .wraper {
+            overflow: scroll;
+            position: fixed;
+            top: 40px;
+            left: 20px;
+            width: 80px;
+            height: 70px;
+            background-color: #eee;
         }
     </style>
 </head>
@@ -31,7 +39,16 @@
     <p>hello3</p>
     <p>hello4</p>
     <p>hello5</p>
-    <div class="sticky">sticky</div>
+    <!-- <div class="main">sticky</div> -->
+    <div class="wraper">
+        hello1
+        hello2
+        hello3
+        <div class="main">sticky</div>
+        hello4
+        hello5
+        hello6
+    </div>
     <p>hello6</p>
     <p>hello7</p>
     <p>hello8</p>
@@ -77,33 +94,6 @@
     <p>hello48</p>
     <p>hello49</p>
     <p>hello50</p>
-    <script>
-    // 注意：sticky元素由static布局突然变成fixed布局，会脱离文档流
-    // 然后下面的元素上来了，就会导致页面抖动一下。正确解法应该是添加一个占位元素。
-    // 但是有一个缺点就是：如果这个sticky元素是有一张图片组成，那么图片加载的慢会导致sticky元素高度获取有误，可以加个min-height解决
 
-    // 实现滑动吸顶 先使用最简单的css sticky实现，然后用js判断如果css不支持就监听scroll事件
-    // position: sticky;
-    // position: -webkit-sticky;
-    // top: 0;
-    var sticky = document.querySelector('.sticky');
-    var stickyHeight = sticky.getBoundingClientRect().height;
-    var stickyWrap = document.createElement('div');
-    sticky.parentNode.replaceChild(stickyWrap, sticky);
-    stickyWrap.style.height = stickyHeight + 'px';
-    stickyWrap.appendChild(sticky);
-
-    window.onscroll = function () {
-        var pageScroll = window.pageYOffset;
-        var stickyWrapOffsetY = stickyWrap.getBoundingClientRect().top;
-        console.log(pageScroll, stickyWrapOffsetY);
-        if (stickyWrapOffsetY <= 0) {
-            sticky.classList.add('fixed');
-        }
-        else {
-            sticky.classList.remove('fixed');
-        }
-    };
-    </script>
 </body>
 </html>

@@ -51,8 +51,11 @@ sticky的兼容性：ff和ios上的浏览器支持良好，但chome 55版本才�
 # postion: sticky 触发阀值之后的“粘贴性”
 
 1. 父元素是relative布局且设置overflow: scroll;
+[relative](https://bmxklyzj.github.io/demo-exercise/2018-03/scroll-and-sticky/demo/relative.html)
 2. 父元素是fixed布局且设置overflow: scroll;
+[fixed](https://bmxklyzj.github.io/demo-exercise/2018-03/scroll-and-sticky/demo/fixed.html)
 2. 父元素是absolute布局且设置overflow: scroll;
+[absoluter](https://bmxklyzj.github.io/demo-exercise/2018-03/scroll-and-sticky/demo/absolute-hide-with-parent.html)
 
 > position: sticky 的元素是不会“超出”父元素的。当滚动时，父元素也快离开屏幕时，子元素是不会继续保持 sticky 的状态的，它会随着父元素一起“滚”出屏幕。
 同时，sticky的粘贴范围是最近的scroll父元素

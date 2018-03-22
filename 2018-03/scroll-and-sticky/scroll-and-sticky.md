@@ -30,7 +30,7 @@
 
 [最终demo](https://bmxklyzj.github.io/demo-exercise/2018-03/scroll-and-sticky/demo/index.html)
 
-# postion: sticky 属性详解
+# postion: sticky 属性详解
 
 如mdn所言，sticky是relative和fixed的结合，当满足 top, right, bottom 或 left 四个阈值其中之一时他就是 fexed，否则是relative。但是它这个fixed布局不是相对于浏览器窗口，而是相对于最近的scroll祖先元素。（要证明这个可以看这下一节两个demo示例）
 
@@ -48,7 +48,7 @@
 
 sticky的兼容性：ff和ios上的浏览器支持良好，但chome 55版本才支持，ie不支持、android 5之前不支持。所以目前还不能完全依赖这个css属性。靠谱的方法应该是首先用 css ，然后用js能力检测的方式判断如果不支持sticky就需要监听scroll，判断如果document的scrollTop大于当前元素的offsetTop，那么当前元素就需要fixed。
 
-# postion: sticky 触发阀值之后的“粘贴性”
+# postion: sticky 触发阀值之后的“粘贴性”
 
 1. 父元素是relative布局且设置overflow: scroll;
 [relative](https://bmxklyzj.github.io/demo-exercise/2018-03/scroll-and-sticky/demo/relative.html)

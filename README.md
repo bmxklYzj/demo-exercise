@@ -11,6 +11,8 @@ https://bmxklyzj.github.io/demo-exercise/xxx
 
 # 2018-03
 
+[前端 tricks 收藏](https://github.com/bmxklYzj/demo-exercise/blob/master/js/js-tricks.md)
+
 [滑动吸顶案例实现](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-03/scroll-and-sticky/scroll-and-sticky.md)
 
 [用python快速创建http(s)服务器](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-03/user-python-to-create-web-server.md)

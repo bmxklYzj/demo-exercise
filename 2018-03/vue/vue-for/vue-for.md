@@ -1,5 +1,7 @@
 # vue中的for循环
 
+## vue2
+
 1. 遍历语法
 
 遍历数组： (item [, index]) in array
@@ -12,7 +14,7 @@
 
 vue默认是就地复用，也就是绑定的是 `:key="index"`
 
-[demo 地址](https://bmxklyzj.github.io/demo-exercise/2018-03/vue/vue-for/vue2-for-key-default.html)
+[demo 地址，打开控制台，切到element面板](https://bmxklyzj.github.io/demo-exercise/2018-03/vue/vue-for/vue2-for-key-default.html)
 
 html中for循环如下：
 
@@ -58,7 +60,16 @@ this.lists = [
 ];
 ```
 
-可以看到默认是根据index来原地复用，index为1和3的两个节点其值没变化，所以dom不会更新，解析图、效果图如下：
+可以看到默认是根据index来原地复用
+
+index为1和3的两个节点其值没变化，所以dom不会更新，
+
+index为2的节点其值变化了，dom更新
+
+index为4的节点是新加入的，dom更新
+
+
+解析图、效果图如下：
 
 ![解析图](https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/pic-by-sketch.png)
 
@@ -122,11 +133,22 @@ this.lists = [
 ];
 ```
 
-可以看到根据iid来复用，index为1和3的两个节点其值没变化，尽管其在数组中的位置变化了，但是根据id来检索的，和元素顺序没有关系，所以dom不会更新，解析图、效果图如下：
+可以看到根据id来复用，index为1和3的两个节点其值没变化，尽管其在数组中的位置变化了，但是根据id来检索的，和元素顺序没有关系，所以dom不会更新，解析图、效果图如下：
 
 ![解析图](https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/pic-by-sketch.png)
 
 ![效果图](https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/vue2-for-special-id.png)
+
+## vue1
+
+[默认是全部重新渲染dom的](https://bmxklyzj.github.io/demo-exercise/2018-03/vue/vue-for/vue1-for-default.htm)
+
+[如果使用了`track-by="$index"`，则会和vue2的 `:key="index"类似，原地复用`](https://bmxklyzj.github.io/demo-exercise/2018-03/vue/vue-for/vue1-for-track-by-$index.htm)
+
+[如果使用了`track-by="user-define-id"`，则会根据自定义唯一id来复用`](https://bmxklyzj.github.io/demo-exercise/2018-03/vue/vue-for/vue1-for-track-by-special-id.htm)
+
+
+
 
 reference:
 1. [cnodejs](https://cnodejs.org/topic/5811769c1a9a7d990953119e)

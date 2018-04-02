@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue test</title>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="(index, item) in lists" track-by="id">{{item.text}}</li>
+    </ul>
+    <button @click="change">change</button>
+    <button @click="restore">restore</button>
+</div>
+
+<!-- <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script> -->
+<script src="https://cdn.bootcss.com/vue/1.0.28/vue.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                lists: [
+                    {
+                        text: 1,
+                        id: 1
+                    },
+                    {
+                        text: 2,
+                        id: 2
+                    },
+                    {
+                        text: 3,
+                        id: 3
+                    }
+                ]
+            };
+        },
+        methods: {
+            change: function () {
+                this.lists = [
+                    {
+                        text: 44,
+                        id: 4
+                    },
+                    {
+                        text: 1,
+                        id: 1
+                    },
+                    {
+                        text: 22,
+                        id: 2
+                    },
+                    {
+                        text: 3,
+                        id: 3
+                    }
+                ];
+            },
+            restore: function () {
+                this.lists = [
+                    {
+                        text: 1,
+                        id: 1
+                    },
+                    {
+                        text: 2,
+                        id: 2
+                    },
+                    {
+                        text: 3,
+                        id: 3
+                    }
+                ];
+            }
+        }
+    });
+</script>
+</body>
+</html>

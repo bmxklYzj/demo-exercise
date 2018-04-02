@@ -14,3 +14,13 @@ fileName.split('.').pop().toLowerCase();
 var r = /.(\w+)$/;
 console.log(r.exec(fileName)[1]);
 ```
+
+2. 判断数据类型
+
+```js
+Object.prototype.toString.call(variable).slice(8, -1);
+// 例如:
+var s = 'hello';
+Object.prototype.toString.call(s); // returns: [object String]
+Object.prototype.toString.call(s).slice(8, -1); // returns: String
+```

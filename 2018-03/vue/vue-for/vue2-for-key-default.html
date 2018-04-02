@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue test</title>
+</head>
+<body>
+
+<!--vue2.5-->
+<!-- vue 默认是绑定了 :key="index" -->
+<div id="app">
+    <ul>
+        <li v-for="(item, index) in lists" :key="index">{{item.text}}</li>
+    </ul>
+    <button @click="change">change</button>
+    <button @click="restore">restore</button>
+</div>
+
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+<!--<script src="https://cdn.bootcss.com/vue/1.0.28/vue.js"></script>-->
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                lists: [
+                    {
+                        text: 1
+                    },
+                    {
+                        text: 2
+                    },
+                    {
+                        text: 3
+                    }
+                ]
+            };
+        },
+        methods: {
+            moveUp: function (index) {
+                if (index === 0) {
+                    return;
+                }
+                var item = this.lists.splice(index, 1);
+                this.lists.splice(index - 1, 0, item[0]);
+            },
+            moveDown: function (index) {
+                if (index === (this.lists.length - 1)) {
+                    return;
+                }
+                var item = this.lists.splice(index, 1);
+                this.lists.splice(index + 1, 0, item[0]);
+            },
+            change: function () {
+                this.lists = [
+                    {
+                        text: 1
+                    },
+                    {
+                        text: 4
+                    },
+                    {
+                        text: 3
+                    },
+                    {
+                        text: 2
+                    }
+                ];
+            },
+            restore: function () {
+                this.lists = [
+                    {
+                        text: 1
+                    },
+                    {
+                        text: 2
+                    },
+                    {
+                        text: 3
+                    }
+                ];
+            }
+        }
+    });
+</script>
+</body>
+</html>

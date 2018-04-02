@@ -94,3 +94,8 @@ v-show有更大的初始渲染开销，v-if有更大的切换开销。
 因此如果元素切换频繁使用v-show，如果运行时条件很少改变使用v-if
 
 **需要注意：** v-show 不能用于template，其后面也不能接v-else
+
+## v-for
+
+[v-for](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-03/vue/vue-for/vue-for.md)
+

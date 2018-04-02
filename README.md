@@ -12,6 +12,10 @@ https://bmxklyzj.github.io/demo-exercise/xxx
 >demo中image地址为：
 https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2017-07/xxx.png
 
+# 2018-04
+
+[vue 重要知识点总结](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-03/vue/vue.md)
+
 # 2018-03
 
 [前端 tricks 收藏](https://github.com/bmxklYzj/demo-exercise/blob/master/js/js-tricks.md)

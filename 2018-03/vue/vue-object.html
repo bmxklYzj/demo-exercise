@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, key) in obj">{{key}}-{{item}}</li>
+        </ul>
+    </div>
+
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+<script>
+
+var vm = new Vue({
+    el: '#app',
+    data: {
+        obj: {
+            a: 1
+        }
+    }
+});
+// vm.obj.aa = 0; // no use
+
+// right way
+vm.$set(vm.obj, 'b', 2);
+Vue.set(vm.obj, 'c', 3);
+</script>
+</body>
+</html>

@@ -14,6 +14,8 @@ https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2017-07/xxx.p
 
 # 2018-04
 
+[addEventListener 及其 passive 参数]((https://github.com/bmxklYzj/demo-exercise/blob/master/2018-04/addEventListener.md))
+
 [vue 重要知识点总结](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-03/vue/vue.md)
 
 # 2018-03

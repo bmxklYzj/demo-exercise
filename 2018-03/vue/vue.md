@@ -99,3 +99,33 @@ v-show有更大的初始渲染开销，v-if有更大的切换开销。
 
 [v-for](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-03/vue/vue-for/vue-for.md)
 
+## 数组改变检测
+
+vue对数组操作有变异、非变异 两种类型的方法。变异方法会同步更新数据和视图，非变异方法每次返回新的数组，因此可以把返回的新数组赋值给旧数组
+
+有两种特殊的数组变动vue不能检测到
+
+1. 通过下标改变数组 `vm.items[index] = newValue`
+2. 改变数组长度 `vm.items.length = newLength`
+
+需要使用下列方法：
+
+1. `Vue.set(vm.items, index, newValue)` 或 `vm.$set(vm.items, index, newValue)`
+2. `vm.items.splice(newLength)`
+
+## 对象改变检测
+
+vue不能直接检测对象属性的添加或者删除，且无法添加根级别的响应式属性，但对于已存在的对象可以使用特殊方法添加、删除 响应式属性
+
+```js
+var vm = new Vue({
+    data: {
+        obj: {
+            a: 1
+        }
+    }
+});
+// ok
+vm.$set(vm.obj, 'b', 2);
+Vue.set(vm.obj, 'c', 3);
+```

@@ -19,7 +19,9 @@
 }
 ```
 
-那么passive有什么作用呢？主要作用就是提高 scroll、touchmove 事件的顺滑度。以前如果对touchmove添加了一个事件，在开始滑动时候浏览器会执行事件处理程序（加假如耗时200ms），那么在这个事件处理程序执行完成之前屏幕不会滚动，执行过程中如果事件处理程序中有preventDefault就不会滚动，否则才会滚动。也就造成了浏览器页面真实的滚动总是慢于人的操作，如果事件处理程序中有比较耗时的操作，就会明显感觉到滑动过程慢一拍(当然如果滑动事件处理程序耗时较长，console也会给出warning提示)，参加 [未加passive参数，滑动慢一拍](https://bmxklyzj.github.io/demo-exercise/2018-04/addEventListener-default.html) [加passive参数，流畅](https://bmxklyzj.github.io/demo-exercise/2018-04/addEventListener-passive.html)
+那么passive有什么作用呢？主要作用就是提高 scroll、touchmove 事件的顺滑度。以前如果对touchmove添加了一个事件，在开始滑动时候浏览器会执行事件处理程序（假如耗时200ms），那么在这个事件处理程序执行完成之前屏幕不会滚动，执行过程中如果事件处理程序中有preventDefault就不会滚动，否则才会滚动。也就造成了浏览器页面真实的滚动总是慢于人的操作，如果事件处理程序中有比较耗时的操作，就会明显感觉到滑动过程慢一拍(当然如果滑动事件处理程序耗时较长，console也会给出warning提示)，参加 [未加passive参数，滑动慢一拍](https://bmxklyzj.github.io/demo-exercise/2018-04/addEventListener-default.html) [加passive参数，流畅] | (https://bmxklyzj.github.io/demo-exercise/2018-04/addEventListener-passive.html)
+
+passive是16年才提出来的，兼容性不是很好，所以在实际使用的时候需要使用polyfill，可参考mdn官网给的例子。
 
 
 reference:

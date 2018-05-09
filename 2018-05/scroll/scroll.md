@@ -1,5 +1,28 @@
 # 理解scroll事件
 
+## 遇到的一个问题
+
+https://m.baidu.com/mip/c/s/youyi.baidu.com/site/2C1CBE210C557C84FF596FC4E26599C8
+
+正文内容是在iframe中，iframe的html和body应用了如下样式：
+
+```css
+html, body {
+  height: 100% !important;
+  overflow-y: auto;
+}
+```
+
+js中监听了window事件的滑动
+
+```js
+$(window).bind('scroll', function () {
+  // do something
+})
+```
+
+但是在上述css和js 情况下 js监听的scroll事件不生效，由此查找问题有了下文。
+
 ## 由一个问题引发对scroll的思考
 
 [jsfinddle demo](https://jsfiddle.net/bmxklyzj/f4bo4yxy/)
@@ -38,6 +61,7 @@ body {
 每次在js中打印如下的值：
 
 ```js
+// $(window) 和 $(document) 类似，都指的是window窗口所占的大小（如果是iframe则是iframe的大小）
 $(window).bind('scroll', function() {
   console.log('window');
 });
@@ -46,10 +70,12 @@ $(document).bind('scroll', function() {
   console.log('document');
 });
 
+// 这个始终不生效，待查找原因
 $('html').bind('scroll', function() {
   console.log('html');
 });
 
+// $('body') 和 $(document.body) 类似，都指document文档所占大小
 $('body').bind('scroll', function() {
   console.log('body');
 });
@@ -73,7 +99,7 @@ demo: https://jsfiddle.net/bmxklyzj/f4bo4yxy/2/
 
 可以根据 “scroll box” 的定义看出这里html和body两个标签均**不是** 滚动盒子。因为他们里面的内容并没有超出边界，html和body的高度就是内容的高度，所以无论如何，html和body不会触发滚动事件！
 
-但是window和document可以理解为是固定的浏览器可见窗口，他们里面的内容（其内容是html元素）高度是超过了自身高度的，所有打印除了`document window`
+但是window和document可以理解为是固定的浏览器可见窗口，他们里面的内容（其内容是html元素）高度是超过了自身高度的，所以打印出了`document window`
 
 2. html和body高度限制，且小于屏幕高度（若是iframe则是window的高度）
 
@@ -87,12 +113,15 @@ demo: https://jsfiddle.net/bmxklyzj/4ng1we6e/
 ![](https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/scroll-fixed-height-chart.png
 )
 
-html和body的宽高 和矩形区域一致。但在矩形区域滑动会触发body的scroll事件，而不会触发html的scroll事件。由于整个html小于屏幕，document和window也就永远不会触发scroll事件，所以打印的是 `body document.body`
+html和body的宽高 和矩形区域一致。但在矩形区域滑动会触发body的scroll事件，而不会触发html的scroll事件。由于整个html小于屏幕，document和window的内容没有超过其高度，二者也就永远不会触发scroll事件，所以打印的是 `body document.body`
 
+```
 todo：这里有两个问题：
 
 1. 为什么不会触发html的scroll事件？
 2. 上面代码同时设置了html和body的属性 `height: 200px;overflow: auto;` ，如果只设置其中一个都是不生效的，为什么？
+```
+
 
 3. html和body高度为100%，等于屏幕高度（若是iframe则是window的高度）
 

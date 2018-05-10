@@ -14,6 +14,13 @@ https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2017-07/xxx.p
 
 # 2018-04
 
+[nuxt入门](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-05/nuxt/nuxt.md)
+
+
+[background on body and html](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-05/html_and_body/html_and_body.md)
+
+[理解scroll事件](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-05/scroll/scroll.md)
+
 [addEventListener 及其 passive 参数](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-04/addEventListener.md)
 
 [vue 重要知识点总结](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-03/vue/vue.md)

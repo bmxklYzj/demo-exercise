@@ -112,7 +112,7 @@ nuxt中扩充了vue.js并增加了一个 `asyncData` 的方法：他的作用就
 
 [asyncData 方法](https://zh.nuxtjs.org/api/)
 
-如果是使用`npm run generate` 静态应用部署，那么会在生成`dist`的时候会拉取数据并填充生成静态页面，之后页面内容不会变化（小插曲：怎么证明generate会拉取数据呢，用node打包charles代理发现没发接口请求，原来是charles改动的是系统代理，那么各个浏览器会走系统代理，ok。但在bash中不走系统代理，走的自己的一个端口1080。只能另想办法：修改接口返回值，发现打包后的html也同步变化）
+如果是使用`npm run generate` 静态应用部署，那么会在生成`dist`的时候会拉取数据并填充生成静态页面，之后页面内容不会变化（小插曲：怎么证明generate会拉取数据呢，用node打包charles代理发现没发接口请求，原来是charles改动的是系统代理，那么各个浏览器会走系统代理，ok。但在bash中不走系统代理，走的自己的一个端口1080，[参考](https://superuser.com/questions/398977/how-can-i-run-all-http-requests-through-charles-web-debugging-proxy-including)。只能另想办法：修改接口返回值，发现打包后的html也同步变化）
 
 [静态应用部署 now.sh demo体验: asyncData的内容在打包后产出固定html，刷新页面内容不变](https://dist-reyxhwdwsd.now.sh/about/async)
 
@@ -124,10 +124,22 @@ nuxt中扩充了vue.js并增加了一个 `asyncData` 的方法：他的作用就
 
 [服务端渲染应用部署 spa方式，在created函数中发xhr，刷新页面内容变化](https://first-nuxt-buvzzjyvdw.now.sh/about/async)
 
-**总结**
-1. 静态应用部署适用于页面内容从不变化，在打包时候在asyncData中异步拉取数据
+关于spa和页面静态化的性能问题有如下demo：
 
-2. 如果全部不用asyncData就没有静态化的意义，相当于全部是spa页面了（发xhr获取数据后才渲染页面）
+[spa](https://files-vthywkjhuh.now.sh/first-nuxt-buvzzjyvdw.now.sh_2018-05-11_13-19-19.report.html)
+[页面静态化](https://files-vthywkjhuh.now.sh/first-nuxt-buvzzjyvdw.now.sh_2018-05-11_13-17-26.report.html)
+
+可以看到最终渲染都是同样的结果，页面静态化耗时2.6s，但spa耗时5s，基本是2倍。
+
+**总结**
+
+1. asyncData中如果是静态部署，会在 `nuxt generate` 时异步拉取数据生成固定的html，适用于页面内容从来不会变化；如果是动态部署，会在运行时由node每次拉取数据生成变化的html
+
+2. 静态应用部署适用于页面内容从不变化，在打包时候就会在asyncData中异步拉取数据
+
+3. 如果全部不用asyncData就没有静态化的意义，相当于全部是spa页面了（发xhr获取数据后才渲染页面）
+
+4. 最佳的是：页面首屏数据用 syncData并采用服务器端渲染 技术提高首屏速度，非首屏及后续的页面用spa的方式
 
 ### 其它知识点：
 

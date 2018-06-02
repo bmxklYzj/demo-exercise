@@ -12,7 +12,11 @@ https://bmxklyzj.github.io/demo-exercise/xxx
 >demo中image地址为：
 https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2017-07/xxx.png
 
-# 2018-04
+# 2018-06
+
+[git basic operate](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/git/git-basic-operate.md)
+
+# 2018-05
 
 [nuxt入门](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-05/nuxt/nuxt.md)
 
@@ -20,6 +24,8 @@ https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2017-07/xxx.p
 [background on body and html](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-05/html_and_body/html_and_body.md)
 
 [理解scroll事件](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-05/scroll/scroll.md)
+
+# 2018-04
 
 [addEventListener 及其 passive 参数](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-04/addEventListener.md)
 

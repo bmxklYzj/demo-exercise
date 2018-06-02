@@ -50,6 +50,7 @@ HEAD(注意要大写)： `HEAD`指向的版本就是当前版本，上个版本�
 
 ```
 
+
 reference
 
 1. [git 官网](https://git-scm.com/about/staging-area)

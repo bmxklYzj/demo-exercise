@@ -1,5 +1,7 @@
 # 常用git命令
 
+>说明： <xxx>表示自己的输入
+
 ## git简介
 
 git是分布式版本控制系统，svn使用集中式版本控制系统
@@ -24,6 +26,9 @@ git存放代码有四个概念：
 拉取： git pull
 查看rep文件状态： git status
 查看远程库信息： git remote -v
+
+提交：  git add .|<file-name>;git commit -m '<msg>'
+添加并提交整合： git commit -a -m '<msg>'
 
 提交历史（回到历史）： git log
 查看分支合并图： git log --graph
@@ -63,6 +68,17 @@ rebase：在同一个分支上多人开发，后push的同学必须先pull、本
 ## git 快捷键配置
 
 git status/commit 这种命令会显得比较长，为了方便输入可以有一些alias。 每个仓库可以配置，全局也可以配置，全局配置文件在 `/Users/<your-user-name>/.gitconfig` 中。当然可以直接修改配置文件，也可以使用类似命令` git config --global alias.st status`修改
+
+附上自己的alias：
+
+```
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+```
 
 ![git cheat sheet](https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/git-cheat-sheet.png)
 

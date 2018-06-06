@@ -25,10 +25,16 @@ git存放代码有四个概念：
 从已有仓库clone： git clone
 拉取： git pull
 查看rep文件状态： git status
+查看rep文件状态-一行简单展示： git status -s|--short
 查看远程库信息： git remote -v
+添加一个新的远程 Git 仓库: git remote add <shortname> <url>
 
 提交：  git add .|<file-name>;git commit -m '<msg>'
-添加并提交整合： git commit -a -m '<msg>'
+添加并提交整合命令(跳过暂存区域直接从工作区提交到本地仓库)： git commit -a -m '<msg>'
+
+查看diff
+查看工作区中改动： git diff
+查看暂存区中改动： git diff --staged|--cached
 
 提交历史（回到历史）： git log
 查看分支合并图： git log --graph
@@ -36,7 +42,12 @@ git存放代码有四个概念：
 HEAD(注意要大写)： `HEAD`指向的版本就是当前版本，上个版本是`HEAD^`，上上个版本`HEAD^^`，网上10个版本`HEAD~10`。
 回退到指定版本： git reset --hard <HEAD|commit-hash-id>
 
+[branch](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86)
 列出所有分支： git branch
+列出当前分支的最后一次提交： git branch -v
+查看哪些分支已合并到当前分支： git branch --merged
+查看哪些分支未合并到当前分支： git branch --no-merged
+
 创建分支： git branch <branch-name>
 切换分支： git checkout <branch-name>
 创建并切换分支： git chekcout -b <branch-name>
@@ -86,4 +97,6 @@ reference
 
 1. [git 官网](https://git-scm.com/about/staging-area)
 
-2. [廖雪峰](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013744142037508cf42e51debf49668810645e02887691000)
+2. [git book](https://git-scm.com/book/zh/v2/)
+
+3. [廖雪峰](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013744142037508cf42e51debf49668810645e02887691000)

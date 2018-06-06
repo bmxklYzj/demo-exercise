@@ -10,7 +10,7 @@ https://github.com/bmxklYzj/demo-exercise/blob/master/xxx
 https://bmxklyzj.github.io/demo-exercise/xxx
 
 >demo中image地址为：
-https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2017-07/xxx.png
+https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/xxx.png
 
 # 2018-06
 

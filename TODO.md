@@ -19,16 +19,17 @@
 - [ ] Angular
 - [ ] Jsx
 
-- [ ]Chrome dev tool blog
-- [ ]Git
-- [ ]两周 css：bfc、line-height、float；css魔法、css权威指南、css世界
+- [ ] Chrome dev tool blog
+- [ ] Git
+- [ ] 两周 css：bfc、line-height、float；css魔法、css权威指南、css世界
 
 ## 执行情况：
 
-- 2018-05-28 - 2018-06-03
-
-git官网、gitbook（看了一半）、写了总结 [git basic operate](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/git/git-basic-operate.md)
 
 - 2018-06-04 - 2018-06-10
 
-gitbook继续；chrome dev tool
+    gitbook继续；chrome dev tool
+
+- 2018-05-28 - 2018-06-03
+
+    git官网、gitbook（看了一半）、写了总结 [git basic operate](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/git/git-basic-operate.md)

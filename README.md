@@ -14,8 +14,9 @@ https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2017-07/xxx.p
 
 # 2018-06
 
-[npmrc config](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/npmrc.md)
+[first screen time statics](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/first-screen.md)
 
+[npmrc config](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/npmrc.md)
 
 [git basic operate](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/git/git-basic-operate.md)
 

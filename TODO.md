@@ -1,12 +1,13 @@
 # todos i plan to do
 
-## There is to much things to learn.
+## Life is short, while there is to much things to learn.
 
 每个专题一周时间：
 
 - [ ] Php
 - [ ] Python
 - [ ] Java
+- [ ] shell: awk grep
 
 - [ ] Node
 - [ ] Koa
@@ -20,8 +21,16 @@
 - [ ] Jsx
 
 - [ ] Chrome dev tool blog
+    https://www.jianshu.com/p/34e344f3ed3d
 - [ ] Git
 - [ ] 两周 css：bfc、line-height、float；css魔法、css权威指南、css世界
+- [ ] unit test
+- [ ] 半周： 开源liscense
+
+项目：
+- [ ] 统计提交次数、代码行数
+- [ ] todo应用（用各种技术）
+- [ ] 分析md中的怪异字符，并全部替换
 
 ## 执行情况：
 

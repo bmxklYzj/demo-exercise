@@ -62,6 +62,34 @@ if __name__ == '__main__':
     test()
 ```
 
+## 端口问题
+
+- python创建的http必须是带端口的，因为http的默认端口80创建不了，可能是被其它程序占用了但又没法kill
+- 而https是可以创建不带端口的，默认端口是443
+- 另一种创建不带端口的方式是使用apache。可以创建不带端口的http服务。apache的设置文件在 `/private/etc/apache2/extra/httpd-vhosts.conf` 中，我的设置如下，在 `Directopry` 中设置为自己的站点地址。 apache 启动命令： `sudo apachectl restart`
+
+    ```
+    <VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host3.example.com
+        DocumentRoot "/Users/baidu/Documents/document_baiduProject/baidu/htp/hsedge-xpage-material/src/materials/scaffolds/xpage-cms/dist"
+        ServerName localhost
+        ErrorLog "/private/var/log/apache2/dummy-host3.example.com-error_log"
+        CustomLog "/private/var/log/apache2/dummy-host3.example.com-access_log" common
+        <Directory "/Users/baidu/Documents/document_baiduProject/baidu/htp/hsedge-xpage-material/src/materials/scaffolds/xpage-cms/dist">
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride All
+            Require all granted
+        </Directory>
+        <DirectoryMatch (/static/get/*)>
+            Header always set Content-Type "application/json"
+        </DirectoryMatch>
+    </VirtualHost>
+    ```
+
+    [apache 详细设置参考](http://vin-zhou.github.io/2014/10/27/%E5%90%AF%E7%94%A8Mac%E8%87%AA%E5%B8%A6%E7%9A%84Apache/)
+
 reference
 
 1. [生成证书](http://code.activestate.com/recipes/442473-simple-http-server-supporting-ssl-secure-communica/)  此链接中的python2创建https服务器我的运行有报错，遂用python3的方法： [python3 create https server](https://gist.github.com/ubershmekel/6194556)
+
+2. [apache 详细设置参考](http://vin-zhou.github.io/2014/10/27/%E5%90%AF%E7%94%A8Mac%E8%87%AA%E5%B8%A6%E7%9A%84Apache/)

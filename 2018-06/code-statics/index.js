@@ -38,6 +38,8 @@ let res = {
     fileList: {}
 };
 
+const ignoreFile = ['DS_Store'];
+
 /**
  * 递归文件夹
  *
@@ -56,6 +58,9 @@ function rescuriveFind(parentPath) {
             // console.log('file: %s, %s', JSON.stringify(status), item);
             let fileContent = fs.readFileSync(currentPath, 'utf8');
             let suffix = item.split('.').pop();
+            if (ignoreFile.indexOf(suffix) !== -1) {
+                return false;
+            }
             if (res.fileList[suffix] === undefined) {
                 res.fileList[suffix] = {
                     fileCount: 0,

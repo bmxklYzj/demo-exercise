@@ -26,6 +26,7 @@
 - [ ] 两周 css：bfc、line-height、float；css魔法、css权威指南、css世界
 - [ ] unit test
 - [ ] 半周： 开源liscense
+- [ ] 半周： echarts
 
 项目：
 - [ ] 统计提交次数、代码行数

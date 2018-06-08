@@ -6,13 +6,13 @@
 let fs = require('fs');
 let path = require('path');
 
-let root = path.join(__dirname, '../first-screen');
+let root = path.join(__dirname, './src');
 // 最终生成的结果如下：
 // res = {
 //     directoryCount: n, // 目录总数
 //     totalFile: {
 //         fileCount: n, // 文件总数
-//         lineCount: n, // 该类型文件总行数
+//         lineCount: n, // 文件总行数
 //         lineCountWithoutBlankLine: n // 滤出空行后的总行数
 //     },
 //     fileList: {
@@ -38,12 +38,13 @@ let res = {
     fileList: {}
 };
 
+// 若干系统文件不需要列入统计范畴，应当忽略
 const ignoreFile = ['DS_Store'];
 
 /**
  * 递归文件夹
  *
- * @param {string} path 路径
+ * @param {string} parentPath 路径
  */
 function rescuriveFind(parentPath) {
     let directorys = fs.readdirSync(parentPath);

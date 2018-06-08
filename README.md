@@ -14,7 +14,7 @@ https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/xxx.png
 
 # 2018-06
 
-[first screen time statics](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/first-screen/first-screen.md)
+todo： [first screen time statics](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/first-screen/first-screen.md)
 
 [npmrc config](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/npmrc.md)
 

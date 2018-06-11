@@ -31,10 +31,12 @@ git存放代码有四个概念：
 
 提交：  git add .|<file-name>;git commit -m '<msg>'
 添加并提交整合命令(跳过暂存区域直接从工作区提交到本地仓库)： git commit -a -m '<msg>'
+修改最后一次提交的commit信息： git commit --amend
 
 查看diff
 查看工作区中改动： git diff
 查看暂存区中改动： git diff --staged|--cached
+检查是否有空白错误（行尾空格、制表符）： git diff --check
 
 提交历史（回到历史）： git log
 查看分支合并图： git log --graph
@@ -52,6 +54,7 @@ HEAD(注意要大写)： `HEAD`指向的版本就是当前版本，上个版本�
 切换分支： git checkout <branch-name>
 创建并切换分支： git chekcout -b <branch-name>
 删除分支： git chekcout -d <branch-name>
+删除远端分支： git push origin --delete <branch-name> (和推送tag类似)
 丢弃修改： git chekcout -- <filename>
 
 合并某分支到当前分支： git merge <branch-name>
@@ -75,6 +78,11 @@ rebase：在同一个分支上多人开发，后push的同学必须先pull、本
 如果某个文件命中了 .gitignore 但仍然想要添加： git add -f <file-name>
 检查哪个规则命中了： git check-ignore -v <file-name>
 ```
+
+## 其它git 黑科技
+
+- [批量改写提交历史](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2)：`filter-branch`。如果不小心将数据库配置文件、密码文件提交了，可以使用 `filter-branch` 来移除。修改提交邮箱（做开源时候把公司邮箱改写为个人邮箱）
+
 
 ## git 快捷键配置
 

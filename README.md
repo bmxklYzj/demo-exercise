@@ -14,7 +14,12 @@ https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/xxx.png
 
 # 2018-06
 
-[code statistic](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/code-statistic/code-statistic.md)
+todo: [make your own template by vue cli: 使用vue-cli自定义模板](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/vue-cli-template/vue-cli-template.md)
+
+
+todo: [node cli: node自定义命令](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/node-cli/node-cli.md)
+
+todo: [code statistic: 代码统计](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/code-statistic/code-statistic.md)
 
 todo： [first screen time statistic](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/first-screen/first-screen.md)
 

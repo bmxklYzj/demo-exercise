@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航随着内容区域的滚动自动定位</title>
+    <style>
+        nav {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+        }
+        .active {
+            color: #f00;
+        }
+        .content {
+            margin-left: 250px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul scroll-spy="nav">
+            <li><a nav-href="sec1">sec1</a></li>
+            <li><a nav-href="sec2">sec2</a></li>
+            <li><a nav-href="sec3">sec3</a></li>
+        </ul>
+    </nav>
+    <div class="content" scroll-spy="content">
+        <section nav-content="sec1">
+            <h3>sec1</h3>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+        </section>
+        <section nav-content="sec2">
+            <h3>sec2</h3>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+        </section>
+        <section nav-content="sec3">
+            <h3>sec3</h3>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+            <p>paragraph</p>
+        </section>
+
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+        <p>paragraph</p>
+    </div>
+
+    <script src="./scrollspy.js"></script>
+</body>
+</html>

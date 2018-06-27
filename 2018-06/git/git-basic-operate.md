@@ -45,17 +45,19 @@ HEAD(注意要大写)： `HEAD`指向的版本就是当前版本，上个版本�
 回退到指定版本： git reset --hard <HEAD|commit-hash-id>
 
 [branch](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86)
-列出所有分支： git branch
+列出本地分支： git branch
+列出远端分支： git branch -r|--remote
+列出所有本地、远端分支： git branch -a|--all
 列出当前分支的最后一次提交： git branch -v
 查看哪些分支已合并到当前分支： git branch --merged
 查看哪些分支未合并到当前分支： git branch --no-merged
 
 创建分支： git branch <branch-name>
 切换分支： git checkout <branch-name>
-创建并切换分支： git chekcout -b <branch-name>
-删除分支： git chekcout -d <branch-name>
+创建并切换分支： git checkout -b <branch-name>
+删除分支： git checkout -d <branch-name>
 删除远端分支： git push origin --delete <branch-name> (和推送tag类似)
-丢弃修改： git chekcout -- <filename>
+丢弃修改： git checkout -- <filename>
 
 合并某分支到当前分支： git merge <branch-name>
 合并分支并且不采用fast forward模式，保留分支合并信息： git merge --no-ff -m '<merge-msg>' <branch-name>

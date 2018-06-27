@@ -8,6 +8,5 @@
 
 效果视频：
 
-<video src="https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/scroll-spy.mp4
-">
+<video src="https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/scroll-spy.mp4">
 </video>

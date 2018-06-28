@@ -8,7 +8,7 @@
 
 也可以用 item of array
 
-遍历对象： (item, [, key [, index]]) in obj
+遍历对象： (item, [, key [, index]]) in obj
 
 2. vue2中的key
 
@@ -66,7 +66,7 @@ index为1和3的两个节点其值没变化，所以dom不会更新，
 
 index为2的节点其值变化了，dom更新
 
-index为4的节点是新加入的，dom更新
+index为4的节点是新加入的，dom更新
 
 
 解析图、效果图如下：

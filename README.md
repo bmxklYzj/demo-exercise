@@ -23,7 +23,10 @@ todo: [make your own template by vue cli: 使用vue-cli自定义模板](https://
 
 todo: [node cli: node自定义命令](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/node-cli/node-cli.md)
 
-todo: [code statistic: 代码统计](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/code-statistic/code-statistic.md)
+[code statistic: 代码统计](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/code-statistic/code-statistic.md)
+
+[remove-special-character: 移除历史md文档中特殊字符](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/remove-special-character/remove-special-character.md)
+
 
 todo： [first screen time statistic](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/first-screen/first-screen.md)
 
@@ -48,7 +51,7 @@ todo： [first screen time statistic](https://github.com/bmxklYzj/demo-exercise/
 
 # 2018-03
 
-[前端 tricks 收藏](https://github.com/bmxklYzj/demo-exercise/blob/master/js/js-tricks.md)
+[前端 tricks/js-util 收藏](https://github.com/bmxklYzj/demo-exercise/blob/master/js/js-tricks.md)
 
 [滑动吸顶案例实现](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-03/scroll-and-sticky/scroll-and-sticky.md)
 

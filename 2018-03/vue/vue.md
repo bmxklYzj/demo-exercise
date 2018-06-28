@@ -67,7 +67,7 @@ methods: {
 
 ## 用key管理可复用的元素
 
-常见的是在v-for循环中渲染表单元素，如果每个input框没有唯一的key，那么vue会最大程度的复用现有已渲染dom，输入的值会保留。一旦加入唯一的key，就不会被复用
+常见的是在v-for循环中渲染表单元素，如果每个input框没有唯一的key，那么vue会最大程度的复用现有已渲染dom，输入的值会保留。一旦加入唯一的key，就不会被复用
 
 ```html
 <div id="app">
@@ -87,7 +87,7 @@ reference：[vue offical website](https://cn.vuejs.org/v2/guide/conditional.html
 
 ## v-if 和 v-show
 
-v-show会在初始时候就渲染并始终保留在dom中，只是简单的切换display属性。
+v-show会在初始时候就渲染并始终保留在dom中，只是简单的切换display属性。
 v-if如果初次为false则什么也不做，在第一次为true时才渲染。每次切换都会 销毁/创建 对应的事件监听器和子组件
 
 v-show有更大的初始渲染开销，v-if有更大的切换开销。

@@ -29,9 +29,9 @@
 - [ ] 半周： echarts
 
 项目：
-- [ x ] 统计提交次数、代码行数 : [code statistic: 代码统计](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/code-statistic/code-statistic.md)
+- [x] 统计提交次数、代码行数 : [code statistic: 代码统计](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/code-statistic/code-statistic.md)
 - [ ] todo应用（用各种技术）
-- [ x ] 分析md中的怪异字符，并全部替换: [remove-special-character: 移除历史md文档中特殊字符](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/remove-special-character/remove-special-character.md)
+- [x] 分析md中的怪异字符，并全部替换: [remove-special-character: 移除历史md文档中特殊字符](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/remove-special-character/remove-special-character.md)
 
 ## 执行情况：
 

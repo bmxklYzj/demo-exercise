@@ -13,6 +13,9 @@ https://bmxklyzj.github.io/demo-exercise/2018-06/first-screen/script-block-ui/sc
 https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/xxx.png
 
 # 2018-06
+
+[software suggest: 效率软件](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/software-on-computer.md)
+
 [scroll spy: 原生滚动监听](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/menu-content-scroll/menu-content-scroll.md)
 
 todo: [make your own template by vue cli: 使用vue-cli自定义模板](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-06/vue-cli-template/vue-cli-template.md)

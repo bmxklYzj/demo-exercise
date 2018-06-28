@@ -6,7 +6,4 @@
 
 查看 [demo](https://bmxklyzj.github.io/demo-exercise/2018-06/menu-content-scroll/index.html)
 
-效果视频：
-
-<video src="https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/scroll-spy.mp4">
-</video>
+[效果视频：](https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/scroll-spy.mp4)

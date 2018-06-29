@@ -89,5 +89,3 @@ for (let k in res.fileList) {
     totalFile.lineCountWithoutBlankLine += item.lineCountWithoutBlankLine;
 }
 console.log(JSON.stringify(res));
-
-

@@ -24,6 +24,97 @@
 |解压缩工具（apple store免费下载）|IZip Unarchiver||
 |http请求发送工具|postman||
 |统计时间|rescueTime||
+|快速搜索|alfred||
+|显示当前页面的快捷键|cheatsheet||
+|磁盘清理|Dr.cleaner 或 cleanMyMac||
+|gif制作|Gifox 或 LICEcap|录制视频直接用qq截图|
 
 
 其它较常见应用：qq（主要是截图功能非常好用）、MS家的word/ppt/excel
+
+## other
+
+1. visual statudio code javascript snippets
+
+```json
+{
+	/*
+	// Place your snippets for JavaScript here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+*/
+	"document.querySelector": {
+		"prefix": "dq",
+		"body": [
+			"document.querySelector('$1');"
+		],
+		"description": "document.querySelector"
+	},
+	"Print to console": {
+		"prefix": "conl",
+		"body": [
+			"console.log($1);"
+		],
+		"description": "Log output to console"
+	},
+	"For let": {
+		"prefix": "forl",
+		"body": [
+			"for (let len$1 = ${2:array}.length - 1; len$1 >= 0; len$1--) {",
+			"\tlet ${3:item} = ${2:array}[len$1];",
+			"\t$0",
+			"}"
+		],
+		"description": "For Loop"
+	},
+	"forEach": {
+		"prefix": "forE",
+		"body": [
+			"${1:array}.forEach((item, index) => {",
+			"\t$0",
+			"});"
+		],
+		"description": "For Loop"
+	},
+	"file header": {
+		"prefix": "@file",
+		"body": [
+			"/**",
+			" * @file ${1: file name}",
+			" *",
+			" * @author yangzongjun(yangzongjun@baidu.com)",
+			" * @date ${2: datetime (⇧⌘I or cmd+Shift+I)}",
+			" */"
+		]
+	},
+	"file header2": {
+		"prefix": "_f",
+		"body": [
+			"/**",
+			" * @file ${1: file name}",
+			" *",
+			" * @author yangzongjun(yangzongjun@baidu.com)",
+			" * @date ${2: datetime (⇧⌘I or cmd+Shift+I)}",
+			" */"
+		]
+    },
+    "mulitline comment": {
+		"prefix": "_c",
+		"body": [
+			"/**",
+			" * $0",
+			" */"
+		]
+	}
+}
+```

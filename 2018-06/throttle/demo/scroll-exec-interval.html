@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scroll</title>
+</head>
+<body>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+<script>
+window.addEventListener('scroll', throttle(eventHandler, this, 100, 1000), false);
+
+function eventHandler() {
+    console.log('event handler');
+}
+
+/**
+ * 节流函数
+ *
+ * @param {Function} method 时间处理程序
+ * @param {Object} context 执行上下文
+ * @param {number} delay 延迟执行时间
+ * @param {number} mustRun 最小执行时间间隔
+ */
+function throttle(method, context, delay, mustRun) {
+    var timeId = null;
+    var previous = new Date();
+    return function () {
+        console.log('event');
+        var current = new Date();
+        if (current - previous > mustRun) {
+            method.call(context);
+            previous = current;
+        }
+        else {
+            clearTimeout(timeId);
+            timeId = setTimeout(function () {
+                method.call(context);
+                previous = current;
+            }, delay);
+        }
+    };
+}
+</script>
+</body>
+</html>

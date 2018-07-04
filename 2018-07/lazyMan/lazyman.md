@@ -1,5 +1,6 @@
 # lazyMan 面试题目：
 
+```
 实现一个LazyMan，可以按照以下方式调用:
 LazyMan('Hank')输出:
 Hi! This is Hank!
@@ -22,11 +23,14 @@ Hi This is Hank!
 Eat supper~
 
 以此类推。
+```
 
 ## 思路
 
 先读取到整个链的表达式，放到队列中，头部执行完之后调用next执行下一个任务。
 
 注意在构造函数中使用了 `setTimeout 0`，就是做上述事情的
+
+代码在 [lazyMan](./indexjs)
 
 reference: http://web.jobbole.com/89626/

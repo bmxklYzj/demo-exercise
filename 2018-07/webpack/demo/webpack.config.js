@@ -2,15 +2,19 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
+console.log(1, process.env.NODE_ENV);
 
 module.exports = {
     mode: 'development',
     entry: {
-        app: './src/demo.js'
+        app: './src/demo.js',
+        vendor: [
+            'lodash'
+        ]
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: '[name].boundle.js'
+        filename: '[name].[chunkhash].js',
     },
     devServer: {
         contentBase: './dist',
@@ -35,11 +39,16 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': 'production'
+        }),
         new HtmlWebpackPlugin({
             title: 'output management'
         }),
         new CleanWebpackPlugin('dist'),
         new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        // new webpack.HotModuleReplacementPlugin(),
+
+
     ]
 };

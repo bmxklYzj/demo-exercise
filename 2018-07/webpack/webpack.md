@@ -46,3 +46,25 @@ clean-webpack-plugin: 每次打包自动清理之前的dist内容
 1. 使用 `webpack --watch` 参数，代码能自动编译，但在浏览器中需要手动刷新
 2. 借助 `webpack-dev-server` ，代码能自动编译，但是整个页面刷新
 3. HMR(hot module replace)热更新，
+
+
+
+## 其它注意点
+
+### webpack.DefinePlugin() 中定义全局变量
+
+常看到这样的写法
+
+```js
+new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production')
+}),
+```
+
+JSON.stringify('production') 的结果是 `""production""` 为什么要这样，而不直接写成 `"production"` ？
+
+假想我们要把 `'process.env.NODE_ENV'` 定义为需要执行两个全局函数的一个全局常量如 `'process.env.NODE_ENV': 'foo(); bar()'` 这时候必须加一层引号才符合对象的定义规则，那么执行的时候webpack相当于会执行 `eval('foo(); bar()')` 就会执行我们预期的这两个函数。也就是说对象的key-value中value是用引号括起来的 **代码片段**，
+
+这时候回过头来看开始的问题: `'process.env.NODE_ENV': 'production'` 最终 process.env.NODE_ENV 这个全局变量执行 `eval('production')` 的值是 `production` ，通常会提示 `production is undefined`。我们希望这个全局变量是个字符串，`'process.env.NODE_ENV': JSON.stringify('production')` ，执行 `eval("'production'")` 的值为字符串 `"production"`。
+
+[参考](https://stackoverflow.com/questions/39564802/why-does-webpacks-defineplugin-require-us-to-wrap-everything-in-json-stringify)

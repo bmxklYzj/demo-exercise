@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .parent {
+            overflow: hidden;
+        }
+        .wrap-div {
+            height: 100px;
+            background-color: #999;
+            margin: 20px;
+            /* overflow: hidden; */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="wrap-div child1"></div>
+        <div class="wrap-div child2"></div>
+
+        <div class="parent"><div class="wrap-div child1"></div></div>
+        <div class="parent"><div class="wrap-div child2"></div></div>
+    </div>
+</body>
+</html>

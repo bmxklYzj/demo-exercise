@@ -1,3 +1,3 @@
 export default function print(name) {
-    console.log('hello, %s', name);
+    console.log('helloabcde, %s', name);
 };

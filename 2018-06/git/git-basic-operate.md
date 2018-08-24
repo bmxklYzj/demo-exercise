@@ -79,6 +79,8 @@ rebase：在同一个分支上多人开发，后push的同学必须先pull、本
 让git忽略文件可添加 .gitignore 文件 https://github.com/github/gitignore
 如果某个文件命中了 .gitignore 但仍然想要添加： git add -f <file-name>
 检查哪个规则命中了： git check-ignore -v <file-name>
+
+想要绕过package.json中的pre-commit或pre-push脚本可在commit或push时候添加参数 `--no-verify`
 ```
 
 ## 其它git 黑科技
@@ -88,7 +90,7 @@ rebase：在同一个分支上多人开发，后push的同学必须先pull、本
 
 ## git 快捷键配置
 
-git status/commit 这种命令会显得比较长，为了方便输入可以有一些alias。 每个仓库可以配置，全局也可以配置，全局配置文件在 `/Users/<your-user-name>/.gitconfig` 中。当然可以直接修改配置文件，也可以使用类似命令` git config --global alias.st status`修改
+git status/commit 这种命令会显得比较长，为了方便输入可以有一些alias。 每个仓库可以配置，全局也可以配置，全局配置文件在 `~/.gitconfig` 中。当然可以直接修改配置文件，也可以使用类似命令` git config --global alias.st status`修改
 
 附上自己的alias：
 

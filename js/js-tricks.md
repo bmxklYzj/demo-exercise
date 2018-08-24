@@ -53,3 +53,11 @@ function overlapping(rect1, rect2) {
         && rect1.left <= rect2.right && rect2.left <= rect1.right;
 }
 ```
+
+5. 把字符串重复n遍
+
+```js
+s = 'x';
+var n = 100;
+new Array(n + 1).join(s);
+```

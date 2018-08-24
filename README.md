@@ -14,6 +14,8 @@ https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/xxx.png
 
 # 2018-07
 
+[learn bash](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-07/bash/bash.md)
+
 [webpack](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-07/webpack/webpack.md)
 
 [linux 命令](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-07/linux/linux.md)

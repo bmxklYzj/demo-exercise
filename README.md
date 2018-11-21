@@ -97,3 +97,5 @@ todo： [first screen time statistic](https://github.com/bmxklYzj/demo-exercise/
 
 1. css 攻击
 [demo-exercise/hacker/css/index.html](demo-exercise/hacker/css/index.html)
+
+# (每周生活总结)[./life/life.md]

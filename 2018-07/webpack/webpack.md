@@ -68,3 +68,7 @@ JSON.stringify('production') 的结果是 `""production""` 为什么要这样，
 这时候回过头来看开始的问题: `'process.env.NODE_ENV': 'production'` 最终 process.env.NODE_ENV 这个全局变量执行 `eval('production')` 的值是 `production` ，通常会提示 `production is undefined`。我们希望这个全局变量是个字符串，`'process.env.NODE_ENV': JSON.stringify('production')` ，执行 `eval("'production'")` 的值为字符串 `"production"`。
 
 [参考](https://stackoverflow.com/questions/39564802/why-does-webpacks-defineplugin-require-us-to-wrap-everything-in-json-stringify)
+
+### output中的chunhash不要和hot-moduel-replacement同时使用，否则会造成内存泄露等问题，静默会编译报错
+
+[参考](https://github.com/webpack/webpack-dev-server/issues/377)

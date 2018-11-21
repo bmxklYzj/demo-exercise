@@ -61,3 +61,21 @@ s = 'x';
 var n = 100;
 new Array(n + 1).join(s);
 ```
+
+6. ~和~~
+
+~是按位非：`~n === -(n+1)`
+
+常见用法：
+
+```js
+// ~-1 === 0
+if (~str.indexOf('a')) {
+    // find it
+}
+else {
+    // not find
+}
+```
+
+`~~` 等价于 `Math.floor()`

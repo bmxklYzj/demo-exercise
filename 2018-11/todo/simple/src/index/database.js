@@ -7,7 +7,7 @@
  */
 
 function getId() {
-    var id = 0;
+    let id = 0;
     return function () {
         return id++;
     };
@@ -19,7 +19,7 @@ function DataBase() {
 }
 
 DataBase.prototype.add = function(todo) {
-    var data = {
+    let data = {
         id: getId(),
         todo: todo
     };
@@ -28,7 +28,7 @@ DataBase.prototype.add = function(todo) {
 };
 
 DataBase.prototype.remove = function (todoId) {
-    var len = this.list.length;
+    let len = this.list.length;
     while (len--) {
         if (this.list[len].id === +todoId) {
             this.list.splice(len, 1); // delete

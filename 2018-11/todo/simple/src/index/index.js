@@ -61,7 +61,7 @@ todoContent.addEventListener('touchmove', function (e) {
             document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY)
             === coordinateInfo.target
         ) {
-            if (confirm('是否删除当前列？')) {
+            if (confirm(`是否删除: ${coordinateInfo.target.querySelector('.todo-list-item').innerText} ?`)) {
                 let todoId = coordinateInfo.target.querySelector('.todo-list-item').getAttribute('data-id');
                 todoContent.removeChild(coordinateInfo.target.parentNode);
                 dataBase.remove(todoId);

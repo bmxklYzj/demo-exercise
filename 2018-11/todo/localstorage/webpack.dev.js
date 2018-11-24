@@ -15,11 +15,6 @@ module.exports = merge(commonConfig, {
       template: 'src/index/index.html',
       chunks: ['index']
     }),
-    new HtmlWebpackPlugin({
-      filename: 'detail.html',
-      template: 'src/detail/detail.html',
-      chunks: ['detail']
-    }),
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     })

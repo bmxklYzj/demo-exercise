@@ -1,44 +1,56 @@
 /**
- * 单个会话有效数据库
+ * localstorage 有效数据库
  *
  * @author bmxklyzj
  * @date 2018-11-24
  * @constructor
  */
 
+let id = 0;
 function getId() {
-    var id = 0;
-    return function () {
-        return id++;
-    };
+    return id++;
 }
-getId();
+
+const localStorageKey = 'TODO';
 
 function DataBase() {
-    this.list = [];
+    this.getData = function () {
+        return JSON.parse(localStorage.getItem(localStorageKey)) || [];
+    };
+    this.setData = function (data) {
+        console.log('setdata',  data, JSON.stringify(data));
+
+        localStorage.setItem(localStorageKey, JSON.stringify(data));
+    };
 }
 
 DataBase.prototype.add = function(todo) {
-    var data = {
+    let item = {
         id: getId(),
-        todo: todo
+        todo
     };
-    this.list.push(data);
-    return data;
+    let data = this.getData();
+    data.push(item);
+    this.setData(data);
+    // this.setData(this.getData().push(item)) 之前这样写，坑了好久，才发现是push的原因，push返回的是修改后数组个数
+
+    return item;
 };
 
 DataBase.prototype.remove = function (todoId) {
-    var len = this.list.length;
+    let data = this.getData();
+    let len = data.length;
     while (len--) {
-        if (this.list[len].id === +todoId) {
-            this.list.splice(len, 1); // delete
+        if (data[len].id === +todoId) {
+            data.splice(len, 1); // delete
+            this.setData(data);
             break;
         }
     }
 };
 
 DataBase.prototype.get = function () {
-    return this.list;
+    return this.getData();
 };
 
 export default DataBase;

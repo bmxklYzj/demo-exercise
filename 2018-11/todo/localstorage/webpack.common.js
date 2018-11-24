@@ -12,8 +12,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/index/index.js',
-    detail: './src/detail/detail.js'
+    index: './src/index/index.js'
   },
   output: {
     filename: '[name].[chunkhash].js',
@@ -29,7 +28,7 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['env']
+                    presets: ['@babel/env']
                 }
             },
             exclude: /node_modules/

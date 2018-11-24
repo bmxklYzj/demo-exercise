@@ -23,19 +23,6 @@ module.exports = merge(commonConfig, {
           removeStyleLinkTypeAttributes: true,
           useShortDoctype: true
         }
-      }),
-      new HtmlWebpackPlugin({
-        filename: 'detail.html',
-        template: 'src/detail/detail.html',
-        chunks: ['detail'],
-        minify: {
-          collapseWhitespace: true,
-          removeComments: true,
-          removeRedundantAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          useShortDoctype: true
-        }
       })
   ]
 });

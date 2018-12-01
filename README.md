@@ -12,6 +12,24 @@ https://bmxklyzj.github.io/demo-exercise/2018-06/first-screen/script-block-ui/sc
 >demo中image地址为：
 https://github.com/bmxklYzj/demo-exercise/raw/master/markdownImage/2018/xxx.png
 
+# 2018-12
+
+[babel 各种包的作用](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-12/babel/babel.md)
+
+[babel compiler](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-12/babel/babel-compiler.md)
+
+[jetbeinsIDE 快捷键](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-12/jetbeinsIDE.md)
+
+# 2018-11
+
+[todo project](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-11/todo/README.md)
+
+demo-exercise/2018-11/todo/README.md
+
+# 2018-10
+
+[sessionStorageAndLocalStorage](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-10/sessionStorageAndLocalStorage.md)
+
 # 2018-07
 
 [learn bash](https://github.com/bmxklYzj/demo-exercise/blob/master/2018-07/bash/bash.md)

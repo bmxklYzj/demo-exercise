@@ -1,6 +1,6 @@
 # todo-simple
 
-原生js简单todo demo。
+原生js简单todo demo，[体验地址](http://104.223.1.205/my_project/todo/localstorage/dist)
 
 1. 手动从0配置webpack dev/prod，
 

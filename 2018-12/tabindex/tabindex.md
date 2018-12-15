@@ -6,7 +6,7 @@ tabindex有三种值：
 
 1. 1+ :可通过tab元访问，遍历顺序为大于0的最小tabindex开始，继续递增遍历（不推荐，大部分情况会引起歧义，可通过调整dom结构解决）
 2. 0 :把不可tab的元素如div、span、p等元素加入tab列表，使他们可以通过tab访问
-3. -1 :把元素从tab列表中移除（譬如input设置之后就不能通过tab访问了），但元素拥有了可以通过js focus的特性（input默认可以focus，这里针对p、span等默认不能用tab访问的标签）。一句话概括它的作用：不能通过tab访问，但可以通过js 来focus。 foucus之后下一次tab就会从当前focus元素开始往后找。常见的场景是模态框，比如针对模态框设置tabindex="-1"并focus，下一次tab就是在模态框中找可tab的元素。[example](./index.html)
+3. -1 :把元素从tab列表中移除（譬如input设置之后就不能通过tab访问了），但元素拥有了可以通过js focus的特性（input默认可以focus，这里针对p、span等默认不能用tab访问的标签）。一句话概括它的作用：对于原来可以tab的input等元素不能通过tab访问，对应原来不可tab的元素如p标签可以通过js 来focus。 foucus之后下一次tab就会从当前focus元素开始往后找。常见的场景是模态框，比如针对模态框设置tabindex="-1"并focus，下一次tab就是在模态框中找可tab的元素。[example](./index.html)
 
 
 ## reference:

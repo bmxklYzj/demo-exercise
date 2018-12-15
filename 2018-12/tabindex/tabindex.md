@@ -23,7 +23,7 @@ tabindex有三种值：
 - [js 版本2](https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/07-modals-and-keyboard-traps/solution/modal.js)
 
 ## 疑问：
-bootstrap的模态框怎么实现的？没找到相关源码：
+bootstrap的模态框怎么实现的：其实也是把模态框的顶级div设置tabindex="-1"并用js来focus。
 
 [例子](https://getbootstrap.com/docs/4.1/components/modal/#modal-components)
 

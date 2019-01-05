@@ -36,6 +36,12 @@ Object.defineProperty(obj, 'a', {
 - `Access-Control-Request-Headers`
 - 默认并不会携带cookie，这时需要服务端设置`Access-Control-Allow-Credentials`，前端ajax设置xhr.withCredential
 
+### post 提交数据格式：
+
+- application/x-www-form-urlencoded 原生form表单
+- multipart/form-data input file类型上传二进制、Boundary分隔
+- application/json ajax提交
+
 ### 函数的防抖和节流
 
 防抖和节流都是尽量避免频繁触发事件，导致卡顿。以下均以向下滚动刷新为例

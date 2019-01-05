@@ -9,7 +9,7 @@ window.addEventListener('scroll', function () {
 ```
 [查看demo](https://bmxklyzj.github.io/demo-exercise/2018-06/throttle/demo/scroll.html)
 
-这时候就需要进行节流提高性能：
+这时候就需要进行防抖提高性能：
 
 ## 在滚动结束之后执行一次 事件处理程序
 

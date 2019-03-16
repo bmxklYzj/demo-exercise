@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header style="background: gray;">
+        <div>header2</div>
+        <div>header2</div>
+        <div>header2</div>
+    </header>
+
+    <section>
+        <div class="wrap"
+        style="height: 400px;background: blanchedalmond; overflow: scroll"
+        >
+            <div>占位1</div>
+            <div>占位2</div>
+            <div>占位3</div>
+            <div>占位4</div>
+            <div>占位5</div>
+            <div>占位6</div>
+            <div>占位7</div>
+            <div>占位8</div>
+            <div>占位9</div>
+            <div>占位10</div>
+            <div>占位11</div>
+            <div>占位12</div>
+            <div>占位13</div>
+            <div>占位14</div>
+            <div>占位15</div>
+            <div>占位16</div>
+            <div>占位17</div>
+            <div>占位18</div>
+            <div>占位19</div>
+            <div>占位20</div>
+            <div>占位21</div>
+            <div>占位22</div>
+            <div>占位23</div>
+            <div>占位24</div>
+            <div>占位25</div>
+            <div>占位26</div>
+            <div>占位27</div>
+            <div>占位28</div>
+            <div>占位29</div>
+            <div>占位30</div>
+            <div>占位31</div>
+            <div>占位32</div>
+            <div>占位33</div>
+            <div>占位34</div>
+            <div>占位35</div>
+            <div>占位36</div>
+            <div>占位37</div>
+            <div>占位38</div>
+            <div>占位39</div>
+            <div>占位40</div>
+            <div>占位41</div>
+            <div>占位42</div>
+            <div>占位43</div>
+            <div>占位44</div>
+            <div>占位45</div>
+            <div>占位46</div>
+            <div>占位47</div>
+            <div>占位48</div>
+            <div>占位49</div>
+            <div>占位50</div>
+            <div>占位51</div>
+            <div>占位52</div>
+            <div>占位53</div>
+            <div>占位54</div>
+            <div>占位55</div>
+            <div>占位56</div>
+            <div>占位57</div>
+            <div>占位58</div>
+            <div>占位59</div>
+            <div>占位60</div>
+            <div>占位61</div>
+            <div>占位62</div>
+            <div>占位63</div>
+            <div>占位64</div>
+            <div>占位65</div>
+            <div>占位66</div>
+            <div>占位67</div>
+            <div>占位68</div>
+            <div>占位69</div>
+            <div>占位70</div>
+            <div>占位71</div>
+            <div>占位72</div>
+            <div>占位73</div>
+            <div>占位74</div>
+            <div>占位75</div>
+            <div>占位76</div>
+            <div>占位77</div>
+            <div>占位78</div>
+            <div>占位79</div>
+            <div>占位80</div>
+            <div>占位81</div>
+            <div>占位82</div>
+            <div>占位83</div>
+            <div>占位84</div>
+            <div>占位85</div>
+            <div>占位86</div>
+            <div>占位87</div>
+            <div>占位88</div>
+            <div>占位89</div>
+            <div>占位90</div>
+            <div>占位91</div>
+            <div>占位92</div>
+            <div>占位93</div>
+            <div>占位94</div>
+            <div>占位95</div>
+            <div>占位96</div>
+            <div>占位97</div>
+            <div>占位98</div>
+            <div>占位99</div>
+            <div>占位100</div>
+        </div>
+    </section>
+
+    <footer style="background: gray;">
+        <div>footer</div>
+        <div>footer</div>
+        <div>footer</div>
+    </footer>
+
+    <script>
+        var wrap = document.querySelector('.wrap');
+        var touchstartTime;
+        wrap.addEventListener('scroll', function (e) {
+            var scrollTime = +(new Date());
+            console.log(`scroll: touchstartTime:${touchstartTime}, scrollTime - touchstartTime: ${scrollTime - touchstartTime}`);
+            // e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
+        }, {passive: false});
+        wrap.addEventListener('touchstart', function (e) {
+            touchstartTime = +(new Date());
+
+            var computeStartTime = +(new Date());
+            var res = 0;
+            for (var i = 0; i < 1 * 1e9; i++) {
+                res = i;
+            }
+            var computeEndTime = +(new Date());
+
+            console.log(`compute time spend: ${computeEndTime - computeStartTime}`);
+            console.log(`touchstart : ${touchstartTime}`);
+        }, {passive: false});
+    </script>
+</body>
+</html>

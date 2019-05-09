@@ -1,12 +1,12 @@
 <template>
     <div class="toggle-panel">
         <div class="year">
-            <!-- <span class="year-current" @click="toggleYearList">{{currentYear}}</span> -->
             <select class="year-current" v-model="currentYear" @change="changeYear">
                 <option>2017</option>
                 <option>2018</option>
                 <option>2019</option>
             </select>
+            <span class="year-current-icon"></span>
         </div>
 
         <ul class="month">
@@ -42,21 +42,13 @@ export default {
             monthMap: monthMap
         };
     },
-    created() {
-        hub.$emit('changeDate', `${this.currentYear}-${this.currentMonth}`);
-    },
     methods: {
-        toggleYearList() {
-
-        },
         changeYear() {
             hub.$emit('changeDate', `${this.currentYear}-${this.currentMonth}`);
-            console.log(this.currentYear);
         },
         changeMonth(changedMonth) {
             hub.$emit('changeDate', `${this.currentYear}-${changedMonth}`);
             this.currentMonth = changedMonth;
-            console.log(changedMonth);
         }
     }
 };
@@ -64,22 +56,31 @@ export default {
 <style lang="less">
     @import "../assets/global-variable.less";
 
-    .year-current {
-        appearance: none;
-        -webkit-appearance: none;
+    .year {
+        margin-top: .1rem;
+        margin-bottom: .1rem;
+        position: relative;
         display: inline-block;
-        padding: .03rem;
-        border: @1px-solid-gray;
-        border-radius: .02rem;
-        cursor: pointer;
-
-        &::after {
-            content: '';
+        &-current {
+            appearance: none;
+            -webkit-appearance: none;
             display: inline-block;
-            vertical-align: middle;
-            margin-left: .05rem;
-            border: .05rem solid transparent;
-            border-top-color: @black;
+            padding: .03rem;
+            padding-right: .2rem;
+            border: @1px-solid-gray;
+            border-radius: .02rem;
+            cursor: pointer;
+
+            &-icon {
+                position: absolute;
+                right: 5px;
+                top: 8px;
+                display: inline-block;
+                pointer-events: none; // 透传点击事件
+                vertical-align: middle;
+                border: .05rem solid transparent;
+                border-top-color: #999;
+            }
         }
     }
     .month {

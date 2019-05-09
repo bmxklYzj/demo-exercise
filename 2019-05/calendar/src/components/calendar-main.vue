@@ -15,9 +15,18 @@
                 class="calendar-main-content-item"
                 v-for="(item, index) in days"
                 :key="index"
-                :style=""
+                :class="item.isInCurrentMonth ? '' : 'calendar-main-content-fade'"
             >
-                {{item.day}}
+                <span>{{item.monthText}} {{item.day}}</span>
+                <ul class="calendar-main-content-item-todo-wrap">
+                    <li
+                        class="calendar-main-content-item-todo"
+                        v-for="(itemJ, indexJ) in item.todos"
+                        :key="indexJ"
+                    >
+                        {{itemJ.todo}}
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
@@ -42,20 +51,21 @@ export default {
     },
     created() {
         hub.$on('changeDate', this.changeDateHandler);
+
+        // 设置日历默认值
+        const NOW = new Date();
+        this.changeDateHandler(`${NOW.getFullYear()}-${NOW.getMonth()}`);
     },
     destroyed() {
         hub.$off('changeDate', this.changeDateHandler);
     },
     methods: {
-
         /**
          * 响应年月切换
          *
          * @param {Object} yearMonth 年月 形如： yyyy-m or yyyy-mm
          */
         changeDateHandler(yearMonth) {
-            console.log('changeDateHandler', yearMonth);
-
             let temp = yearMonth.split('-');
             let dayCount = new Date(temp[0], +temp[1] + 1, 0).getDate(); // 该月份公有多少天：下个月的第0天
             this.generateCalendar(+temp[0], +temp[1], dayCount);
@@ -79,10 +89,21 @@ export default {
 
             let firstDayOfAMonth = new Date(year, month);
             let firstWeek = firstDayOfAMonth.getDay(); // 该月份第一天是星期几
-            let headPadDays = this.padHead(--firstWeek, year, month - 1, new Date(year, month, 0).getDate());
+            let headPadDays = this.padHead(firstWeek, year, month - 1, new Date(year, month, 0).getDate());
             headPadDays && days.unshift(...headPadDays);
             let tailPadDays = this.padTail(6 * 7 - days.length, year, month + 1, 1);
             tailPadDays && days.push(...tailPadDays);
+
+            // mock todos
+            days.map(item => {
+                item.todos = [{
+                        time: 'xxx',
+                        todo: '跑步'
+                    }, {
+                        time: 'xxx',
+                        todo: '背单词 背单词 背单词 背单词 背单词 背单词'
+                    }];
+            });
 
             this.days = days;
         },
@@ -158,15 +179,66 @@ export default {
             }
         }
         &-content {
+            display: flex;
+            flex-wrap: wrap;
             &-item {
+                @padding-gap: .05rem;
+                position: relative;
                 height: 1rem;
-                width: 14.2%;
-                float: left;
+                flex: 0 0 13.2%;
+                box-sizing: border-box;
+                margin: .5%;
+                padding: @padding-gap;
+                border: @1px-solid-gray;
+                border-radius: 2px;
 
                 &:nth-child(7n + 1),
                 &:nth-child(7n) {
+                    border: none;
                     background-color: #33da4a;
+                    &::after {
+                        content: '周末';
+                        color: #CC3333;
+                        position: absolute;
+                        display: inline-block;
+                        bottom: @padding-gap;
+                        right: @padding-gap;
+                    }
                 }
+                &:nth-child(7n + 1) {
+                    margin-left: 0;
+                }
+                &:nth-child(7n) {
+                    margin-right: 0;
+                }
+
+                &-todo {
+                    &-wrap {
+                        height: .5rem;
+                        overflow: hidden;
+                        overflow-y: scroll;
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+                    }
+                    font-size: 10px;
+                    padding-left: .15rem;
+                    position: relative;
+                    &::before {
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        left: 0;
+                        top: 6px;
+                        width: .05rem;
+                        height: .05rem;
+                        border-radius: 50%;
+                        background-color: @gray;
+                    }
+                }
+            }
+            &-fade {
+                opacity: .3;
             }
         }
 

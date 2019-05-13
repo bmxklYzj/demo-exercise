@@ -3,20 +3,23 @@
         <toggle-panel class="left">
         </toggle-panel>
 
-        <calendar-main class="right">
-        </calendar-main>
+        <!-- <video class="right">
+        </video> -->
+        <video id="myde" style="width: 100%" class="right"
+                src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+                autoplay="true" loop></video>
     </div>
 </template>
 
 <script>
 import TogglePanel from './components/toggle-panel.vue';
-import calendarMain from './components/calendar-main.vue';
+import video from './components/calendar-main.vue';
 
 export default {
     name: 'app',
     components: {
         TogglePanel,
-        calendarMain
+        video
     }
 };
 </script>

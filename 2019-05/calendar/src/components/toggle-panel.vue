@@ -47,6 +47,10 @@ export default {
             hub.$emit('changeDate', `${this.currentYear}-${this.currentMonth}`);
         },
         changeMonth(changedMonth) {
+            if (this.currentMonth === changedMonth) {
+                return;
+            }
+
             hub.$emit('changeDate', `${this.currentYear}-${changedMonth}`);
             this.currentMonth = changedMonth;
         }

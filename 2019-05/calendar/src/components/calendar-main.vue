@@ -39,13 +39,13 @@
  * @date 2019-05-07
  */
 import hub from '../utils/hub';
-import {monthMap} from '../utils/constant';
+import {monthMap, weekHeader} from '../utils/constant';
 
 export default {
     name: 'calendar-main',
     data() {
         return {
-            weekHeader: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            weekHeader,
             days: []
         };
     },
@@ -60,6 +60,7 @@ export default {
         hub.$off('changeDate', this.changeDateHandler);
     },
     methods: {
+
         /**
          * 响应年月切换
          *

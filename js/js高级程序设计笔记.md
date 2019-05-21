@@ -23,7 +23,7 @@ defer 和 sync 都只能用于外部脚本。都不会阻塞其它资源的加�
 
 1. 严格模式：一种编译指示，让js引擎切换到严格模式。
 
-    严格模式特点：不用var声明变量，eval作用域，不能用with，重名 变量/函数名/函数参数等等。 [ref: 阮一峰]([http://www.ruanyifeng.com/blog/2013/01/javascript\_strict\_mode.html](http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html))
+    严格模式特点：不用var声明变量，eval作用域，不能用with，重名 变量/函数名/函数参数等等。 [ref: 阮一峰](http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html)
 
 2. 变量。非严格模式省略a = 3变成全部变量
 3. 数据类型，6种：Undefined、Null、Sting、Number、Boolean、Object

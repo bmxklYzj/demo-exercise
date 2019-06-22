@@ -1,0 +1,63 @@
+{
+  "terminal.integrated.scrollback": 50000,
+    "editor.renderControlCharacters": true,
+    "editor.fontSize": 13,
+    // "editor.wordWrap": "on",
+    "files.autoSave": "onFocusChange",
+    "window.zoomLevel": 0,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true
+    },
+    "workbench.sideBar.location": "left",
+    "editor.minimap.enabled": false,
+    "typescript.check.npmIsInstalled": false,
+    "emmet.showAbbreviationSuggestions": true,
+    "emmet.showExpandedAbbreviation": "always",
+    "emmet.includeLanguages": {
+        "vue-html": "html",
+        "vue": "html"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html",
+        "vue"
+    ],
+    "files.associations": {
+        "*.vue": "vue",
+        "*.tpl": "html",
+        "*.wxml": "vue-html",
+        "*.wxss": "css",
+        "*.swan": "vue-html",
+        "*.san": "vue"
+    },
+    // 允许 `ctrl+滚轮` 缩放
+    // "editor.mouseWheelZoom": true,
+    // 显示缩进参考线
+    "editor.renderIndentGuides": true,
+    // 不允许越过最后一行继续滚动
+    "editor.scrollBeyondLastLine": false,
+    // 每行固定宽度
+    // "editor.wordWrap": "wordWrapColumn",
+    // "editor.wordWrapColumn": 120,
+    "trailing-spaces.trimOnSave": true,
+    "workbench.iconTheme": "vscode-great-icons",
+    "[json]": {
+
+    },
+    "[vue]": {
+
+    },
+    "[vue-html]": {
+
+    },
+    "terminal.integrated.rendererType": "dom",
+    "materialTheme.fixIconsRunning": false,
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": false,
+    "editor.renderWhitespace": "none",
+    "files.trimTrailingWhitespace": true,
+    "workbench.colorTheme": "One Dark Pro"
+}

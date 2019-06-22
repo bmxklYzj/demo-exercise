@@ -35,6 +35,12 @@
 
 ## 执行情况：
 
+- 2019-05-25
+
+    - [coursera: learning-how-to-learn](https://www.coursera.org/learn/learning-how-to-learn?)
+    - [心理学与生活](https://www.coursera.org/learn/xin-li-xue-sheng-huo)
+    - [心理学概论 | Introduction to Psychology](https://www.edx.org/course/xin-li-xue-gai-lun--introduction-to-psychology)
+
 - 2018-06-25 - 2018-07-01
 
     上周总结：旅游回来两天才慢慢缓过神来。

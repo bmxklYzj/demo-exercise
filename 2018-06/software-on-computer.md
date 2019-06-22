@@ -6,7 +6,7 @@
 
 |软件|英文名|简介|
 |:-----:|:-----:|:-----:|
-|记笔记|onenote|1. 分区、分页功能便于管理笔记；2. 像纸一样，随意写作|
+|记笔记|onenote|1. 分区、分页功能便于管理笔记；2. 像纸一样，随意写作（也推荐安装office系列，虽然功能没有windows上的强大，但够用）|
 |思维导图|xMind （或者 naotu.baidu.com 网站）|清晰梳理逻辑的利器|
 |原型设计|Axure 、 sketch|快速绘制前端界面原型，现在基本已经取代photoshop了|
 |快速原型工具|Balsamiq Mockups 3|线条风格|
@@ -17,10 +17,10 @@
 |终端|item2|配合zsh使用更佳|
 |get things done|wunderlist|记录todo的工具，唯一不足就是不能标记为“未做”，没有统计功能|
 |ui图标注间距|Mark Man||
-|菜单栏展示cpu、内存等|iStat||
+|菜单栏展示cpu、内存等|iStat Menus||
 |管理系统菜单|Bartender 3|让菜单更加简洁，可以自定义隐藏某些菜单|
 |调节屏幕色温，适当保护眼睛|Flux||
-|让鼠标的滚动方向和windows一致|Reverse scroll||
+|让鼠标的滚动方向和windows一致|~~Reverse scroll~~ Mos |一个用于在 MacOS 上平滑你的鼠标滚动效果或单独设置滚动方向的小工具, 让你的滚轮爽如触控板： https://github.com/Caldis/Mos|
 |解压缩工具（apple store免费下载）|IZip Unarchiver||
 |http请求发送工具|postman||
 |统计时间|rescueTime||
@@ -28,7 +28,11 @@
 |显示当前页面的快捷键|cheatsheet||
 |磁盘清理|Dr.cleaner 或 cleanMyMac||
 |gif制作|Gifox 或 LICEcap|录制视频直接用qq截图|
-
+|nord|vpn||
+|kindle|阅读||
+|typora|markdown文档||
+|ipic|图床|
+|dash|本地文档|
 
 其它较常见应用：qq（主要是截图功能非常好用）、MS家的word/ppt/excel
 

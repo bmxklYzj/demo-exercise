@@ -29,6 +29,7 @@ mac对比**普通**windows本最大的优势有两个：
 |统计时间|rescueTime||
 |磁盘清理|Dr.cleaner 或 cleanMyMac||
 |kindle|阅读||
+|paste|剪切板历史管理||
 
 其它较常见应用：qq（主要是截图功能非常好用）、MS家的word/ppt/excel
 

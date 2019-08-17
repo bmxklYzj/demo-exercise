@@ -48,5 +48,6 @@ module.exports = function geterateCategory(sortBy = 'birthtime') {
         let path = item.relativePath.replace(/^\.\.\//, '');
         mdCategory += `[${title}](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/${path})` + '\n\n';
     });
-    fs.writeFileSync('../category.md', mdCategory);
-}
+    mdCategory = mdCategory.replace(/\n$/, '');
+    fs.writeFileSync(path.join(__dirname, '../category.md'), mdCategory);
+};

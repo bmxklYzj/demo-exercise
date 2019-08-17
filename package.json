@@ -1,0 +1,25 @@
+{
+  "name": "demo-exercise",
+  "version": "1.0.0",
+  "description": "bmxklyzj's blog",
+  "main": "index.js",
+  "scripts": {
+    "genegrateCategory": "node blog/utils/index.js;git add ./blog/category.md;"
+  },
+  "pre-commit": [
+    "genegrateCategory"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmxklYzj/demo-exercise.git"
+  },
+  "author": "bmxklyzj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmxklYzj/demo-exercise/issues"
+  },
+  "homepage": "https://github.com/bmxklYzj/demo-exercise#readme",
+  "devDependencies": {
+    "pre-commit": "^1.2.2"
+  }
+}

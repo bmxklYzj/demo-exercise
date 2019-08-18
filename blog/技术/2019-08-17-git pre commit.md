@@ -27,7 +27,9 @@ local hook还有一个不方便的地方：它存在于 .git/hooks 中，但默�
 - update：同pre-receive，只是每个push的分支都会执行。
 - post-receive：代码成功入库。可用来send mail，ci等。
 
+## other library
+
+当然了，前面提到了git本身的hook保存方式不方便，于是可以借助 [pre-commit](https://github.com/observing/pre-commit)
 
 
-
-reference: [git hook](https://www.atlassian.com/git/tutorials/git-hooksf)
+reference: [git hook](https://www.atlassian.com/git/tutorials/git-hooks)

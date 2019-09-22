@@ -1,27 +1,29 @@
-[2019-05-24-cobo区块链钱包](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-05-24-cobo区块链钱包.md)
-
-[category](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/category.md)
+[2019-05-21-葡萄城面试](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-05-21-葡萄城面试.md)
 
 [2019-08-18-react-native](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-08-18-react-native.md)
 
+[2019-09-22-movie-楚门的世界](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2019-09-22-movie-楚门的世界.md)
+
 [2019-06-19-loop performance](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-19-loop performance.md)
 
-[software-i-use](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/software-i-use.md)
+[category](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/category.md)
 
 [2019-08-17-git pre commit](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-08-17-git pre commit.md)
 
-[2019-06-29-区块链](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-29-区块链.md)
+[2019-05-24-cobo区块链钱包](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-05-24-cobo区块链钱包.md)
 
-[2019-06-26-公众号](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-26-公众号.md)
-
-[2019-05-21-葡萄城面试](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-05-21-葡萄城面试.md)
-
-[小程序个人经验](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/小程序个人经验.md)
+[2019-05-24-学习网站](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2019-05-24-学习网站.md)
 
 [成长思考](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/成长思考.md)
 
-[2019-06-10-2018-07至2019-06年度总结](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2019-06-10-2018-07至2019-06年度总结.md)
-
 [2016年度总结](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2016年度总结.md)
 
-[2019-05-24-学习网站](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2019-05-24-学习网站.md)
+[2019-07-01-小程序个人经验](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2019-07-01-小程序个人经验.md)
+
+[2019-06-22-software-i-use](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-22-software-i-use.md)
+
+[2019-06-26-公众号](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-26-公众号.md)
+
+[2019-06-29-区块链](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-29-区块链.md)
+
+[2019-06-10-2018-07至2019-06年度总结](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2019-06-10-2018-07至2019-06年度总结.md)

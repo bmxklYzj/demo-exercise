@@ -2,7 +2,7 @@
 
 [2019-08-18-react-native](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-08-18-react-native.md)
 
-[2019-09-22-movie-楚门的世界](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2019-09-22-movie-楚门的世界.md)
+[movie](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/movie.md)
 
 [2019-06-19-loop performance](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-19-loop performance.md)
 

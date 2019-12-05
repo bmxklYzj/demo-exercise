@@ -29,3 +29,7 @@
 [2019-08-17-git pre commit](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-08-17-git pre commit.md)
 
 [2019-08-18-react-native](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-08-18-react-native.md)
+
+[2019-11-23-RxJS](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-11-23-RxJS.md)
+
+[2019-11-30-js EventLoop](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-11-30-js EventLoop.md)

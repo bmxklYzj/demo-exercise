@@ -10,6 +10,8 @@
 
 [2019-10-13-我真的太没自制力了](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2019-10-13-我真的太没自制力了.md)
 
+[2019-12-14-在最好的年纪，活出你的青春和激情](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/2019-12-14-在最好的年纪，活出你的青春和激情.md)
+
 [movie](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/movie.md)
 
 [成长思考](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/成长&思考/成长思考.md)

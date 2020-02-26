@@ -7,7 +7,10 @@
 [zhihu Promise & setTimeout](https://www.zhihu.com/question/36972010/answer/71338002)
 
 ## callback
-Ref: [js callback](https://javascript.info/callbacks)
+
+Ref: 
+- [js callback](https://javascript.info/callbacks)
+- [http://callbackhell.com/](http://callbackhell.com/)
 
 什么是callback，常说的callback hell是什么？
 

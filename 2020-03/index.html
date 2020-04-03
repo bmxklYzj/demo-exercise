@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<form action="./post">-->
+<input type="text" />
+<input type="password" />
+<!--    <button >submit</button>-->
+<button onclick="submit(false)">submit1</button>
+<button onclick="submit()">submit</button>
+<!--</form>-->
+<script>
+    function submit() {
+      console.log('submit');
+        fetch('http://localhost:8001/post', {
+          method: 'post',
+          body: JSON.stringify({
+            a: 1,
+            b: 2
+          }),
+        }).then(res => {
+          console.log('res', res);
+        })
+    }
+</script>
+</body>
+</html>

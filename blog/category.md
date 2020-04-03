@@ -35,3 +35,9 @@
 [2019-11-23-RxJS](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-11-23-RxJS.md)
 
 [2019-11-30-js EventLoop](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-11-30-js EventLoop.md)
+
+[dfs](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/algorithm/dfs.md)
+
+[dp](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/algorithm/dp.md)
+
+[gcd](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/algorithm/gcd.md)

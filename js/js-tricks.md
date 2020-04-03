@@ -143,4 +143,25 @@ try {
 
 这段代码为`passive`属性创建了一个带有getter函数的`options`对象；getter设定了一个标识，`passiveSupported`，被调用后就会把其设为`true`。那意味着如果浏览器检查`options`对象上的`passive`值时，`passiveSupported`将会被设置为`true`；否则它将保持`false`。然后我们调用`addEventListener()`去设置一个指定这些选项的空事件处理器，这样如果浏览器将第三个参数认定为对象的话，这些选项值就会被检查。
 
+## kebab2Camelcase
 
+```js
+const kebab2Camelcase = str => str.replace(/\-(\w)/gim, ($0, $1) => $1.toUpperCase());
+// 'aa-bb-cc'.replace(/\-(\w)/gim, ($0, $1) => $1.toUpperCase());
+```
+
+## IP格式化
+
+'3.11.170.138' -> '3.xx.xxx.xxx'
+
+```js
+'3.114.170.138'.replace(/\.(\d+)/gim, ($0, $1, $2, $3) => {return `.${'x'.repeat($1.length)}`})
+```
+
+## 创建1...n的数组 [ref](https://stackoverflow.com/a/3746849/5806007)
+
+```js
+var foo = [ ...Array(N).keys() ];
+var foo = Array(N).fill().map((v,i)=>i);
+Array.from({ length: N }, (v, i) => i)
+```

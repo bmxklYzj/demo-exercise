@@ -36,6 +36,12 @@
 
 [2019-11-30-js EventLoop](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-11-30-js EventLoop.md)
 
+[2020-04-03-js引用传递](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2020-04-03-js引用传递.md)
+
+[2020-04-10-nginx](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2020-04-10-nginx.md)
+
+[2020-06-04-lint-before-commit](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2020-06-04-lint-before-commit.md)
+
 [dfs](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/algorithm/dfs.md)
 
 [dp](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/algorithm/dp.md)

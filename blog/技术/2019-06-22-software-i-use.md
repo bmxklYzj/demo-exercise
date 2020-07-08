@@ -56,3 +56,6 @@ mac对比**普通**windows本最大的优势有两个：
 |typora|markdown文档||
 |ipic|图床|
 |dash|本地文档|
+|Bob|翻译|
+
+shell相关：item2、zsh；autojump

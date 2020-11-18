@@ -44,4 +44,4 @@ targetOrigin指定给谁发送消息。格式为`protocal://hostName[:port]`
 2. source 表示是谁给我发的,是一个window的引用
 3. origin 表示是谁给我发的：格式为`protocal://hostName[:port]`
 
-**接收端在接收数据的时候一定要判断 origin或source ，因为任何其他窗口可以给你发送数据，需要判断数据的来用是否是自己想要的，否则会引起安全问题**
+**接收端在接收数据的时候一定要判断 origin或source ，因为任何其他窗口可以给你发送数据，需要判断数据的来源是否是自己想要的，否则会引起安全问题**

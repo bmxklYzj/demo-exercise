@@ -1,7 +1,13 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  console.log('app1');
+  const [val, setVal] = useState(0);
+  const add = () => {
+    setVal(val + 1);
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +23,9 @@ function App() {
         >
           Learn React
         </a>
+        {'val2'}
+        val: {val}
+        <button onClick={add}>add</button>
       </header>
     </div>
   );

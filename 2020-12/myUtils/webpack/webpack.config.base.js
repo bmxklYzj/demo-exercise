@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const env = 'development';
 
 process.env.NODE_ENV = env;
-console.log('yzj', path.join(__dirname, 'src/index.ts'))
+
 const config = {
   mode: env,
   entry: {
@@ -12,22 +12,22 @@ const config = {
   },
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].js',
+    filename: 'utils.min.js',
+    library: 'myutils',
+    libraryTarget: 'umd',
   },
   resolve: {
-    extensions: ['ts'],
+    extensions: ['.ts', 'js', 'tsx', 'jsx'],
   },
   module: {
     rules: [
       {
         test: /\.ts?$/,
         exclude: /node_modules/,
-        loader: require.resolve('babel-loader'),
+        use: require.resolve('babel-loader'),
       },
     ],
   },
-  plugins: [
-  ],
 };
 
 module.exports = config;

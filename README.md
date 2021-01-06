@@ -2,9 +2,11 @@
 
 ## 个人技术博客
 
+[新文章目录](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/category.md)
+
 <details>
 <summary>
-个人技术博客
+老技术博客
 </summary>
 
   ### 2018-12

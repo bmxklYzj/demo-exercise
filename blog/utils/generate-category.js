@@ -38,7 +38,7 @@ function readAllMd(relativePath) {
 module.exports = function geterateCategory(sortBy = 'birthtime') {
     let allMds = readAllMd('../');
     let sortedMds = allMds.sort(function cmpDescByTime(o1, o2) {
-        return o1[sortBy] < o2[sortBy];
+        return o2[sortBy] - o1[sortBy];
     });
     // console.log(sortedMds);
 

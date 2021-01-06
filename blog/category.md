@@ -1,6 +1,12 @@
-[category](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/category.md)
+[2019-06-19-loop_performance](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-19-loop_performance.md)
 
-[2020-11-14-aws-ec2 服务器把玩](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2020-11-14-aws-ec2 服务器把玩.md)
+[2019-11-30-js_EventLoop](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-11-30-js_EventLoop.md)
+
+[2019-08-17-git_pre_commit](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-08-17-git_pre_commit.md)
+
+[2020-11-14-aws-ec2_服务器把玩](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2020-11-14-aws-ec2_服务器把玩.md)
+
+[category](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/category.md)
 
 [2019-05-24-cobo区块链钱包](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-05-24-cobo区块链钱包.md)
 
@@ -16,19 +22,13 @@
 
 [gcd](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/algorithm/gcd.md)
 
-[2019-08-17-git pre commit](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-08-17-git pre commit.md)
-
 [2019-08-18-react-native](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-08-18-react-native.md)
 
 [2019-11-23-RxJS](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-11-23-RxJS.md)
 
-[2019-11-30-js EventLoop](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-11-30-js EventLoop.md)
-
 [2020-04-03-js引用传递](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2020-04-03-js引用传递.md)
 
 [2020-04-10-nginx](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2020-04-10-nginx.md)
-
-[2019-06-19-loop performance](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-19-loop performance.md)
 
 [2019-06-26-公众号](https://github.com/bmxklYzj/demo-exercise/blob/master/blog/技术/2019-06-26-公众号.md)
 

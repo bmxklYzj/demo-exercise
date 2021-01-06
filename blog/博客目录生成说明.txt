@@ -1,1 +1,4 @@
-在`blog/utils`下面执行`node index.js`即可遍历blog目录下的所有md文件，并且按照传入的时间类型生成对应目录
+在`blog/utils`下面执行`node index.js`即可遍历blog目录下的所有md文件，
+并且按照传入的时间类型生成对应目录
+
+`node index.js --sortBy=mtime`

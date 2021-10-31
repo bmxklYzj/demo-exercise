@@ -10,3 +10,5 @@ yarn.lock
 .idea
 out
 corejava
+*.class
+*.iml

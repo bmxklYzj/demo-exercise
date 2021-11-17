@@ -1,3 +1,5 @@
+package com.yzj._03_object;
+
 public class Object {
     public static void main(String[] args) {
 //        Person ming = new Person();

@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/bmxklYzj/demo-exercise#readme",
   "devDependencies": {
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "webpack-cli": "^4.9.1"
   },
   "dependencies": {
     "express": "^4.17.1"

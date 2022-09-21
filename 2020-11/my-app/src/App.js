@@ -8,6 +8,8 @@ function App() {
   const add = () => {
     setVal(val + 1);
   };
+
+  
   return (
     <div className="App">
       <header className="App-header">

@@ -23,9 +23,14 @@ class CommentApp extends Component {
   };
 
   render() {
+    const nameObj = {
+      name: 'wanghuan'
+    }
+
     return (
       <div className="wrapper">
-        <CommentInput onSubmit={this.onSubmit}/>
+        hello: {}
+        <CommentInput name={nameObj.name} onSubmit={this.onSubmit}/>
         <CommentList commentList={this.state.commentList}/>
       </div>
     )

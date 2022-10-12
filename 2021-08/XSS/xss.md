@@ -122,3 +122,51 @@ XSS Worm是XSS的一种终极利用方式，它的破坏力和影响力是巨大
 url: `    http://www.a.com/test.html#alert(1)` 就会弹窗
 
 location.hash本身没有长度限制，但是浏览器的地址栏是有长度限制的，不过这个长度已经足够写很长的XSS Payload了。要是地址栏的长度也不够用，还可以再使用加载远程JS的方法，来写更多的代码。
+
+
+
+2个文本框绕过：
+
+```html
+<input id=1 type="text" value="" />
+xxxxxxxxxxxxx
+<input id=2 type="text" value="" />
+```
+
+2个输入框分别输入：
+
+`    "><!--`    
+
+`    --><script>alert(/xss/); </script>`
+
+```html
+<input id=1 type="text" value=""><!--" />
+xxxxxxxxxxxxxxxxx
+<input id=2 type="text" value="--><script>alert(/xss/); </script>" />
+```
+
+第一个输入框只有6个字符
+
+### 2. 使用base标签
+
+见demo：5 html base.html
+
+`<base>标签将指定其后的标签默认从base标签的href取URL：`
+
+`<base>`标签可以出现在页面的任何地方，并作用于位于该标签之后的所有标签。攻击者如果在页面中插入了<base>标签，就可以通过在远程服务器上伪造图片、链接或脚本，劫持当前页面中的所有使用“相对路径”的标签。
+
+### 3. Window.name
+
+window对象是浏览器的窗体，而并非document对象，因此很多时候window对象不受同源策略的限制。攻击者利用这个对象，可以实现跨域、跨页面传递数据。
+
+Demo: 待补充
+
+## XSS防御
+
+### 1. Cookie httpOnly
+
+浏览器将禁止页面的JavaScript访问带有HttpOnly属性的Cookie。
+
+XSS攻击带来的不光是Cookie劫持问题，还有窃取用户信息、模拟用户身份执行操作等诸多严重的后果。如前文所述，攻击者利用AJAX构造HTTP请求，以用户身份完成的操作，就是在不知道用户Cookie的情况下进行的。使用HttpOnly有助于缓解XSS攻击，但仍然需要其他能够解决XSS漏洞的方案。
+
+### 2. 输入检查

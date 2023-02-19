@@ -14,8 +14,6 @@
 
 - jdb：Java调试器，用于开发阶段的运行调试。
 
-  
-
 ```ascii
 ┌──────────────────┐
 │    Hello.java    │<─── javac命令`javac Hell.java` -> Hello.class:源代码->字节码
@@ -32,6 +30,40 @@
 └──────────────────┘
 ```
 
+### 实操
+
+1. 无包名
+   
+   在src目录下有`EqualsDemo.java`,`Student.java` java头文件没有包名，前者依赖后者。
+   
+   执行`javac EqualsDemo.java`则会自动把依赖也编译，再执行java命令则可运行。
+   
+   ```bash
+   ➜  src pwd
+   /Users/zongjunyang/Downloads/src
+   ➜  src ls
+   EqualsDemo.java Student.java
+   ➜  src javac EqualsDemo.java 
+   ➜  src ls
+   EqualsDemo.class EqualsDemo.java  Student.class    Student.java
+   ➜  src java EqualsDemo 
+   Student{12name='a'}
+   ```
+   
+   1. 有包名
+      
+      在javaDemo目录下有`com/temp`包，下面有2个java文件，此时执行javac要到包名根目录去执行，java命令要带上全包名                    
+      
+      ```shell
+      ➜  javaDemo git:(master) ✗ ls com/temp 
+      EqualsDemo.java Student.java
+      ➜  javaDemo git:(master) ✗ javac com/temp/EqualsDemo.java 
+      ➜  javaDemo git:(master) ✗ ls com/temp                   
+      EqualsDemo.class EqualsDemo.java  Student.class    Student.java
+      ➜  javaDemo git:(master) ✗ java com.temp.EqualsDemo 
+      Student{12name='a'}
+      ```
+
 ## 数据类型
 
 Java是一种强类型语言。这就意味着必须为每一个变量声明一种类型。在Java中，一共有8种基本类型（primitive type），其中有4种整型、2种浮点类型、1种用于表示Unicode编码的字符单元的字符类型char和1种用于表示真值的boolean类型。
@@ -42,8 +74,6 @@ Java定义了以下几种基本数据类型：
 - 浮点数类型：float，double
 - 字符类型：char
 - 布尔类型：boolean
-
-
 
 不同的数据类型占用的字节数不一样。我们看一下Java基本数据类型占用的字节数：
 
@@ -94,11 +124,7 @@ Java语言对布尔类型的存储并没有做规定，因为理论上存储布�
 
 引用类型的变量类似于C语言的指针，它内部存储一个“地址”，指向某个对象在内存的位置，
 
-
-
 常量：定义变量的时候，如果加上`final`修饰符，这个变量就变成了常量
-
-
 
 注意数据转换：如果参与运算的两个数其中一个是整型，一个是浮点型，那么整型可以自动提升到浮点型。如果是两个整型这不会发生类型提升。
 
@@ -107,8 +133,6 @@ int n = 5;
 double m = 1.2 + 24.0 / 5; // 6.0
 double k = 1.2 + 24 / 5; // 5.2
 ```
-
-
 
 数组：数组一旦创建后，大小就不可改变。创建数组的两种方式(不能同时指定大小又初始化)：
 
@@ -130,7 +154,6 @@ scanner.netInt();
 ## 数组
 
 ```java
-
 int[] arr = { 0, 1, 2, 3, 4, 5 };
 /*********数组遍历的两种方式：************/
 // 1. 使用下标
@@ -251,21 +274,15 @@ Java只允许一个class继承自一个类，因此，一个类有且仅有一�
 
 任何`class`的构造方法，第一行语句必须是调用父类的构造方法。如果没有明确地调用父类的构造方法，编译器会帮我们自动加一句`super();`
 
-
-
 private字段和方法子类不能继承。
 
 继承是is关系，组合是has关系。
-
-
 
 重载overload、覆写override：
 
 在继承关系中，子类如果定义了一个与父类方法签名完全相同的方法，被称为覆写（Override）
 
 如果方法签名不同就是重载，重载是一个新方法。如果方法签名相同则是覆写
-
-
 
 ### 多态
 
@@ -297,19 +314,13 @@ class Student extends Person {
 // student.run
 ```
 
-
-
 [报税的例子](https://www.liaoxuefeng.com/wiki/1252599548343744/1260455778791232)说明多态具有一个非常强大的功能，就是允许添加更多类型的子类实现功能扩展，却不需要修改基于父类的代码。
-
-
 
 `final`修饰符有多种作用：
 
 - `final`修饰的方法可以阻止被覆写；
 - `final`修饰的class可以阻止被继承；
 - `final`修饰的field必须在创建对象时初始化，随后不可修改。
-
-
 
 ### 抽象方法
 
@@ -325,11 +336,7 @@ abstract class Person {
 
 因为抽象类本身被设计成只能用于被继承，因此，抽象类可以强迫子类实现其定义的抽象方法，否则编译会报错。因此，抽象方法实际上相当于定义了“规范”。
 
-
-
 一个`.java`文件只能包含一个`public`类，但可以包含多个非`public`类。如果有`public`类，文件名必须和`public`类的名字相同。
-
-
 
 ## java核心类
 
@@ -379,7 +386,7 @@ System.out.println(s7.equals(s8)); // true
 * replaceAll
 * split
 * formatted/String.fromat 格式化
-*/	
+*/    
 
 // 任意类型转字符串
 List<String> strings = Arrays.asList(
@@ -395,8 +402,6 @@ System.out.println(Integer.parseInt("123"));
 System.out.println(Double.parseDouble("12.3"));
 System.out.println(Boolean.parseBoolean("TRue"));
 ```
-
-
 
 StringBuilder:
 
@@ -576,8 +581,6 @@ Java的异常是`class`，它的继承关系如下：
 
 从继承关系可知：`Throwable`是异常体系的根，它继承自`Object`。`Throwable`有两个体系：`Error`和`Exception`，`Error`表示严重的错误，程序对此一般无能为力。
 
-
-
 JVM在捕获到异常后，会从上到下匹配`catch`语句，匹配到某个`catch`后，执行`catch`代码块，然后*不再*继续匹配。简单地说就是：多个`catch`语句只有一个能被执行。
 
 存在多个`catch`的时候，`catch`的顺序非常重要：子类必须写在前面。
@@ -601,10 +604,6 @@ JVM在捕获到异常后，会从上到下匹配`catch`语句，匹配到某个`
 可以根据配置文件调整日志，无需修改代码；
 
 Java标准库提供了`java.util.logging`来实现日志功能。
-
-
-
-
 
 TODO：
 

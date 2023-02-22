@@ -50,7 +50,94 @@ A要发数据给B，根本不用担心窃听和篡改，直接发就好了。
 
 ### 4、CA（Certificate Authority）
 
+现实中，通过CA（Certificate Authority）来保证public key的真实性。CA也是基于非对称加密算法来工作。有了CA，B会先把自己的public key（和一些其他信息）交给CA。CA用自己的private key加密这些数据，加密完的数据称为B的**数字证书**。现在B要向A传递public key，B传递的是CA加密之后的数字证书。A收到以后，会通过CA发布的**CA证书**（包含了CA的public key），来解密B的数字证书，从而获得B的public key。
+
+但是等等，问题：
+
+1. A怎么确保CA证书不被劫持。B把自己的数字证书发给A的过程中，中间人C是可以得到B的数字证书的，当然也可以解密B的数字证书，得到B的public key。但C没法伪造B的数字证书（C没有CA的私钥），A拿到数字证书的第一步就是校验证书的合法性。
+
+除非有种情况，A内置的CA证书被篡改了，例如A使用了盗版的系统，“优化”了的非官方浏览器，或者被病毒攻击了，那这个时候，A**有可能**会认可非CA认证的数字证书，C就有机会发起中间人攻击。所以，用正版至少是安全的。
+
+实际的https传输：由于非对称加密很复杂，消耗资源和时间多，非对称加密只会用来传递一条信息，那就是用于对称加密的密钥。后续通过对称加密算法进行网络通信。
+
 参考文档：
 
 1. [浅谈SSL/TLS工作原理](https://zhuanlan.zhihu.com/p/36981565)
+
+## 2、证书详细剖析
+
+生成证书的标准流程是这样的：
+
+1. 生成自己的私钥文件(.key)
+2. 基于私钥生成证书请求文件(.csr)
+3. 将证书请求文件(.csr)提交给证书颁发机构（CA），CA会对提交的证书请求中的所有信息生成一个摘要，然后使用CA根证书对应的私钥进行加密，这就是所谓的“签名”操作，完成签名后就会得到真正的签发证书(.cer或.crt)
+4. 用户拿到签发后的证书，可能需要导入到自己的密钥库中，如Java的keystore，或根据需要再进行各种格式转换(.pem .p12 .jks等等)
+
+![](https://p.ipic.vip/9jr36r.png)
+
+
+
+### 标准的CA签发流程:
+
+```
+1. 创建私钥（.key)
+openssl genrsa -out my.key 2048
+
+2. 基于私钥创建证书签名请求（.csr）
+openssl req -new -key my.key -out my.csr -subj "/C=CN/ST=shanghai/L=shanghai/O=example/OU=it/CN=domain1/CN=domain2"
+
+3. 直接同时生成私钥和证书签名请求
+openssl req -new -newkey rsa:2048 -nodes -keyout my.key -out my.csr -subj "/C=CN/ST=shanghai/L=shanghai/O=example/OU=it/CN=domain1/CN=domain2"
+```
+
+### 生成自签名证书:
+
+```
+1. 创建私钥（.key)
+2. 基于私钥创建证书签名请求（.csr）
+3. 使用自己的私钥（.key）签署自己的证书签名请求（.csr），生成自签名证书（.crt）
+```
+
+### 生成私有CA签发的证书:
+
+自签名证书和私有CA签发的证书的区别：
+
+如果你的规划需要创建多个证书，那么使用私有CA的方法比较合适，因为只要给所有的客户端都安装了CA的证书（根证书），那么以该证书签名过的证书，客户端都是信任的，也就是安装一次就够了。
+
+如果你直接用自签名证书，你需要给所有的客户端安装该证书才会被信任，如果你需要第二个证书，则还的挨个给所有的客户端安装证书2才会被信任。
+
+
+与生成自签名证书不同地方在于，生成自签名证书场景下只有一个参与方，请求证书和签发证书都是自己，而生成私有CA证书的场景里开始涉及两个角色了:
+
+签发证书的一方：CA（主要牵涉的是CA私钥和根证书）
+2.请求签发证书的一方：如服务器
+
+```
+1. 生成CA私钥（ca.key）和CA自签名证书（ca.crt）
+openssl req -x509 -newkey rsa:2048 -nodes -keyout ca.key -out ca.crt -days 3650  -subj "/C=CN/ST=shanghai/L=shanghai/O=example/OU=it/CN=domain1/CN=domain2"
+可以看到私有CA证书其实就是一个普通的自签名证书，至此环节时，还没有任何特殊之处。
+2. 生成Server端私钥（server.key）和证书签名请求（server.csr）
+openssl req -new -newkey rsa:2048 -nodes -keyout server.key -out server.csr -subj "/C=CN/ST=shanghai/L=shanghai/O=example/OU=it/CN=domain1/CN=domain2"
+3. 使用CA证书（ca.crt）与密钥（ca.key）签署服务器的证书签名请求（server.csr），生成私有CA签名的服务器证书（server.crt）
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650
+4. 验证server.crt是否真得是由ca签发的：
+openssl verify -CAfile ca.crt server.crt
+
+最终得到的文件：
+ca.crt
+ca.key
+server.csr 序列号
+server.key
+ca.srl
+server.crt
+
+检查已创建的证书：
+openssl x509 -text -noout -in certificate.pem
+```
+
+参考文档：
+
+1. [使用OpenSSL生成/签发证书的原理、流程与示例](https://blog.csdn.net/bluishglc/article/details/123617558)
+
+
 

@@ -1,3 +1,4 @@
+[TOC]
 # 数字证书
 
 ## 1、为什么需要？从https说起
@@ -50,7 +51,7 @@ A要发数据给B，根本不用担心窃听和篡改，直接发就好了。
 
 ### 4、CA（Certificate Authority）
 
-现实中，通过CA（Certificate Authority）来保证public key的真实性。CA也是基于非对称加密算法来工作。有了CA，B会先把自己的public key（和一些其他信息）交给CA。CA用自己的private key加密这些数据，加密完的数据称为B的**数字证书**。现在B要向A传递public key，B传递的是CA加密之后的数字证书。A收到以后，会通过CA发布的**CA证书**（包含了CA的public key），来解密B的数字证书，从而获得B的public key。
+现实中，通过CA（Certificate Authority）来保证public key的真实性。CA也是基于非对称加密算法来工作。有了CA，B会先把自己的public key（和一些其他信息：域名、公司名等）交给CA。CA核实真实性，并用自己的private key加密这些数据，加密完的数据称为B的**数字证书**。现在B要向A传递public key，B传递的是CA加密之后的数字证书。A收到以后，会通过CA发布的**CA证书**（包含了CA的public key），来解密B的数字证书，从而获得B的public key。
 
 但是等等，问题：
 
@@ -75,6 +76,7 @@ A要发数据给B，根本不用担心窃听和篡改，直接发就好了。
 
 ![](https://p.ipic.vip/9jr36r.png)
 
+![](http://image.huawei.com/tiny-lts/v1/images/7db7c46d0fedd42e8e1c654fcff34078_1909x780.png)
 
 
 ### 标准的CA签发流程:
@@ -88,14 +90,20 @@ openssl req -new -key my.key -out my.csr -subj "/C=CN/ST=shanghai/L=shanghai/O=e
 
 3. 直接同时生成私钥和证书签名请求
 openssl req -new -newkey rsa:2048 -nodes -keyout my.key -out my.csr -subj "/C=CN/ST=shanghai/L=shanghai/O=example/OU=it/CN=domain1/CN=domain2"
+
 ```
 
 ### 生成自签名证书:
 
 ```
 1. 创建私钥（.key)
+openssl genrsa -out my.key 2048
+
 2. 基于私钥创建证书签名请求（.csr）
+openssl req -new -key my.key -out my.csr -subj "/C=CN/ST=shanghai/L=shanghai/O=example/OU=it/CN=domain1/CN=domain2"
+
 3. 使用自己的私钥（.key）签署自己的证书签名请求（.csr），生成自签名证书（.crt）
+openssl x509 -req -in my.csr -out my.crt -signkey my.key -days 3650
 ```
 
 ### 生成私有CA签发的证书:

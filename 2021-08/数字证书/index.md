@@ -33,8 +33,6 @@ A要发数据给B，根本不用担心窃听和篡改，直接发就好了。
 
 如果B的解密结果符合预期，那么至少可以证明，这个信息只有B能获取，因为B的private key参与了解密，而B的private key其他人都不知道。并且，这个信息是来自A，而不是C伪造的，因为A的public key参与了解密。一切看起来似乎很美好。
 
-
-
 但是在一切的最开始，A和B要通过网络交换public key。如果C在中间拦截了呢？假设有这种情况，C拦截了A和B的public key，又分别用自己的public key发给A和B。A和B并不知道，他们还以为这个public key来自对方。当A给B发消息时，A先用自己的private key加密数据的hash值，之后用C传来的假的public key加密数据，再发出去。C拦截到之后，先用C自己的private key解密数据，C就获取了A的原始信息！之后，C可以篡改数据内容，再用自己的private key加密数据的hash值，用之前拦截的B的public key加密数据，再发给B。B收到以后，先用自己的private key解密数据，再用C传来的假public key解密hash值，发现匹配。这样，B收到了一条来自C的假的信息，但是B还以为信息来自于A。中间人攻击仍然可能存在！
 
 完了，一切都崩了，加密搞的这么复杂，居然还不能保证网络数据的安全。回顾一下，问题出就出在最开始通过网络交换public key。看起来为了保证public key不被拦截，A和B似乎还是要见一面，交换一下public key。这一下就回到了上古时代。
@@ -146,6 +144,3 @@ openssl x509 -text -noout -in certificate.pem
 参考文档：
 
 1. [使用OpenSSL生成/签发证书的原理、流程与示例](https://blog.csdn.net/bluishglc/article/details/123617558)
-
-
-

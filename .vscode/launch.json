@@ -1,0 +1,224 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Demo",
+            "request": "launch",
+            "mainClass": "_03_class_fun.Demo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Demo",
+            "request": "launch",
+            "mainClass": "Demo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "EqualsDemo",
+            "request": "launch",
+            "mainClass": "EqualsDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "EqualsDemo(1)",
+            "request": "launch",
+            "mainClass": "mypackage.EqualsDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "HelloWorld",
+            "request": "launch",
+            "mainClass": "src.HelloWorld",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "SetDemo",
+            "request": "launch",
+            "mainClass": "src.com.yzj._10_collection.SetDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "MethodDemo",
+            "request": "launch",
+            "mainClass": "src.com.yzj._11_params.MethodDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "MapDemo",
+            "request": "launch",
+            "mainClass": "src.com.yzj._12_map.MapDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "StreamDemo01",
+            "request": "launch",
+            "mainClass": "src.com.yzj._13_stream.StreamDemo01",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "ExceptionDemo01",
+            "request": "launch",
+            "mainClass": "src.com.yzj._14_exception.ExceptionDemo01",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "CollectionDemo",
+            "request": "launch",
+            "mainClass": "src.com.yzj.collection.CollectionDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "ListDemo",
+            "request": "launch",
+            "mainClass": "src.com.yzj.collection.ListDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "ListDemoIterator",
+            "request": "launch",
+            "mainClass": "src.com.yzj.collection.ListDemoIterator",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "ListDemoRemove",
+            "request": "launch",
+            "mainClass": "src.com.yzj.collection.ListDemoRemove",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "ExtendsDemo",
+            "request": "launch",
+            "mainClass": "src.com.yzj.genericity.ExtendsDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "Function",
+            "request": "launch",
+            "mainClass": "src.com.yzj.genericity.Function",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "src.com.yzj.genericity.Test",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "Test(1)",
+            "request": "launch",
+            "mainClass": "src.com.yzj.instance.Test",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "Test(2)",
+            "request": "launch",
+            "mainClass": "src.com.yzj.instance.ehan.Test",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "Test(3)",
+            "request": "launch",
+            "mainClass": "src.com.yzj.instance.lanhan.Test",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "Test(4)",
+            "request": "launch",
+            "mainClass": "src.com.yzj.interfacedemo.Test",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "LamdaDemo",
+            "request": "launch",
+            "mainClass": "src.com.yzj.lamda.LamdaDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "RegExpDemo1",
+            "request": "launch",
+            "mainClass": "src.com.yzj.regexp.RegExpDemo1",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "BinarySearch",
+            "request": "launch",
+            "mainClass": "src.com.yzj.sort.BinarySearch",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "SortDemo1",
+            "request": "launch",
+            "mainClass": "src.com.yzj.sort.SortDemo1",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "StringDemo1",
+            "request": "launch",
+            "mainClass": "src.com.yzj.string.StringDemo1",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "StringDemo2",
+            "request": "launch",
+            "mainClass": "src.com.yzj.string.StringDemo2",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "StringDemo3",
+            "request": "launch",
+            "mainClass": "src.com.yzj.string.StringDemo3",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "TypeDemo1",
+            "request": "launch",
+            "mainClass": "src.com.yzj.type.TypeDemo1",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "TypeDemo2",
+            "request": "launch",
+            "mainClass": "src.com.yzj.type.TypeDemo2",
+            "projectName": "demo-exercise_616aa552"
+        }
+    ]
+}

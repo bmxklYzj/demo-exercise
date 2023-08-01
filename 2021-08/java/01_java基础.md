@@ -398,7 +398,71 @@ class Student extends Person {
 // student.run
 ```
 
-[报税的例子](https://www.liaoxuefeng.com/wiki/1252599548343744/1260455778791232)说明多态具有一个非常强大的功能，就是允许添加更多类型的子类实现功能扩展，却不需要修改基于父类的代码。
+多态的特性就是，运行期才能动态决定调用的子类方法。对某个类型调用某个方法，执行的实际方法可能是某个子类的覆写方法。这种不确定性的方法调用，究竟有什么作用？
+
+```java
+
+/**
+ * 多态
+ */
+public class Main {
+    public static void main(String[] args) {
+        Income[] incomes = new Income[] {
+                new Income(10000),
+                new FreeLevelIncome(10000),
+                new SpecialIncome(10000)
+        };
+        getTotal(incomes);
+    }
+
+    private static void getTotal(Income[] incomes) {
+        double total = 0;
+        for (Income income : incomes) {
+            total += income.calcTax();
+        }
+        System.out.println(total);
+    }
+}
+
+class Income {
+    double income;
+
+    public Income(double income) {
+        this.income = income;
+    }
+
+    public double calcTax() {
+        return income * 0.1;
+    }
+}
+
+class FreeLevelIncome extends Income {
+    public FreeLevelIncome(double income) {
+        super(income);
+    }
+
+    @Override
+    public double calcTax() {
+        double freeLevel = 5000;
+        if (income < freeLevel) {
+            return 0;
+        }
+        return (income - freeLevel) * 0.1;
+    }
+}
+
+class SpecialIncome extends Income {
+    public SpecialIncome(double income) {
+        super(income);
+    }
+
+    @Override
+    public double calcTax() {
+        return 0;
+    }
+}
+```
+仔细观察getTotal方法，只需要和Income打交道，不关心具体是什么类型的Income。如果我们要新增一种稿费收入，只需要从Income派生，然后正确覆写calcTax()方法就可以。把新的类型传入getTotal()，不需要修改任何代码。可见，多态具有一个非常强大的功能，就是允许添加更多类型的子类实现功能扩展，却不需要修改基于父类的代码。
 
 `final`修饰符有多种作用：
 
@@ -420,7 +484,43 @@ abstract class Person {
 
 因为抽象类本身被设计成只能用于被继承，因此，抽象类可以强迫子类实现其定义的抽象方法，否则编译会报错。因此，抽象方法实际上相当于定义了“规范”。
 
+这种尽量引用高层类型，避免引用实际子类型的方式，称之为面向抽象编程。
+面向抽象编程的本质就是：
+- 上层代码只定义规范（例如：abstract class Person）；
+- 不需要子类就可以实现业务逻辑（正常编译）；
+- 具体的业务逻辑由不同的子类实现，调用者并不关心。
+
 一个`.java`文件只能包含一个`public`类，但可以包含多个非`public`类。如果有`public`类，文件名必须和`public`类的名字相同。
+
+### 接口
+如果一个抽象类没有字段，所有方法全部都是抽象方法：
+
+```java
+abstract class Person {
+    public abstract void run();
+    public abstract String getName();
+}
+```
+就可以把该抽象类改写为接口：`interface`。
+```java
+interface Person {
+    void run();
+    String getName();
+}
+```
+所谓interface，就是比抽象类还要抽象的纯抽象接口，因为它连字段都不能有。因为接口定义的所有方法默认都是public abstract的，所以这两个修饰符不需要写出来（写不写效果都一样）。
+在Java中，一个类只能继承自另一个类，不能从多个类继承。但是，一个类可以实现多个interface。
+
+抽象类和接口的对比如下：
+| |abstract class	|interface|
+|-----|-----|-----|
+|继承|	只能extends一个class|	可以implements多个interface|
+|字段|	可以定义实例字段|	不能定义实例字段|
+|抽象方法|	可以定义抽象方法|	可以定义抽象方法|
+|非抽象方法|	可以定义非抽象方法|	可以定义default方法|
+
+一个interface可以继承自另一个interface。interface继承自interface使用extends，它相当于扩展了接口的方法。
+interface中可以有default方法。default方法和抽象类的普通方法是有所不同的。因为interface没有字段，default方法无法访问字段，而抽象类的普通方法可以访问实例字段。`
 
 ## java核心类
 

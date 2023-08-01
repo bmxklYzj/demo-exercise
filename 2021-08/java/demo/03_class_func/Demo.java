@@ -6,9 +6,30 @@ public class Demo {
 }
 
 class Person {
+    private String name;
     public void run() {
         System.out.println("person run");
     }
+
+    @Override
+    public String toString() {
+        return "Person name:" + name;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Person) {
+            return name.equals(((Person) obj).name);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    
 }
 
 class Student extends Person {

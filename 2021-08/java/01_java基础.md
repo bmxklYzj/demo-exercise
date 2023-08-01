@@ -492,36 +492,6 @@ abstract class Person {
 
 一个`.java`文件只能包含一个`public`类，但可以包含多个非`public`类。如果有`public`类，文件名必须和`public`类的名字相同。
 
-### 接口
-如果一个抽象类没有字段，所有方法全部都是抽象方法：
-
-```java
-abstract class Person {
-    public abstract void run();
-    public abstract String getName();
-}
-```
-就可以把该抽象类改写为接口：`interface`。
-```java
-interface Person {
-    void run();
-    String getName();
-}
-```
-所谓interface，就是比抽象类还要抽象的纯抽象接口，因为它连字段都不能有。因为接口定义的所有方法默认都是public abstract的，所以这两个修饰符不需要写出来（写不写效果都一样）。
-在Java中，一个类只能继承自另一个类，不能从多个类继承。但是，一个类可以实现多个interface。
-
-抽象类和接口的对比如下：
-| |abstract class	|interface|
-|-----|-----|-----|
-|继承|	只能extends一个class|	可以implements多个interface|
-|字段|	可以定义实例字段|	不能定义实例字段|
-|抽象方法|	可以定义抽象方法|	可以定义抽象方法|
-|非抽象方法|	可以定义非抽象方法|	可以定义default方法|
-
-一个interface可以继承自另一个interface。interface继承自interface使用extends，它相当于扩展了接口的方法。
-interface中可以有default方法。default方法和抽象类的普通方法是有所不同的。因为interface没有字段，default方法无法访问字段，而抽象类的普通方法可以访问实例字段。`
-
 ## java核心类
 
 ### 字符串String

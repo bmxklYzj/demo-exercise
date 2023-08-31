@@ -15,7 +15,7 @@
 - javadoc：用于从Java源码中自动提取注释并生成文档；
 
 - jdb：Java调试器，用于开发阶段的运行调试。
- 
+
 可执行文件javac是编译器，而可执行文件java就是虚拟机。
 ```ascii
 ┌──────────────────┐
@@ -491,6 +491,106 @@ abstract class Person {
 - 具体的业务逻辑由不同的子类实现，调用者并不关心。
 
 一个`.java`文件只能包含一个`public`类，但可以包含多个非`public`类。如果有`public`类，文件名必须和`public`类的名字相同。
+
+### 接口
+如果一个抽象类没有字段，所有方法全部都是抽象方法：
+
+```java
+abstract class Person {
+    public abstract void run();
+    public abstract String getName();
+}
+```
+就可以把该抽象类改写为接口：`interface`。
+```java
+interface Person {
+    void run();
+    String getName();
+}
+```
+所谓interface，就是比抽象类还要抽象的纯抽象接口，因为它连字段都不能有。因为接口定义的所有方法默认都是public abstract的，所以这两个修饰符不需要写出来（写不写效果都一样）。
+在Java中，一个类只能继承自另一个类，不能从多个类继承。但是，一个类可以实现多个interface。
+
+抽象类和接口的对比如下：
+| |abstract class	|interface|
+|-----|-----|-----|
+|继承|	只能`extends`一个class|	可以`implements`多个interface|
+|字段|	可以定义实例字段|	不能定义实例字段|
+|抽象方法|	可以定义抽象方法|	可以定义抽象方法|
+|非抽象方法|	可以定义非抽象方法|	可以定义default方法|
+
+一个interface可以继承自另一个interface。interface继承自interface使用extends，它相当于扩展了接口的方法。
+```java
+interface Person {
+    String getName();
+}
+
+interface Student extends Person {
+    String getGrade();
+    String getSchool();
+}
+```
+interface中可以有default方法。default方法和抽象类的普通方法是有所不同的。因为interface没有字段，default方法无法访问字段，而抽象类的普通方法可以访问实例字段。
+
+### 静态字段和方法
+
+静态字段和方法都是属于类的，不是属于某个具体实例。所以访问时使用`类名.静态字段`来访问。
+
+因为静态方法属于class而不属于实例，因此，静态方法内部，无法访问this变量，也无法访问实例字段，它只能访问静态字段。
+静态方法经常用于工具类。
+
+`interface`的静态字段：`interface`可以有静态字段，且必须是final的
+```java
+public static final int MALE = 1;
+public static final int FEMALE = 2;
+```
+实际上，因为`interface`的字段只能是`public static final`类型，所以我们可以把这些修饰符都去掉，上述代码可以简写为：
+
+```java
+public interface Person {
+    // 编译器会自动加上public statc final:
+    int MALE = 1;
+    int FEMALE = 2;
+}
+```
+编译器会自动把该字段变为`public static final`类型。
+
+### 包
+
+Java编译器最终编译出的`.class`文件只使用*完整类名*，因此，在代码中，当编译器遇到一个`class`名称时：
+
+- 如果是完整类名，就直接根据完整类名查找这个`class`；
+- 如果是简单类名，按下面的顺序依次查找：
+  - 查找当前`package`是否存在这个`class`；
+  - 查找`import`的包是否包含这个`class`；
+  - 查找`java.lang`包是否包含这个`class`。
+
+如果按照上面的规则还无法确定类名，则编译报错。
+
+
+
+因此，编写class的时候，编译器会自动帮我们做两个import动作：
+
+- 默认自动`import`当前`package`的其他`class`；
+- 默认自动`import java.lang.*`。
+
+### 作用域
+
+Java内建的访问权限包括`public`、`protected`、`private`和`package`权限；
+
+- `public`: 可以被其他类访问
+- `protected`：默认权限，可被相同包或者继承的子类访问。把方法定义为`package`权限有助于测试，因为测试类和被测试类只要位于同一个`package`，测试代码就可以访问被测试类的`package`权限方法。
+- `private`：不能被其他类访问，只能被本类的其它方法访问。嵌套类：如果一个类包含了嵌套类，则嵌套类可以访问该类的private
+- `package`：同一个package都可访问。注意，包名必须完全一致，包没有父子关系，`com.apache`和`com.apache.abc`是不同的包。
+
+final
+
+- 修饰calss：防止被继承
+- 修饰method：防止被子类覆写
+- 修饰field：防止重新赋值
+- 修饰局部变量：防止重新赋值
+
+一个`.java`文件只能包含一个public类，且该public类的类名必须和文件名一样。可以包含多个非public类。
 
 ## java核心类
 

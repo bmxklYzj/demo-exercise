@@ -1,10 +1,11 @@
 {
   "java.project.sourcePaths": [
+    "2021-08/java/demo/_03_class_func",
     "2021-08/java/demo/03_class_func",
     "2021-08/java/demo/02_dataType",
     "2021-08/java/demo/01_class",
     "2021-05/heima",
-    "2021-08/java/demo/_03_class_func"
+    "2021-08/java/demo/_02_dataType"
   ],
   "java.debug.settings.onBuildFailureProceed": true
 }

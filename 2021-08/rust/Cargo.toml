@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "01_guess_game/hashmap_demo",
+    "examples/basics/basics",
+    "examples/basics/static-files"
+]

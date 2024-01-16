@@ -151,8 +151,33 @@ echo $# $@;
 
 echo "#################################"
 # -p参数输出变量信息。
-declare -p
+# declare -p
 # -F参数输出当前环境的所有函数名，不包含函数定义。
-declare -F
+# declare -F
 
-# 算数运算
+# 脚本
+
+# 全部参数： 1 2 3 4
+# 参数数量： 4
+# test.sh =  test.sh
+# 1 =  1
+# 2 =  2
+# 3=  3
+echo "全部参数：" $@
+echo "参数数量：" $#
+echo "$0 = " $0
+echo "$1 = " $1
+echo "$2 = " $2
+echo "$3 = " $3
+
+# 输入任意数量的参数，利用for循环，可以读取每一个参数。
+for i in "$@"; do
+      echo $i
+done
+
+echo "参数数量$#个"
+while [ "$1" != "" ]; do
+      echo "剩下 $# 个参数"
+      echo "参数 $1"
+      shift
+done

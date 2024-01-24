@@ -1,7 +1,7 @@
 # shell
 ## 教程：
 1. [Shell脚本编程30分钟入门](https://github.com/qinjx/30min_guides/blob/master/shell.md) 解答了我多年的疑惑，比如如何运行 shell 脚本。 test.sh 不行 ./test.sh 才行
-2. [Bash 脚本教程 --阮一峰](https://wangdoc.com/)
+2. [Bash 脚本教程 --阮一峰](https://wangdoc.com/bash/)
 
 ## 运行
 1. 作为可执行程序
@@ -255,16 +255,16 @@ $*：全部的参数，参数之间使用变量$IFS值的第一个字符分隔�
 ```bash
 # 全部参数： 1 2 3 4
 # 参数数量： 4
-# test.sh =  test.sh
-# 1 =  1
-# 2 =  2
-# 3=  3
-echo "全部参数：" $@
-echo "参数数量：" $#
-echo "$0 = " $0
-echo "$1 = " $1
-echo "$2 = " $2
-echo "$3 = " $3
+# $0 =  test.sh
+# $1 =  1
+# $2 =  2
+# $3 =  3
+echo '全部参数：' $@
+echo '参数数量：' $#
+echo '$0 = ' $0
+echo '$1 = ' $1
+echo '$2 = ' $2
+echo '$3 = ' $3
 
 # 输入任意数量的参数，利用for循环，可以读取每一个参数。
 for i in "$@"; do

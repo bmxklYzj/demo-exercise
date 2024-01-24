@@ -242,6 +242,7 @@ history | grep echo # 配合管道符和grep搜索
 ```
 
 ## 脚本
+### 参数
 `script.sh word1 word2 word3`
 脚本文件内部，可以使用特殊变量，引用这些参数。
 ```
@@ -272,3 +273,26 @@ for i in "$@"; do
 done
 ```
 
+### source
+source命令用于执行一个脚本，通常用于重新加载一个配置文件。
+
+```bash
+$ source .bashrc
+```
+source命令最大的特点是在当前 Shell 执行脚本，不像直接执行脚本时，会新建一个子 Shell。所以，source命令执行脚本时，不需要export变量。
+
+```bash
+# source_test.sh 文件内容如下
+#!/bin/bash
+echo $foo
+
+在bash分别执行
+foo=1
+source source_test.sh
+. source_test.sh
+输出1
+bash source_test.sh
+则输出空字符串
+```
+
+### 别名 alias

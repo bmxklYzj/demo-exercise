@@ -181,3 +181,82 @@ while [ "$1" != "" ]; do
       echo "参数 $1"
       shift
 done
+
+################ read
+# echo -n "输出文本 >"
+# read text
+# echo "你的输入 ${text}"
+
+# echo Please, enter your firstname and lastname
+# read fn ln
+# echo "hi $fn $ln"
+
+# echo -n "输出文本 >"
+# if read -t 3 reponse; then
+#       echo "用户已输入"
+# else
+#       echo "用户没有输入"
+# fi
+
+# TMOUT=3
+# read response
+
+# read -sp "enter you name >" name
+# echo "Your name: $name"
+
+################ if
+if test $USER = "foo"; then
+    echo "hello foo"
+else
+    echo "your name are not foo."
+fi
+
+
+if true
+then
+    echo "hello world"
+fi
+
+if false
+then
+    echo "it is false"
+fi
+
+if true; then echo "hello world";fi;
+
+if echo 'hi'; then echo "hello world";fi;
+
+if false; true; then echo "hello world";fi;
+
+if ls a.txt; ls; then echo "hello world";fi;
+# ls: a.txt: No such file or directory
+# source_test.sh  test.sh
+# hello world
+if ls a.txt; ls b.txt; then echo "hello world";fi;
+# ls: a.txt: No such file or directory
+# ls: b.txt: No such file or directory
+
+# echo -n "input [1~3] >"
+# read num
+# if [ "$num" = "1" ]; then
+#     echo 1
+# elif [ "$num" = "2" ]; then
+#     echo 2
+# elif [ "$num" = "3" ]; then
+#     echo 3
+# else
+#     echo "invalid"
+# fi
+
+test -f /etc/hosts
+echo $?
+
+if test -f /etc/hosts; then
+    echo 'file exists';
+fi;
+if [ -f /etc/hosts ]; then
+    echo 'file exists';
+fi;
+if [[ -f /etc/hosts ]]; then
+    echo 'file exists';
+fi;

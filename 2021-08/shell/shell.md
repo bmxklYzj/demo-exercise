@@ -296,3 +296,107 @@ bash source_test.sh
 ```
 
 ### 别名 alias
+alias命令用来为一个命令指定别名，这样更便于记忆。下面是alias的格式。
+
+`alias NAME=DEFINITION`
+
+## read 命令
+
+read命令的格式如下。
+```sh
+read [-options] [variable...]
+```
+上面语法中，options是参数选项，variable是用来保存输入数值的一个或多个变量名。如果没有提供变量名，环境变量 `REPLY` 会包含用户输入的一整行数据。
+
+```sh
+echo -n "输出文本 >"
+read text
+echo "你的输入 ${text}"
+
+echo Please, enter your firstname and lastname
+read fn ln
+echo "hi $fn $ln"
+```
+read的参数啊
+1. `-t` 超时参数
+2. `-p` 提示信息
+3. `-s` 用户输入不展示在屏幕
+    ```sh
+    read -sp "enter you name >" name
+    echo "Your name: $name"
+    ```
+4. ...
+
+## 条件判断
+
+### if 结构
+语法
+```sh
+if commands; then
+  commands
+[elif commands; then
+  commands...]
+[else
+  commands]
+fi
+```
+
+if 关键字后面也可以是一条命令，如果命令成功（返回值为0），则判断条件成立
+```sh
+if echo 'hi'; then echo "hello world";fi;
+# hi
+# hello world
+```
+
+if 后面可以跟任意数量的命令，所有命令都会执行，但只要最后一个命令执行成功（返回值为0），则会执行 then 的部分
+```sh
+# if 的最后一个命令执行成功
+if ls a.txt; ls; then echo "hello world";fi;
+# ls: a.txt: No such file or directory
+# source_test.sh  test.sh
+# hello world
+# if 的最后一个命令执行失败
+if ls a.txt; ls b.txt; then echo "hello world";fi;
+# ls: a.txt: No such file or directory
+# ls: b.txt: No such file or directory
+```
+
+elif 部分可以有多个
+```sh
+echo -n "input [1~3] >"
+read num
+if [ "$num" = "1" ]; then
+    echo 1
+elif [ "$num" = "2" ]; then
+    echo 2
+elif [ "$num" = "3" ]; then
+    echo 3
+else
+    echo "invalid"
+fi
+```
+
+### test 命令
+
+if 的判断条件，一般使用 test 命令，有三种形式
+```sh
+test expression
+[ expression ]
+[[ expression ]]
+```
+expression 是一个表达式，表达式为真，test命令执行成功（返回值为0）；表达式为假，test命令执行失败（返回值为1）。`[`相当于是` test` 的简写
+三种形式等价，但最后一种支持正则。
+注意：后面两种[]和表达式之间必须有空格。
+
+下面三种写法都是判断一个文件是否存在：
+```sh
+if test -f /etc/hosts; then
+    echo 'file exists';
+fi;
+if [ -f /etc/hosts ]; then
+    echo 'file exists';
+fi;
+if [[ -f /etc/hosts ]]; then
+    echo 'file exists';
+fi;
+```

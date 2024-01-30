@@ -44,6 +44,30 @@ unset name
 echo ${name}
 ```
 
+注意：shell中 ` `` ` 、`$()` 、`${}` 这三个符号的区别
+`$( )`与` `` `（反引号）都是用来作命令替换的（大白话就是命令的拼接）。
+命令替换与变量替换差不多，都是用来重组命令行的，先完成引号里的命令行，然后将其结果替换出来，再重组成新的命令行。
+
+```sh
+# 下面两种写法等价的。单推荐用$()，因为｀｀很容易与''搞混乱，尤其对初学者来说，而$( )比较直观。
+echo today is $(date "+%Y-%m-%d")
+echo today is `date "+%Y-%m-%d"`
+
+# ${}则是用来分隔变量的
+A=hello
+echo $AB # 输出空，因为 变量 AB 不存在
+echo ${A}B # helloB
+```
+
+### 变量的默认值
+Bash 提供四个特殊语法，跟变量的默认值有关，目的是保证变量不为空。
+```
+${val:-word} # val存在且不为空，返回val，否则返回word
+${val:=word} # val存在且不为空，返回val，否则将word赋值给val并返回word
+${val:+word} # val存在且不为空，返回word，否则返回空值，目的是测试变量是否存在，比如${count:+1}表示变量count存在时返回1
+${val:?message} # val存在且不为空，返回val，否则打印出message错误信息，message不传则打印默认信息
+```
+
 ## 字符串
 1. 单引号：
    - 单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的
@@ -355,16 +379,18 @@ if ls a.txt; ls; then echo "hello world";fi;
 # ls: a.txt: No such file or directory
 # source_test.sh  test.sh
 # hello world
+
 # if 的最后一个命令执行失败
 if ls a.txt; ls b.txt; then echo "hello world";fi;
 # ls: a.txt: No such file or directory
 # ls: b.txt: No such file or directory
+
+if false; true; then echo "hello world";fi; # hello world
 ```
 
 elif 部分可以有多个
 ```sh
-echo -n "input [1~3] >"
-read num
+read -p "input [1~3] >" num
 if [ "$num" = "1" ]; then
     echo 1
 elif [ "$num" = "2" ]; then
@@ -386,7 +412,7 @@ test expression
 ```
 expression 是一个表达式，表达式为真，test命令执行成功（返回值为0）；表达式为假，test命令执行失败（返回值为1）。`[`相当于是` test` 的简写
 三种形式等价，但最后一种支持正则。
-注意：后面两种[]和表达式之间必须有空格。
+注意：后面两种`[]`和表达式之间必须有空格。
 
 下面三种写法都是判断一个文件是否存在：
 ```sh
@@ -399,4 +425,119 @@ fi;
 if [[ -f /etc/hosts ]]; then
     echo 'file exists';
 fi;
+```
+
+### 判断表达式
+#### 文件判断
+```sh
+[ -a file ] 如果 file 存在，则为true
+[ -e file ] 如果 file 存在，则为true
+[ -f file ] 如果 file 存在且是一个普通文件，则为true
+[ -d file ] 如果 file 存在并且是一个目录，则为true
+[ -r file ]：如果 file 存在并且可读（当前用户有可读权限），则为true。
+[ -w file ]：如果 file 存在并且可写（当前用户有可写权限），则为true。
+[ -x file ]：如果 file 存在并且可执行（有效用户有执行／搜索权限），则为true。
+```
+
+```sh
+read -p "input a file: " file;
+if [ -e $file ]; then
+      if [ -f $file ]; then
+            echo "$file is regular file";
+      fi
+      if [ -d $file ]; then
+            echo "$file is directory";
+      fi
+      if [ -r $file ]; then
+            echo "$file is readable";
+      fi
+      if [ -w $file ]; then
+            echo "$file is writable";
+      fi
+      if [ -x $file ]; then
+            echo "$file is exectable";
+      fi
+else
+      echo "$file not exist";
+      exit 1
+fi
+```
+**注意：** 上面程序有bug，如果不输入文件直接回车则会输出：
+
+```
+input a file:
+ is regular file
+ is directory
+ is readable
+ is writable
+ is exectable
+```
+因为如果 `$file` 为空则 `[ -e $file ]` 会变为 `[ -e ]`，会判断为真，返回值为0；而如果`$file` 放在双引号中，`[ -e $file ]` 会变为 `[ -e "" ]`，会判断为假，返回值为1
+```sh
+[ -e ]
+echo $? # 0
+
+[ -e "" ];
+echo $? # 1
+
+[ -e xx.sh ]
+echo $? # 1
+```
+正确做法应该是： `if [ -r "$file" ]`
+```sh
+read -p "input a file: " file;
+if [ -e "$file" ]; then
+      if [ -f "$file" ]; then
+            echo "$file is regular file";
+      fi
+      if [ -d "$file" ]; then
+            echo "$file is directory";
+      fi
+      if [ -r "$file" ]; then
+            echo "$file is readable";
+      fi
+      if [ -w "$file" ]; then
+            echo "$file is writable";
+      fi
+      if [ -x "$file" ]; then
+            echo "$file is exectable";
+      fi
+else
+      echo "$file not exist";
+      exit 1
+fi
+```
+直接回车则正确，会输出
+```
+input a file:
+ not exist
+```
+
+#### 字符串判断
+```sh
+[ string ] 如果string不为空（长度大于0），则判断为真
+[ -n string ] 如果string不为空（长度大于0），则判断为真，和上面写法等价
+[ -z string ] 如果string长度为零，则判断为真
+[ str1 = str2 ] str1和str2相同，则判断为真
+[ str1 == str2 ] str1和str2相同，则判断为真，等价于 [ str1 = str2 ]
+[  str1 '>' str2 ] 如果按照字典顺序str1排在str2后面，则判断为真。>需要引号引起来，它们会被 shell 解释为重定向操作符
+[  str1 '<' str2 ] 如果按照字典顺序str1排在str2前面，则判断为真
+```
+```sh
+str=maybe
+if [ -z "$str" ]; then
+      echo "$str is empty" >&2
+elif [ "$str" = "yes" ]; then
+      echo "$str = yes"
+elif [ "$str" = "no" ]; then
+      echo "$str = no"
+elif [ "$str" = "maybe" ]; then
+      echo "$str = maybe"
+fi
+```
+字符串判断时，变量要放到双引号中，例如`[ -n "$var" ]`否则可能会报参数过多，或者变量为空时，命令会变成`[ -n ]`，表达式为真！这是非预期的。如果放在双引号中会变成 `[ -n "" ]`，表达式为假
+```sh
+[ -n ]; echo $? # 0
+[ -n "" ]; echo $? # 1
+str="hello world"; [ -n $str ]; echo $? # [: hello: binary operator expected
 ```

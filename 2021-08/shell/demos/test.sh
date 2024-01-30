@@ -236,8 +236,7 @@ if ls a.txt; ls b.txt; then echo "hello world";fi;
 # ls: a.txt: No such file or directory
 # ls: b.txt: No such file or directory
 
-# echo -n "input [1~3] >"
-# read num
+# read -p "input [1~3] >" num
 # if [ "$num" = "1" ]; then
 #     echo 1
 # elif [ "$num" = "2" ]; then
@@ -260,3 +259,77 @@ fi;
 if [[ -f /etc/hosts ]]; then
     echo 'file exists';
 fi;
+
+# 文件判断
+# read -p "input a file: " file;
+# if [ -e "$file" ]; then
+#       if [ -f "$file" ]; then
+#             echo "$file is regular file";
+#       fi
+#       if [ -d "$file" ]; then
+#             echo "$file is directory";
+#       fi
+#       if [ -r "$file" ]; then
+#             echo "$file is readable";
+#       fi
+#       if [ -w "$file" ]; then
+#             echo "$file is writable";
+#       fi
+#       if [ -x "$file" ]; then
+#             echo "$file is exectable";
+#       fi
+# else
+#       echo "$file not exist";
+#       exit 1
+# fi
+
+# 字符串判断
+str=hello
+str2=helao
+str3=hello
+
+if [ "$str" ];then
+      echo "$str 不为空"
+else
+      echo "$str 为空"
+fi
+if [ -n "$str" ];then
+      echo "$str 不为空"
+else
+      echo "$str 为空"
+fi
+if [ -z "$str" ];then
+      echo "$str 为空"
+else
+      echo "$str 不为空"
+fi
+if [ "$str" '>' "$st2" ];then
+      echo "$str > $str2"
+else
+      echo "$str < $str2"
+fi
+if [ "$str" = "$st2" ];then
+      echo "$str = $str2"
+else
+      echo "$str != $str2"
+fi
+if [ "$str" == "$str3" ];then
+      echo "$str == $str3"
+else
+      echo "$str != $str3"
+fi
+
+str=maybe
+if [ -z "$str" ]; then
+      echo "$str is empty" >&2
+elif [ "$str" = "yes" ]; then
+      echo "$str = yes"
+elif [ "$str" = "no" ]; then
+      echo "$str = no"
+elif [ "$str" = "maybe" ]; then
+      echo "$str = maybe"
+fi
+
+[ -n ]; echo $? # 0
+[ -n "" ]; echo $? # 1
+str="hello world"; [ -n $str ]; echo $? # [: hello: binary operator expected

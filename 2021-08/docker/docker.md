@@ -48,6 +48,50 @@ CMD echo "hello world"
 docker 架构图：
 ![picture 0](https://cdn.jsdelivr.net/gh/bmxklYzj/bmxklYzj.github.io@master/demos/images/1f78ea5445df0a5463c08741d421abb5b79d8765c366c09e492ac5f8914c0aee.png)  
 
+## 卷挂载
+1. 把容器里的目录挂载到宿主机，目录为 docker 默认的
+   `docker run -d --name mynginx -v /usr/share/nginx/html -p 8088:80 nginx`
+   把容器内的路径：`/usr/share/nginx/html`挂载到主机，那挂载到哪里了呢？
+   使用`docker inspect ef9f3367f871` 查看容器信息可看到 source 字段
+   ```
+   "Mounts": [
+      {
+            "Type": "volume",
+            "Name": "4a95d8fca9156da5bbe8a3c887573a6afe55145e70f3a44643b7f3c1fe081e1c",
+            "Source": "/var/lib/docker/volumes/4a95d8fca9156da5bbe8a3c887573a6afe55145e70f3a44643b7f3c1fe081e1c/_data",
+            "Destination": "/usr/share/nginx/html",
+            "Driver": "local",
+            "Mode": "",
+            "RW": true,
+            "Propagation": ""
+      }
+   ],
+   ```
+   在 linux 系统下可直接打开source目录，mac 下不能直接打开，这是因为 mac 下 docker 起了个 alpine 虚拟机来运行容器，我们要[进入 alpine 才行](https://gist.github.com/BretFisher/5e1a0c7bcca4c735e716abf62afad389)：`docker run -it --rm --privileged --pid=host justincormack/nsenter1`
+   然后在进入 host 目录：`/var/lib/docker/volumes/4a95d8fca9156da5bbe8a3c887573a6afe55145e70f3a44643b7f3c1fe081e1c/_data`
+   直接修改里面的 `index.html` ，则容器里面的文件也会更新：
+      1. 进入容器 `docker exec mynginx -it /bin/bash`
+      2. `cat /usr/share/nginx/html/index.html`
+2. 把容器里的目录挂载到宿主机的指定目录
+   在`/tmp`目录下执行：`docker run -d --name mynginx -v $PWD/yzj:/usr/share/nginx/html -p 8088:80 nginx`
+   查看容器：`docker inspect mynginx` 可以看到 Source 和Destination：
+   ```
+   "Mounts": [
+      {
+            "Type": "bind",
+            "Source": "/tmp/yzj",
+            "Destination": "/usr/share/nginx/html",
+            "Mode": "",
+            "RW": true,
+            "Propagation": "rprivate"
+      }
+   ],
+   ```
+   经过试验发现 Destination（原本 nginx 这个目录下有2个文件 50x.html 和 index.html） 总是随着 Source 变化
+   1.  Source为空， Destination 也为空
+   2.  Source有一个 index.html 文件， Destination 也只有一个 index.html 文件
+3. volume
+
 ## 参考
 1. 阮一峰： https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html
 2. imooc： https://www.imooc.com/video/15727

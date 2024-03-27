@@ -541,3 +541,57 @@ fi
 [ -n "" ]; echo $? # 1
 str="hello world"; [ -n $str ]; echo $? # [: hello: binary operator expected
 ```
+
+## 循环
+
+bash支持三种循环：for、while、until
+```bash
+num=0;
+while [ "$num" -lt 10 ]; do
+    echo "num=$num"
+    num=$(($num+1))
+done;
+
+# 循环终止条件为 满足 num >= 10
+num=0;
+until [ "$num" -gt 10 ]; do
+    echo "num=$num"
+    num=$(($num+1))
+done;
+```
+until循环与while循环恰好相反，只要不符合判断条件（判断条件失败），就不断循环执行指定的语句。一旦符合判断条件，就退出循环。
+
+for in:
+语法：
+```sh
+for variable in list
+do
+  commands
+done
+```
+例子：
+```sh
+for i in word1 word2 word3; do
+    echo $i;
+done;
+
+for i in *.sh; do
+    ls -l $i;
+done;
+```
+for:
+语法
+```sh
+for (( expression1; expression2; expression3 )); do
+  commands
+done
+```
+例子：
+```sh
+for (( i=0; i<5; i=i+1 )); do
+  echo $i
+done
+```
+## 函数
+
+c0pqlzuJ

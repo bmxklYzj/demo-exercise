@@ -333,3 +333,36 @@ fi
 [ -n ]; echo $? # 0
 [ -n "" ]; echo $? # 1
 str="hello world"; [ -n $str ]; echo $? # [: hello: binary operator expected
+
+# 循环
+# 循环终止条件为 不满足 num <= 10
+num=0;
+while [ "$num" -lt 10 ]; do
+    echo "num=$num"
+    num=$(($num+1))
+done;
+
+# 循环终止条件为 满足 num >= 10
+num=0;
+until [ "$num" -gt 10 ]; do
+    echo "num=$num"
+    num=$(($num+1))
+done;
+
+for i in word1 word2 word3; do
+    echo $i;
+done;
+
+for i in *.sh; do
+    ls -l $i;
+done;
+
+# count=0;
+# for i in $(cat ~/.zshrc); do
+#     count=$((count+1))
+#     echo "word $count $i contains $(echo -n $i | wc -c) characters"
+# done;
+
+for (( i=0; i<5; i=i+1 )); do
+  echo $i
+done

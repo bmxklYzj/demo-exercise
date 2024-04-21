@@ -14,7 +14,7 @@
 
 ## 使用镜像
 
-1. 使用nginx 镜像创建一个容器，命名为 webserver `docker run --name webserver -d -p 8080:80 nginx` 之后便可以访问 localhost:8080 访问
+1. 使用nginx 镜像创建一个容器，命名为 webserver `docker run --name webserver -d -p 8080:80 nginx` 之后便可以访问 `localhost:8080` 
 
 2. 修改容器的首页内容
 
@@ -65,17 +65,16 @@
 
    使用`docker iamges` 查看镜像
 
-   ```
-   
+   ```bash
    ➜  ~ docker images
    REPOSITORY               TAG          IMAGE ID       CREATED         SIZE
    nginx                    v2           4ef926254438   4 seconds ago   187MB
    ...
    ```
-
-   使用`docker history`查看容器内的历史记录
-
-   ```
+   
+使用`docker history`查看容器内的历史记录
+   
+```
    ➜  ~ docker history nginx:v2
    IMAGE          CREATED          CREATED BY                                       SIZE      COMMENT
    4ef926254438   29 seconds ago   nginx -g daemon off;                             1.39kB    修改默认首页
@@ -96,16 +95,16 @@
    <missing>      8 weeks ago      /bin/sh -c #(nop)  CMD ["bash"]                  0B
    <missing>      8 weeks ago      /bin/sh -c #(nop) ADD file:b86ae1c7ca3586d8f…   74.8MB
    ```
-
-   新的镜像定制好后，我们可以来运行这个镜像。
-
-   ```
+   
+新的镜像定制好后，我们可以来运行这个镜像。
+   
+```
    docker run --name web2 -d -p 8081:80 nginx:v2
    ```
-
-   访问 `http://localhost:8081` 看到结果，其内容应该和之前修改后的 `webserver` 一样。
-
-   至此，我们第一次完成了定制镜像，使用的是 `docker commit` 命令，手动操作给旧的镜像添加了新的一层，形成新的镜像，对镜像多层存储应该有了更直观的感觉。
+   
+访问 `http://localhost:8081` 看到结果，其内容应该和之前修改后的 `webserver` 一样。
+   
+至此，我们第一次完成了定制镜像，使用的是 `docker commit` 命令，手动操作给旧的镜像添加了新的一层，形成新的镜像，对镜像多层存储应该有了更直观的感觉。
 
 ### 慎用 `docker commit`
 
@@ -124,7 +123,6 @@
 ```dockerfile
 FROM nginx
 RUN echo '<h1>hello docker </h1>' > /usr/share/nginx/html/index.html
-
 ```
 
 FROM 指定基础镜像：所谓定制镜像，那一定是以一个镜像为基础，在其上进行定制。就像我们之前运行了一个 `nginx` 镜像的容器，再进行修改一样，基础镜像是必须指定的。而 `FROM` 就是指定 **基础镜像**，因此一个 `Dockerfile` 中 `FROM` 是必备的指令，并且必须是第一条指令。
@@ -184,7 +182,10 @@ FROM 指定基础镜像：所谓定制镜像，那一定是以一个镜像为基
 4. 启动一个挂载数据卷的容器
 
    ```
-   docker run -d -p 8080:80 --name web --mount source=my-vol,target=/usr/share/nginx/html nginx
+   docker run -d -p 8080:80 --name web \
+   # -v my-vol:/usr/share/nginx/html \
+   --mount source=my-vol,target=/usr/share/nginx/html \
+   nginx
    ```
 
 5. 查看容器数据卷的具体信息 `docker inspect web`
@@ -219,6 +220,12 @@ docker run -d -P \
     --mount type=bind,source=/src/webapp,target=/usr/share/nginx/html \
     nginx:alpine
 ```
+
+两种方式的区别：
+
+![](https://p.ipic.vip/9naasp.png)
+
+二者都能持久化容器数据，挂载主机目录方式能让我们控制持久化数据在主机的存放路径，这对于类似前端调试映射文件等场景很有用。
 
 ## 容器网络
 
@@ -255,6 +262,15 @@ PING busybox1 (172.18.0.2): 56 data bytes
 ```
 
 如果你有多个容器之间需要互相连接，推荐使用 [Docker Compose](https://yeasy.gitbook.io/docker_practice/compose)。
+
+## Docker Compose
+
+`Compose` 中有两个重要的概念：
+
+- 服务 (`service`)：一个应用的容器，实际上可以包括若干运行相同镜像的容器实例。
+- 项目 (`project`)：由一组关联的应用容器组成的一个完整业务单元，在 `docker-compose.yml` 文件中定义。
+
+可见，一个项目可以由多个服务（容器）关联而成，`Compose` 面向项目进行管理。
 
 ## demo1: nginx 打包 image
 
@@ -297,7 +313,8 @@ CMD echo "hello world"
 | docker run  |  运行 container  |
 | docker  ps  |  列出 所有正在运行的 container  |
 | docker  ps -a |  列出 所有 container  |
-| docker  rm  |   删除 container  |
+| docker  rm                                           | 删除 container                     |
+| docker  rm -f | 删除 container，包括正在运行的容器 |
 | docker  rmi  |  删除  image  |
 | docker  cp  |  在 host 和 container 之间拷贝文件 |
 | docker   commit  |   保存改动为新的 image |
@@ -434,3 +451,4 @@ networks:
 1. [阮一峰: Docker 入门教程](https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
 2. [imooc: Docker入门](https://www.imooc.com/video/15727)
 3. [Docker — 从入门到实践](https://yeasy.gitbook.io/docker_practice)
+4. [Docker 101 Tutorial](https://www.docker.com/101-tutorial/): 实践教程：image、container、持久化、网络、docker compose例子。

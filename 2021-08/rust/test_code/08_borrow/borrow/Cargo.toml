@@ -1,0 +1,59 @@
+[package]
+name = "borrow"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+regex = "1.10.5"
+
+[[bin]]
+name = "borrow1"
+path = "src/borrow1.rs"
+
+[[bin]]
+name = "borrow2"
+path = "src/borrow2.rs"
+
+[[bin]]
+name = "borrow3"
+path = "src/borrow3.rs"
+
+[[bin]]
+name = "type"
+path = "src/type.rs"
+
+[[bin]]
+name = "13_trait"
+path = "src/13_trait.rs"
+
+[[bin]]
+name = "13_trait_parse"
+path = "src/13_trait_parse.rs"
+
+[[bin]]
+name = "13_trait_parse_f64"
+path = "src/13_trait_parse_f64.rs"
+
+[[bin]]
+name = "13_trait_parse_trait"
+path = "src/13_trait_parse_trait.rs"
+
+[[bin]]
+name = "13_trait_parse_trait_er"
+path = "src/13_trait_parse_trait_er.rs"
+
+[[bin]]
+name = "14_trait_01"
+path = "src/14_trait_01.rs"
+
+[[bin]]
+name = "14_trait_02"
+path = "src/14_trait_02.rs"
+
+[[bin]]
+name = "15_trait"
+path = "src/15/15_trait.rs"
+
+[[bin]]
+name = "15_trait_debug"
+path = "src/15/15_trait_debug.rs"

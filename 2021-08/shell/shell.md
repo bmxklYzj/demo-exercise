@@ -271,19 +271,21 @@ history | grep echo # 配合管道符和grep搜索
 脚本文件内部，可以使用特殊变量，引用这些参数。
 ```
 $0：脚本文件名，即script.sh。
-$1~$9：对应脚本的第一个参数到第九个参数。
+$1~$9：对应脚本的第一个参数到第九个参数。第10个参数使用${10}
 $#：参数的总数。
 $@：全部的参数，参数之间使用空格分隔。
 $*：全部的参数，参数之间使用变量$IFS值的第一个字符分隔，默认为空格，但是可以自定义。
 ```
 
 ```bash
+# ./test.sh 1 2 3 4
 # 全部参数： 1 2 3 4
 # 参数数量： 4
 # $0 =  test.sh
 # $1 =  1
 # $2 =  2
 # $3 =  3
+# $4 =  4
 echo '全部参数：' $@
 echo '参数数量：' $#
 echo '$0 = ' $0
@@ -320,9 +322,20 @@ bash source_test.sh
 ```
 
 ### 别名 alias
-alias命令用来为一个命令指定别名，这样更便于记忆。下面是alias的格式。
+alias命令用来为一个命令指定别名，这样更便于记忆。下面是设置alias的格式。
 
 `alias NAME=DEFINITION`
+
+查看 alias
+```bash
+alias # 查看所有 alias
+
+alias l # 查看指定命令的 alias
+# alias l
+# l='ls -lah'
+```
+
+比如 mac 的oh-my-zsh 就配置了很多实用的 [git alias](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh#L190)，很好用，我也参考这在 window 的git bash里面配了一些 alias。
 
 ## read 命令
 
@@ -593,3 +606,160 @@ for (( i=0; i<5; i=i+1 )); do
 done
 ```
 ## 函数
+
+1. 函数定义：
+
+   ```sh
+   # 第一种
+   fn() {
+     # codes
+   }
+   
+   # 第二种
+   function fn() {
+     # codes
+   }
+   ```
+
+2. 函数调用：直接函数名，参数以空格跟在后面
+
+   ```sh
+   function hello() {
+     echo "Hello $1"
+   }
+   hello world
+   # Hello world
+   ```
+
+3. 函数参数
+	和脚本参数类似：
+      `$0`: 函数所在脚本名
+      `$1` ~ `$9`: 函数的参数，第10个使用`${10}`
+      `$#`: 参数个数
+      `$@`： 所有参数以空格分隔
+      ```sh
+      func1() {
+        echo "\$@: $@";
+        echo "\$0 \$1 \$2 \$3: $0 $1 $2 $3"
+        echo "\$#: $#";
+      }
+      func1 param1 param2
+      # $@: param1 param2
+      # $0 $1 $2 $3: ./test.sh param1 param2 
+      # $#: 2
+      ```
+
+4. 查看已声明的函数
+
+   ```sh
+   declare -f # 查看函数名及函数体
+   declare -F # 只查看函数名
+   ```
+
+5. 用local在函数体内声明局部变量
+
+   1. 函数体内声明的变量会成为全局变量
+
+      ```sh
+      # 函数体内声明全局变量
+      func1() {
+        echo $foo1
+        foo1=2
+        echo $foo1
+      }
+      func1
+      echo "函数外：$foo1"
+      # 
+      # 2
+      # 函数外：2
+      ```
+
+   2. 函数体内可以修改全局变量
+
+      ```sh
+      # 函数体内修改全局变量
+      foo2=1
+      func2() {
+        echo $foo2
+        foo2=2
+        echo $foo2
+      }
+      func2
+      echo "函数外：$foo2"
+      # 1
+      # 2
+      # 函数外：2
+      ```
+
+   3. 函数体内使用 local 声明局部变量
+
+      ```sh
+      # 函数体内使用 local 声明局部变量
+      func3() {
+        local foo3=3
+        echo $foo3
+      }
+      func3
+      echo "函数外：$foo3"
+      # 3
+      # 函数外：
+      ```
+
+## 数组
+
+```sh
+array[0]=1
+array[1]=2
+array[2]=3
+array1=(4 5 6)
+array2=(
+  7
+  8
+  9
+)
+array3=(*.sh)
+
+# 读取
+echo ${array[0]} # 1
+echo $array[0] # 1[0]
+
+echo ${array[@]} # 1 2 3
+echo ${array1[@]} # 4 5 6
+echo ${array2[@]} # 7 8 9
+echo ${array3[@]} # source_test.sh test.sh
+
+# 数组在赋值或者访问时如果直接使用数组名则访问的是下标0的元素
+array4=(1 2 3)
+array4=4
+echo $array4 #  4
+echo ${array4[@]} # 4 2 3
+
+# 数组长度
+echo ${#array4[@]} # 3
+
+# 遍历数组
+for i in "${array[@]}"; do
+  echo $i;
+done;
+
+src_arr=(1 2 3)
+# 复制数组
+src_copy=( "${src_arr[@]}" )
+echo ${src_copy[@]}
+# 给数组追加元素 的2种方式
+src_arr=( "${src_arr[@]}" 4 )
+echo ${src_arr[@]} # 1 2 3 4
+
+src_arr+=(5 6)
+echo ${src_arr[@]} # 1 2 3 4 5 6
+```
+
+# linux
+
+Ref：
+
+跟阿铭学 Linux https://time.geekbang.org/column/article/741026?utm_campaign=geektime_search&utm_content=geektime_search&utm_medium=geektime_search&utm_source=geektime_search&utm_term=geektime_search
+
+## cd （change directory）
+
+## mkdir （make directory）

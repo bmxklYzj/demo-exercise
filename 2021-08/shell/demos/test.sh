@@ -366,3 +366,103 @@ done;
 for (( i=0; i<5; i=i+1 )); do
   echo $i
 done
+
+# 函数
+function hello() {
+  echo "Hello $1"
+}
+hello world
+# Hello world
+
+func1() {
+  echo "\$@: $@";
+  echo "\$0 \$1 \$2 \$3: $0 $1 $2 $3"
+  echo "\$#: $#";
+}
+func1 param1 param2
+# $@: param1 param2
+# $0 $1 $2 $3: ./test.sh param1 param2 
+# $#: 2
+
+declare -f
+declare -F
+
+# 函数体内声明全局变量
+func1() {
+  echo $foo1
+  foo1=2
+  echo $foo1
+}
+func1
+echo "函数外：$foo1"
+# 
+# 2
+# 函数外：2
+
+# 函数体内修改全局变量
+foo2=1
+func2() {
+  echo $foo2
+  foo2=2
+  echo $foo2
+}
+func2
+echo "函数外：$foo2"
+# 1
+# 2
+# 函数外：2
+
+# 函数体内使用 local 声明局部变量
+func3() {
+  local foo3=3
+  echo $foo3
+}
+func3
+echo "函数外：$foo3"
+# 3
+# 函数外：
+
+#########数组#########
+array[0]=1
+array[1]=2
+array[2]=3
+array1=(4 5 6)
+array2=(
+  7
+  8
+  9
+)
+array3=(*.sh)
+
+# 读取
+echo ${array[0]} # 1
+echo $array[0] # 1[0]
+
+echo ${array[@]} # 1 2 3
+echo ${array1[@]} # 4 5 6
+echo ${array2[@]} # 7 8 9
+echo ${array3[@]} # source_test.sh test.sh
+
+# 数组在赋值或者访问时如果直接 使用数组名则访问的是下标1元素
+array4=(1 2 3)
+array4=4
+echo $array4 #  4
+echo ${array4[@]} # 4 2 3
+
+# 数组长度
+echo ${#array4[@]} # 3
+
+# 遍历数组
+for i in "${array[@]}"; do
+  echo $i;
+done;
+
+src_arr=(1 2 3)
+# 复制数组
+src_copy=( "${src_arr[@]}" )
+echo ${src_copy[@]}
+# 给数组追加元素 的2种方式
+src_arr=( "${src_arr[@]}" 4 )
+echo ${src_arr[@]}
+src_arr+=(5 6)
+echo ${src_arr[@]}

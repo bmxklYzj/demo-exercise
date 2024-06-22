@@ -1,6 +1,11 @@
 [workspace]
 members = [
-    "01_guess_game/hashmap_demo",
-    "examples/basics/basics",
-    "examples/basics/static-files"
+    # "01_guess_game/hashmap_demo",
+    # "examples/basics/basics",
+    # "examples/basics/static-files"
+    "rustlings",
+    "test_code/03_grammar/scrape_url",
+    "test_code/04_cli/http_pie",
+    "test_code/05_image_server/thumbor",
+    "test_code/07_ownership/ownership", "test_code/08_borrow/borrow",
 ]

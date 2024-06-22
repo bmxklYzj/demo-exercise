@@ -302,8 +302,8 @@ CMD echo "hello world"
 | RUN  | 执行命令  |
 | COPY  | 拷贝文件  |
 | CMD  |  执行命令 |
-|  EXPOSE  | 暴露端口 |
 |  ENTRYPOINT  | 容器入口 |
+|  EXPOSE  | 暴露端口 |
 
 ## 命令总结
 | 命令  | 用途  |

@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EqualsDemo",
+            "request": "launch",
+            "mainClass": "EqualsDemo",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
             "name": "Demo",
             "request": "launch",
             "mainClass": "Demo",

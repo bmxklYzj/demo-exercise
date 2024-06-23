@@ -7,15 +7,12 @@ import io.netty.channel.SimpleChannelInboundHandler;
 /**
  * Handles a server-side channel.
  */
-public class DiscardServerHandler extends SimpleChannelInboundHandler<Object> {
+public class DiscardServerHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
-    public void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf byteBuf = (ByteBuf) msg;
-        byte[] result = new byte[byteBuf.readableBytes()];
-        byteBuf.readBytes(result);
-        String text = new String(result);
-        System.out.println("log: 收到客户端消息:" + text);
+    public void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+        System.out.println("log: 收到客户端消息:" + msg);
+        // ctx.writeAndFlush(msg);
     }
 
     @Override

@@ -4,18 +4,14 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-public class DiscardClientHandler extends SimpleChannelInboundHandler {
+public class DiscardClientHandler extends SimpleChannelInboundHandler<String> {
     @Override
-    public void channelRead0(ChannelHandlerContext ctx, Object msg) {
-        ByteBuf byteBuf = (ByteBuf) msg;
-        byte[] result = new byte[byteBuf.readableBytes()];
-        byteBuf.readBytes(result);
-        String text = new String(result);
-        System.out.println("log: 收到服务端消息:" + text);
+    public void channelRead0(ChannelHandlerContext ctx, String msg) {
+        System.out.println("log: 收到服务端消息:" + msg);
 
-        final ByteBuf time = ctx.alloc().buffer(8);
-        time.writeBytes("client send 建立长连接".getBytes());
-        ctx.writeAndFlush(time, ctx.channel().newPromise());
+        final ByteBuf buf = ctx.alloc().buffer(8);
+        buf.writeBytes("client send 建立长连接".getBytes());
+        ctx.writeAndFlush(buf, ctx.channel().newPromise());
     }
 
 

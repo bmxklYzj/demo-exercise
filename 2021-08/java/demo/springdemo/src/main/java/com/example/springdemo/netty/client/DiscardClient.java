@@ -8,6 +8,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 
 public final class DiscardClient {
     public static void main(String[] args) throws Exception {
@@ -22,7 +24,7 @@ public final class DiscardClient {
             b.handler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel ch) throws Exception {
-                    ch.pipeline().addLast(new DiscardClientHandler());
+                    ch.pipeline().addLast(new StringDecoder(), new StringEncoder(), new DiscardClientHandler());
                 }
             });
             // Start the client.

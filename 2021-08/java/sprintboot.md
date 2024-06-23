@@ -4,12 +4,12 @@
 
 如果是 idea收费版可使用 idea 创建项目。免费版没这能力，使用 spring initializr 在线网站创建
 
-[配置好的压缩包](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.3.1&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=springdemo&name=springdemo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.springdemo&dependencies=web)
+[配置好的压缩包](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.3.1&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=springdemo&name=springdemo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.springdemo&dependencies=web,devtools)
 
 解压后idea 打开，新建一个 controller目录用于放rest 请求
 
 ```java
-// controller/HelloWorld
+// controller/HelloWorld.java
 
 package com.example.springdemo.controller;
 

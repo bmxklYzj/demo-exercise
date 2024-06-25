@@ -1,16 +1,17 @@
-package com.example.springdemo.longpull;
+package com.example.springdemo.home.demo3;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloWorld2 {
+public class HelloWorld3 {
     @Autowired
-    private LongPollingController poll;
+    private ChunkedServlet chunkedServlet;
 
-    @RequestMapping("/hello2")
+    @RequestMapping("/hello3")
     public String hello() {
-        poll.pushMessage("push");
+        chunkedServlet.pushMessage("push");
         return "hello spring";
     }
 }

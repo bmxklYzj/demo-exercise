@@ -1,4 +1,4 @@
-package com.example.springdemo.longpull;
+package com.example.springdemo.home.demo1.longpull;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;

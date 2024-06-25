@@ -53,6 +53,13 @@
 			<artifactId>netty-all</artifactId>
 			<version>4.1.36.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version> <!-- 或者适合你的 Servlet API 版本 -->
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

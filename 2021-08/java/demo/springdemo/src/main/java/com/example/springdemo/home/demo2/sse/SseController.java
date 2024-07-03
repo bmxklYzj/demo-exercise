@@ -27,7 +27,7 @@ public class SseController {
 
         // Initial message
         try {
-            emitter.send(SseEmitter.event().data("Connection established"));
+            emitter.send(SseEmitter.event().comment("Connection established"));
         } catch (IOException e) {
             emitters.remove(emitter);
         }
@@ -39,7 +39,7 @@ public class SseController {
         for (SseEmitter emitter : emitters) {
             executor.execute(() -> {
                 try {
-                    emitter.send(SseEmitter.event().data(message));
+                    emitter.send(SseEmitter.event().comment(message));
                 } catch (IOException e) {
                     emitters.remove(emitter);
                 }

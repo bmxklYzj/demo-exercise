@@ -8,4 +8,5 @@ members = [
     "test_code/04_cli/http_pie",
     "test_code/05_image_server/thumbor",
     "test_code/07_ownership/ownership", "test_code/08_borrow/borrow",
+    "hello_cargo"
 ]

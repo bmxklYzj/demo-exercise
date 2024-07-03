@@ -28,8 +28,6 @@ public class HelloWorld {
 
 启动后浏览器打开`http://localhost:8080/hello`
 
-
-
 热更新：仅仅是修改了代码帮你自动重启，虽然比手动重新运行更方便了，但跟前端的 hot-module-replace 局部更新完全不是一个速度。
 
 1. pom.xml配置

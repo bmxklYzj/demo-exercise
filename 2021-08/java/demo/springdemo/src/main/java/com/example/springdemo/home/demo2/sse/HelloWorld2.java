@@ -11,7 +11,7 @@ public class HelloWorld2 {
 
     @RequestMapping("/hello2")
     public String hello() {
-        sseController.pushMessage("push");
+        sseController.pushMessage("push abcdefghijk lmnopqrstuvw  abcdefghijk lmnopqrstuvw  abcdefghijk lmnopqrstuvw  abcdefghijk lmnopqrstuvw  abcdefghijk lmnopqrstuvw ");
         return "hello spring";
     }
 }

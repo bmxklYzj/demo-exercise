@@ -1,0 +1,42 @@
+<!--
+  ~ Copyright (c) Huawei Technologies Co., Ltd. 2024-2024. All rights reserved.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Example</title>
+</head>
+<body>
+<h1>Server-Sent Events Example</h1>
+<div id="messages"></div>
+<script>
+    // 创建 EventSource 实例，指定服务器端的 SSE 端点
+    const eventSource = new EventSource('/sse');
+
+    // 监听服务器发送的 'message' 事件
+    eventSource.addEventListener('message', function(event) {
+        // 获取消息数据
+        const message = event.data;
+
+        // 在页面上显示消息
+        const messagesDiv = document.getElementById('messages');
+        const newMessage = document.createElement('div');
+        newMessage.textContent = message;
+        messagesDiv.appendChild(newMessage);
+    });
+
+    // 监听连接打开事件
+    eventSource.onopen = function(event) {
+        console.log('Connection opened');
+    };
+
+    // 监听错误事件
+    eventSource.onerror = function(event) {
+        console.error('Error occurred:', event);
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      main {
+        width: 300px;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-color: #ccc;
+      }
+      .box {
+        position: relative;
+        height: 100%;
+      }
+      button {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 20px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="box">
+        <div title="asdf 
+         asdf">asdf</div>
+        <button></button>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        const fixedWidth = document.querySelector('main').offsetWidth;
+        function documentMove(e) {
+          const diff = document.documentElement.offsetWidth - e.x;
+          if (
+            diff > fixedWidth
+          ) {
+            document.querySelector('main').style.width = diff + 'px';
+          }
+        }
+        document.querySelector('button').addEventListener('mousedown', () => {
+          document.addEventListener('mousemove', documentMove);
+        });
+
+        document.addEventListener('mouseup', () => {
+          document.removeEventListener('mousemove', documentMove);
+        });
+      })();
+    </script>
+  </body>
+</html>

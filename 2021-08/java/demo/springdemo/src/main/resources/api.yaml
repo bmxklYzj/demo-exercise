@@ -1,0 +1,16 @@
+openapi: 3.0.0
+info:
+  title: SSE Example API
+  version: 1.0.0
+paths:
+  /sse:
+    get:
+      summary: Stream events using SSE
+      operationId: streamEvents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/event-stream:
+              schema:
+                type: string

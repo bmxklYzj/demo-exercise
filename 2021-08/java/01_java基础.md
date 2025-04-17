@@ -2,6 +2,8 @@
 
 [廖雪峰的java教材](https://www.liaoxuefeng.com/wiki/1252599548343744/1260454548196032#0)
 
+![image-20241120224017155](https://p.ipic.vip/vcsr3t.png)
+
 ## 运行Java程序
 
 在`JAVA_HOME`的`bin`目录(linux下执行`/usr/libexec/java_home -V`查看java安装目录)下找到很多可执行文件：
@@ -81,29 +83,7 @@ Java定义了以下几种基本数据类型：
 不同的数据类型占用的字节数不一样。
 我们看一下Java基本数据类型占用的字节数：
 
-```ascii
-       ┌───┐
-  byte │   │
-       └───┘
-       ┌───┬───┐
- short │   │   │
-       └───┴───┘
-       ┌───┬───┬───┬───┐
-   int │   │   │   │   │
-       └───┴───┴───┴───┘
-       ┌───┬───┬───┬───┬───┬───┬───┬───┐
-  long │   │   │   │   │   │   │   │   │
-       └───┴───┴───┴───┴───┴───┴───┴───┘
-       ┌───┬───┬───┬───┐
- float │   │   │   │   │
-       └───┴───┴───┴───┘
-       ┌───┬───┬───┬───┬───┬───┬───┬───┐
-double │   │   │   │   │   │   │   │   │
-       └───┴───┴───┴───┴───┴───┴───┴───┘
-       ┌───┬───┐
-  char │   │   │
-       └───┴───┘
-```
+<img src="https://p.ipic.vip/fpfreg.png" alt="image-20241122230102829" style="zoom:50%;" />
 
 
 ### byte
@@ -216,7 +196,7 @@ System.out.println(arr);
 // 快速打印数组内容
 System.out.println(Arrays.toString(arr));
 
-/********* 数组排序 Arrays.sort ************/
+/********* 数组排序 Arrays.sort，会修改数组本身 ************/
 int[] arr2 = {3, 2, 4, 1};
 System.out.println(arr2); // 数组的指向不便，但数组元素的指向可能会变（如数组元素为string）
 Arrays.sort(arr2); // 改变原数组，无返回值
@@ -315,7 +295,7 @@ class Person {
 
 ### 继承
 
-没有明确写`extends`的类，编译器会自动加上`extends Object`。所以，任何类，除了`Object`，都会继承自某个类。
+没有明确写`extends`的类，编译器会自动加上`extends Object`。所以，**任何类，除了`Object`，都会继承自某个类。**
 
 Java只允许一个class继承自一个类，因此，一个类有且仅有一个父类。只有`Object`特殊，它没有父类。
 
@@ -401,7 +381,6 @@ class Student extends Person {
 多态的特性就是，运行期才能动态决定调用的子类方法。对某个类型调用某个方法，执行的实际方法可能是某个子类的覆写方法。这种不确定性的方法调用，究竟有什么作用？
 
 ```java
-
 /**
  * 多态
  */
@@ -489,7 +468,6 @@ abstract class Person {
 - 上层代码只定义规范（例如：abstract class Person）；
 - 不需要子类就可以实现业务逻辑（正常编译）；
 - 具体的业务逻辑由不同的子类实现，调用者并不关心。
-
 一个`.java`文件只能包含一个`public`类，但可以包含多个非`public`类。如果有`public`类，文件名必须和`public`类的名字相同。
 
 ### 接口
@@ -579,9 +557,9 @@ Java编译器最终编译出的`.class`文件只使用*完整类名*，因此，
 Java内建的访问权限包括`public`、`protected`、`private`和`package`权限；
 
 - `public`: 可以被其他类访问
-- `protected`：默认权限，可被相同包或者继承的子类访问。把方法定义为`package`权限有助于测试，因为测试类和被测试类只要位于同一个`package`，测试代码就可以访问被测试类的`package`权限方法。
+- `protected`：默认权限，可被相同包或者继承的子类访问。
 - `private`：不能被其他类访问，只能被本类的其它方法访问。嵌套类：如果一个类包含了嵌套类，则嵌套类可以访问该类的private
-- `package`：同一个package都可访问。注意，包名必须完全一致，包没有父子关系，`com.apache`和`com.apache.abc`是不同的包。
+- `package`：同一个package都可访问。注意，包名必须完全一致，包没有父子关系，`com.apache`和`com.apache.abc`是不同的包。把方法定义为`package`权限有助于测试，因为测试类和被测试类只要位于同一个`package`，测试代码就可以访问被测试类的`package`权限方法。
 
 final
 
@@ -591,6 +569,10 @@ final
 - 修饰局部变量：防止重新赋值
 
 一个`.java`文件只能包含一个public类，且该public类的类名必须和文件名一样。可以包含多个非public类。
+
+### 匿名类
+
+![image-20241209234230816](https://p.ipic.vip/9gqei8.png)
 
 ## java核心类
 
@@ -658,6 +640,10 @@ System.out.println(Boolean.parseBoolean("TRue"));
 ```
 
 StringBuilder:
+
+虽然可以直接拼接字符串，但是，在循环中，每次循环都会创建新的字符串对象，然后扔掉旧的字符串。这样，绝大部分字符串都是临时对象，不但浪费内存，还会影响GC效率。
+
+为了能高效拼接字符串，Java标准库提供了`StringBuilder`，它是一个可变对象，可以预分配缓冲区，这样，往`StringBuilder`中新增字符时，不会创建新的临时对象：
 
 ```java
 StringBuilder sb = new StringBuilder(1024);
@@ -745,6 +731,40 @@ public class EnumDemo {
 
 可以为`enum`编写构造方法、字段和方法
 
+### switch
+
+最后，枚举类可以应用在`switch`语句中。因为枚举类天生具有类型信息和有限个枚举常量，所以比`int`、`String`类型更适合用在`switch`语句中：
+
+```java
+// switch
+public class Main {
+    public static void main(String[] args) {
+        Weekday day = Weekday.SUN;
+        switch(day) {
+        case MON:
+        case TUE:
+        case WED:
+        case THU:
+        case FRI:
+            System.out.println("Today is " + day + ". Work at office!");
+            break;
+        case SAT:
+        case SUN:
+            System.out.println("Today is " + day + ". Work at home!");
+            break;
+        default:
+            throw new RuntimeException("cannot process " + day);
+        }
+    }
+}
+
+enum Weekday {
+    MON, TUE, WED, THU, FRI, SAT, SUN;
+}
+```
+
+加上`default`语句，可以在漏写某个枚举常量时自动报错，从而及时发现错误。
+
 ### BigInteger
 
 `BigInteger`和`Integer`、`Long`一样，也是不可变类，并且也继承自`Number`类。因为`Number`定义了转换为基本类型的几个方法：
@@ -799,6 +819,43 @@ System.out.println(d9.equals(d10)); // false
 System.out.println(d9.equals(d10.stripTrailingZeros())); // false
 System.out.println(d9.compareTo(d10)); // 0
 ```
+
+## 随机数
+
+`Random`用来创建伪随机数。所谓伪随机数，是指只要给定一个初始的种子，产生的随机数序列是完全一样的。
+
+有童鞋问，每次运行程序，生成的随机数都是不同的，没看出*伪随机数*的特性来。
+
+这是因为我们创建`Random`实例时，如果不给定种子，就使用系统当前时间戳作为种子，因此每次运行时，种子不同，得到的伪随机数序列就不同。
+
+如果我们在创建`Random`实例时指定一个种子，就会得到完全确定的随机数序列：
+
+```java
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Random r = new Random(12345);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(r.nextInt(100));
+        }
+        // 51, 80, 41, 28, 55...
+    }
+}
+```
+
+前面我们使用的`Math.random()`实际上内部调用了`Random`类，所以它也是伪随机数，只是我们无法指定种子。
+
+### SecureRandom
+
+有伪随机数，就有真随机数。实际上真正的真随机数只能通过量子力学原理来获取，而我们想要的是一个不可预测的安全的随机数，`SecureRandom`就是用来创建安全的随机数的：
+
+```java
+SecureRandom sr = new SecureRandom();
+System.out.println(sr.nextInt(100));
+```
+
+`SecureRandom`的安全性是通过操作系统提供的安全的随机种子来生成随机数。这个种子是通过CPU的热噪声、读写磁盘的字节、网络流量等各种随机事件产生的“熵”。
 
 ## 异常处理
 
@@ -862,3 +919,4 @@ Java标准库提供了`java.util.logging`来实现日志功能。
 TODO：
 
 - 数组和list的区别
+

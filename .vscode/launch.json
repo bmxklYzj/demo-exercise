@@ -2,6 +2,33 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main_01",
+            "request": "launch",
+            "mainClass": "Main_01"
+        },
+        {
+            "type": "java",
+            "name": "Main_01",
+            "request": "launch",
+            "mainClass": "Main_01",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "demo-exercise_616aa552"
+        },
+        {
+            "type": "java",
             "name": "EqualsDemo",
             "request": "launch",
             "mainClass": "EqualsDemo",

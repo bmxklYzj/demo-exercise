@@ -1,9 +1,12 @@
 {
   "java.project.sourcePaths": [
+    "2021-08/java/demo/learn-java/practices/Java教程/20.面向对象编程.1255943520012800/10.面向对象基础.1260451488854880/80.静态字段和方法.1260464690677856/oop-static/src",
+    "2021-08/java/demo/learn-java/practices/Java教程/20.面向对象编程.1255943520012800/10.面向对象基础.1260451488854880/70.接口.1260456790454816/oop-interface/src",
     "2021-08/java/demo/_03_class_func",
     "2021-08/java/demo/_02_dataType",
+    "2021-08/java/demo/_01_class",
     "2021-05/heima",
-    "2021-08/java/demo/_01_class"
+    "2021-08/java/demo"
   ],
   "java.debug.settings.onBuildFailureProceed": true
 }

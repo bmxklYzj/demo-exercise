@@ -14,13 +14,9 @@ System.out.println(Arrays.toString(arr));
 
 集合能解决上述缺点，长度可变，且还有不重复元素set等。
 
-
-
 ## List
 
 分为ArrayList和LinkedList两种。
-
-
 
 ArrayList内部仍然是通过数组来实现的，当List满了再向其中添加元素时，会先创建一个更大的数组，把就数组拷贝到新数组，最后返回新数组。
 
@@ -32,8 +28,6 @@ ArrayList内部仍然是通过数组来实现的，当List满了再向其中添�
 - 删除某个元素：`boolean remove(Object e)`
 - 获取指定索引的元素：`E get(int index)`
 - 获取链表大小（包含元素的个数）：`int size()`
-
-
 
 list可以添加重复元素和`null`
 
@@ -361,7 +355,7 @@ enum DayOfWeek {
 
 HashMap是通过计算key的`hashCode()`来直接找到内部数组的下标，由于key对应的`hashCode()`没有规律是乱序的，所以遍历HashMap的时候也是乱序的，只能保证每个key都只遍历一遍，但无法保证顺序。
 
-TreeMap可以保证表里顺序，通过制定Compator指定key的排序规则，可以保证遍历的时候按照key的排序规则来遍历。
+TreeMap可以保证遍历顺序，通过制定Compator指定key的排序规则，可以保证遍历的时候按照key的排序规则来遍历。
 
 > `Comparator`接口要求实现一个比较方法，它负责比较传入的两个元素`a`和`b`，如果`a<b`，则返回负数，通常是`-1`，如果`a==b`，则返回`0`，如果`a>b`，则返回正数，通常是`1`。`TreeMap`内部根据比较结果对Key进行排序。
 
